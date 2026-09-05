@@ -367,117 +367,6 @@ section{padding:100px 0;position:relative;z-index:2}
 }
 .dots-5, .dots-4, .dots-3, .dots-2, .dots-1{color:var(--ink)}
 
-.hint-btn{
-  position:fixed;
-  bottom:32px;
-  right:32px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:var(--ink);
-  color:#FFFFFF;
-  border:2.5px solid var(--ink);
-  font-family:var(--ff-marker);
-  font-size:22px;
-  cursor:pointer;
-  z-index:100;
-  box-shadow:4px 4px 0 var(--ink);
-  transition:all .3s;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.hint-btn:hover{
-  transform:scale(1.08) rotate(4deg);
-  background:#FFFFFF;
-  color:var(--ink);
-  box-shadow:6px 6px 0 var(--ink);
-}
-.hint-btn::after{
-  content:"";
-  position:absolute;
-  inset:-5px;
-  border:2px dashed var(--ink);
-  border-radius:50%;
-  opacity:.4;
-  animation:ring 2s ease-out infinite;
-}
-@keyframes ring{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.35);opacity:0}}
-
-.hint-panel{
-  position:fixed;
-  bottom:110px;
-  right:32px;
-  width:380px;
-  max-width:calc(100vw - 64px);
-  background:#FFFFFF;
-  border:2.5px solid var(--ink);
-  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
-  padding:26px;
-  z-index:99;
-  display:none;
-  box-shadow:8px 8px 0 var(--ink);
-}
-.hint-panel.open{display:block;animation:slideUp .3s ease}
-@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hint-panel h3{
-  font-family:var(--ff-title);
-  font-size:20px;
-  margin-bottom:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:var(--ink);
-  border-bottom:2px dashed var(--ink);
-  padding-bottom:10px;
-}
-.hint-panel h3 button{background:none;border:0;color:var(--ink);font-size:24px;font-family:var(--ff-marker);cursor:pointer}
-.hint-list{display:flex;flex-direction:column;gap:12px}
-.hint-item{
-  padding:14px;
-  background:var(--soft);
-  border:2px solid var(--ink);
-  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
-  font-size:15px;
-  line-height:1.6;
-  color:var(--ink-dim);
-  transition:all .3s;
-  cursor:pointer;
-  box-shadow:2px 2px 0 var(--ink);
-}
-.hint-item.unlocked{
-  border-color:var(--ink);
-  color:var(--ink);
-  background:#FFFFFF;
-}
-.hint-item.locked::before{content:"🔒 ";opacity:.6}
-.hint-item.unlocked::before{content:"💡 "}
-.hint-item.locked:hover{background:#E8E5DD;transform:translate(-1px, -1px)}
-.hint-item strong{color:var(--ink);font-family:var(--ff-title);font-weight:700}
-
-.reveal-btn{
-  width:100%;
-  margin-top:16px;
-  padding:12px;
-  background:var(--ink);
-  color:#FFFFFF;
-  border:2.5px solid var(--ink);
-  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
-  font-family:var(--ff-marker);
-  font-size:14px;
-  letter-spacing:.08em;
-  cursor:pointer;
-  display:none;
-  box-shadow:3px 3px 0 var(--ink);
-  transition:all .2s;
-}
-.reveal-btn:hover{
-  background:#FFFFFF;
-  color:var(--ink);
-  transform:translate(-2px, -2px);
-  box-shadow:5px 5px 0 var(--ink);
-}
-.reveal-btn.show{display:block;animation:pulse 1.5s infinite}
 
 .eco{
   background:var(--soft);
@@ -946,8 +835,6 @@ footer{
   .eco__principles{grid-template-columns:1fr}
   .hero__num{display:none}
   .daily__ratio{font-size:52px}
-  .hint-panel{right:16px;width:calc(100vw - 32px)}
-  .hint-btn{right:16px;bottom:16px}
 }
 </style>
 </head>
@@ -1046,16 +933,14 @@ footer{
   <div class="wrap">
     <div class="sec__num">02 / 收藏</div>
     <h2 class="sec__title">7,700 个<span class="hl">独一无二</span>的组合</h2>
-    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成。点击右下角 🔍 解开 BCM 的小秘密。</p>
+    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成。</p>
     <div class="gallery__grid">
       <div class="g-item"><span class="g-item__num">#0001</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1.png" alt="BCM 0001"></div>
       <div class="g-item"><span class="g-item__num">#0100</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/100.png" alt="BCM 0100"></div>
       <div class="g-item"><span class="g-item__num">#0200</span><span class="g-item__dots dots-3">★ ★ ★ ☆ ☆</span><img src="./images/200.png" alt="BCM 0200"></div>
       <div class="g-item"><span class="g-item__num">#0400</span><span class="g-item__dots dots-1">★ ☆ ☆ ☆ ☆</span><img src="./images/400.png" alt="BCM 0400"></div>
     </div>
-    <p style="margin-top:32px;font-size:13px;color:var(--ink-dim);line-height:1.7;text-align:center">
-      💡 注意每张图右上角的星号数量。它们在暗示什么。
-    </p>
+    
   </div>
 </section>
 
@@ -1284,70 +1169,7 @@ footer{
     <div>车架与机械 = BCM 原创设计 · 7,700 机车 NFT = CC0 公共领域 · 瓶盖商标 = 归各品牌方所有（非商业代言）</div>
   </div>
 </footer>
-
-<button class="hint-btn" id="hintBtn" aria-label="线索">🔍</button>
-
-<div class="hint-panel" id="hintPanel">
-  <h3>🔍 BCM 的小秘密 <button onclick="closeHints()">×</button></h3>
-  <p style="font-size:12px;color:var(--ink-dim);margin-bottom:16px">依次点击线索，一步步解谜。</p>
-  <div class="hint-list">
-    <div class="hint-item locked" data-hint="1" onclick="unlock(1)">
-      <strong>线索 1</strong><br>数一数右上角的星号。每辆机车有几颗？
-    </div>
-    <div class="hint-item locked" data-hint="2" onclick="unlock(2)">
-      <strong>线索 2</strong><br>想想哪种组合最难被设计出来？
-    </div>
-    <div class="hint-item locked" data-hint="3" onclick="unlock(3)">
-      <strong>线索 3</strong><br>🌱 越对地球温柔的组合，星越多。
-    </div>
-  </div>
-  <button class="reveal-btn" id="revealBtn" onclick="reveal()">🎁 解锁完整说明</button>
-</div>
-
 <script>
-const hints = {
-  1: '<strong>线索 1 解锁</strong><br>每辆机车有 1-5 颗星。但 7,700 张里，5 星的数量远少于 1 颗星。',
-  2: '<strong>线索 2 解锁</strong><br>5 颗星的车，是车架师花最长时间设计 + 瓶盖元素最稀少的组合。',
-  3: '<strong>线索 3 解锁</strong><br>🌱 单车 + 纯净水 = 5 星（零碳排）。跑车 + 碳酸饮料 = 1 颗星（高碳排）。BCM 反转了"炫酷 = 稀有"的传统规则。'
-};
-
-function toggleHints() {
-  document.getElementById('hintPanel').classList.toggle('open');
-}
-function closeHints() {
-  document.getElementById('hintPanel').classList.remove('open');
-}
-function unlock(n) {
-  const el = document.querySelector('[data-hint="' + n + '"]');
-  if (el.classList.contains('locked')) {
-    el.classList.remove('locked');
-    el.classList.add('unlocked');
-    el.innerHTML = hints[n];
-  }
-  if (document.querySelectorAll('.hint-item.unlocked').length === 3) {
-    document.getElementById('revealBtn').classList.add('show');
-  }
-}
-function reveal() {
-  const panel = document.getElementById('hintPanel');
-  panel.innerHTML = `
-    <h3>🎁 BCM 完整说明 <button onclick="closeHints()">×</button></h3>
-    <div style="font-size:15px;line-height:1.8;color:var(--ink);padding:8px 0">
-      BCM 用 <strong>星数</strong> 表达作品稀有度：<br>
-      · ★★★★★ 单车 + 纯净水（最少见，最难造）<br>
-      · ★★★★☆ 轻载具 + 矿泉水<br>
-      · ★★★☆☆ 中端载具 + 茶饮<br>
-      · ★★☆☆☆ 中重型 + 果汁<br>
-      · ★☆☆☆☆ 跑车 + 碳酸饮料（最常见）<br><br>
-      <div style="background:var(--soft);border:2px solid var(--ink);border-left:5px solid var(--ink);padding:12px 14px;margin-top:8px;font-size:14px;color:var(--ink)">
-        <strong>⚠ BCM 不承诺任何投资回报、Token 收益、增值预期。</strong><br>
-        星数只代表作品的环境价值观取向，不构成投资建议。
-      </div>
-    </div>
-  `;
-  panel.classList.add('open');
-}
-
 // ==========================================
 // 03 / PLAYGROUND (车库工坊) 试玩交互
 // ==========================================
@@ -1484,8 +1306,6 @@ function exportBikePoster() {
 }
 
 renderPgSelectors();
-
-document.getElementById('hintBtn').addEventListener('click', toggleHints);
 document.querySelectorAll('.faq__q').forEach(q => {
   q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
 });
