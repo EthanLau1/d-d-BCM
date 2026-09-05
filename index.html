@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCM 🛵 — 原创机车艺术</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&family=Space+Mono:wght@400;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #FAF9F6;
+  --soft: #F2F1EC;
+  --paper: #FFFFFF;
+  --line: #E5E4DC;
+  --ink: #111111;
+  --ink-dim: #666666;
+  
+  --ff-marker: 'Permanent Marker', 'ZCOOL KuaiLe', cursive, sans-serif;
+  --ff-hand: 'Patrick Hand', 'ZCOOL KuaiLe', -apple-system, sans-serif;
+  --ff-mono: 'Space Mono', monospace;
+  --ff-title: 'ZCOOL KuaiLe', 'Permanent Marker', cursive, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--ff-hand);
+  font-size:18px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.8;
+  pointer-events:none;
+  z-index:1;
+}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+a{color:inherit;text-decoration:none}
+.hl{
+  color:var(--ink);
+  font-style:normal;
+  border-bottom:2.5px solid var(--ink);
+  padding-bottom:1px;
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  background:rgba(250,249,246,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:2.5px solid var(--ink);
+  z-index:20;
+  padding:14px 0;
+}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__logo{
+  font-family:var(--ff-marker);
+  font-size:32px;
+  letter-spacing:.05em;
+  color:var(--ink);
+  transform:rotate(-1.5deg);
+  display:inline-block;
+}
+.nav__logo span{
+  color:var(--ink);
+}
+.nav__links{display:flex;gap:24px;font-size:18px;font-family:var(--ff-title);letter-spacing:.08em}
+.nav__links a{color:var(--ink-dim);transition:all .2s;padding:4px 8px;border-radius:4px}
+.nav__links a:hover{
+  color:var(--ink);
+  border-bottom:2px solid var(--ink);
+}
+.nav__cta{
+  background:var(--ink);
+  color:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:8px 22px;
+  font-family:var(--ff-marker);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:all .2s;
+  transform:rotate(1deg);
+}
+.nav__cta:hover{
+  transform:translate(-2px, -2px) rotate(-1deg);
+  box-shadow:5px 5px 0 var(--ink);
+  background:#FFFFFF;
+  color:var(--ink);
+}
+.nav__cta:active{
+  transform:translate(2px, 2px);
+  box-shadow:1px 1px 0 var(--ink);
+}
+
+.hero{padding:70px 0 100px;position:relative;min-height:85vh;display:flex;align-items:center}
+.hero__badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:2px solid var(--ink);
+  background:#FFFFFF;
+  color:var(--ink);
+  padding:6px 16px;
+  font-family:var(--ff-marker);
+  font-size:14px;
+  letter-spacing:.1em;
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow:3px 3px 0 var(--ink);
+  transform:rotate(-2deg);
+  margin-bottom:28px;
+}
+.hero__badge::before{
+  content:"";
+  width:8px;
+  height:8px;
+  background:var(--ink);
+  border-radius:50%;
+}
+.hero h1{
+  font-family:var(--ff-title);
+  font-weight:900;
+  font-size:clamp(44px,7.5vw,96px);
+  line-height:1.15;
+  letter-spacing:.02em;
+  margin-bottom:28px;
+  color:var(--ink);
+}
+.hero h1 em{
+  font-family:var(--ff-marker);
+  font-style:normal;
+  color:var(--ink);
+  border-bottom:3px solid var(--ink);
+  padding:0 6px;
+}
+.hero p{
+  font-family:var(--ff-hand);
+  font-size:21px;
+  color:var(--ink-dim);
+  max-width:680px;
+  margin-bottom:44px;
+  line-height:1.7;
+}
+.hero__stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:54px;
+}
+.stat{
+  background:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:20px;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .3s;
+}
+.stat:nth-child(1){transform:rotate(-1deg)}
+.stat:nth-child(2){transform:rotate(1.2deg)}
+.stat:nth-child(3){transform:rotate(-0.8deg)}
+.stat:nth-child(4){transform:rotate(1.5deg)}
+.stat:hover{
+  transform:translate(-3px, -3px) rotate(0deg);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.stat b{
+  display:block;
+  font-family:var(--ff-marker);
+  font-size:46px;
+  color:var(--ink);
+  line-height:1;
+  margin-bottom:6px;
+}
+.stat span{
+  font-family:var(--ff-hand);
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.05em;
+  color:var(--ink-dim);
+}
+.hero__num{
+  position:absolute;
+  right:20px;
+  bottom:60px;
+  font-family:var(--ff-marker);
+  font-size:clamp(160px,26vw,320px);
+  color:transparent;
+  -webkit-text-stroke:2.5px var(--line);
+  line-height:.8;
+  pointer-events:none;
+  user-select:none;
+  transform:rotate(5deg);
+}
+
+section{padding:100px 0;position:relative;z-index:2}
+.sec__num{
+  font-family:var(--ff-marker);
+  font-size:14px;
+  color:var(--ink);
+  letter-spacing:.15em;
+  margin-bottom:16px;
+  display:inline-block;
+  background:#FFFFFF;
+  border:2px solid var(--ink);
+  padding:3px 12px;
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow:2px 2px 0 var(--ink);
+  transform:rotate(-1.5deg);
+}
+.sec__title{
+  font-family:var(--ff-title);
+  font-weight:900;
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.2;
+  margin-bottom:20px;
+  max-width:900px;
+  color:var(--ink);
+}
+.sec__lead{
+  font-family:var(--ff-hand);
+  font-size:21px;
+  color:var(--ink-dim);
+  max-width:780px;
+  margin-bottom:48px;
+  line-height:1.7;
+}
+
+.original{
+  background:var(--soft);
+  border-top:2.5px solid var(--ink);
+  border-bottom:2.5px solid var(--ink);
+}
+.orig__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.orig__body p{
+  font-size:19px;
+  color:var(--ink);
+  margin-bottom:18px;
+  line-height:1.8;
+}
+.orig__body strong{
+  color:var(--ink);
+  font-family:var(--ff-title);
+  font-weight:900;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:1px;
+}
+.orig__body em{
+  color:var(--ink);
+  font-style:normal;
+  font-weight:700;
+}
+.orig__breakdown{
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  background:#FFFFFF;
+  padding:28px;
+  position:sticky;
+  top:100px;
+  box-shadow:6px 6px 0 var(--ink);
+  transform:rotate(0.5deg);
+}
+.orig__part{
+  padding:16px 0;
+  border-bottom:2px dashed var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  gap:16px;
+}
+.orig__part:last-child{border-bottom:0}
+.orig__part h4{
+  font-family:var(--ff-title);
+  font-size:18px;
+  margin-bottom:4px;
+  color:var(--ink);
+}
+.orig__part p{font-size:15px;color:var(--ink-dim);line-height:1.5}
+.orig__tag{
+  font-family:var(--ff-marker);
+  font-size:12px;
+  letter-spacing:.1em;
+  padding:4px 10px;
+  white-space:nowrap;
+  flex-shrink:0;
+  border:2px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow:2px 2px 0 var(--ink);
+}
+.tag-ours{background:var(--ink);color:#FFFFFF;transform:rotate(-1.5deg)}
+.tag-them{background:#FFFFFF;color:var(--ink);transform:rotate(1.5deg)}
+.tag-cc0{background:var(--soft);color:var(--ink);transform:rotate(-1deg)}
+
+.gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+.g-item{
+  position:relative;
+  aspect-ratio:1;
+  background:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:4px 5px 0 var(--ink);
+}
+.g-item:nth-child(odd){transform:rotate(-1deg)}
+.g-item:nth-child(even){transform:rotate(1deg)}
+.g-item:nth-child(3n){transform:rotate(-1.5deg)}
+.g-item:nth-child(4n){transform:rotate(1.2deg)}
+.g-item:hover{
+  border-color:var(--ink);
+  transform:scale(1.05) rotate(0deg);
+  z-index:10;
+  box-shadow:8px 10px 0 var(--ink);
+}
+.g-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:14px;
+  display:block;
+  filter:contrast(1.05) drop-shadow(0 8px 16px rgba(0,0,0,.08));
+  transition:transform .3s;
+}
+.g-item:hover img{transform:scale(1.04)}
+
+.g-item__num{
+  position:absolute;
+  top:10px;
+  left:10px;
+  font-family:var(--ff-marker);
+  font-size:14px;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:2px solid var(--ink);
+  border-radius:2px;
+  padding:2px 8px;
+  letter-spacing:.05em;
+  z-index:2;
+  box-shadow:2px 2px 0 var(--ink);
+  transform:rotate(-2.5deg);
+}
+.g-item__dots{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  font-family:var(--ff-hand);
+  font-size:14px;
+  letter-spacing:1px;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:2px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:2px 8px;
+  z-index:2;
+  font-weight:700;
+  box-shadow:2px 2px 0 var(--ink);
+  transform:rotate(1.5deg);
+}
+.dots-5, .dots-4, .dots-3, .dots-2, .dots-1{color:var(--ink)}
+
+.hint-btn{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:var(--ink);
+  color:#FFFFFF;
+  border:2.5px solid var(--ink);
+  font-family:var(--ff-marker);
+  font-size:22px;
+  cursor:pointer;
+  z-index:100;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .3s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hint-btn:hover{
+  transform:scale(1.08) rotate(4deg);
+  background:#FFFFFF;
+  color:var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.hint-btn::after{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border:2px dashed var(--ink);
+  border-radius:50%;
+  opacity:.4;
+  animation:ring 2s ease-out infinite;
+}
+@keyframes ring{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.35);opacity:0}}
+
+.hint-panel{
+  position:fixed;
+  bottom:110px;
+  right:32px;
+  width:380px;
+  max-width:calc(100vw - 64px);
+  background:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:26px;
+  z-index:99;
+  display:none;
+  box-shadow:8px 8px 0 var(--ink);
+}
+.hint-panel.open{display:block;animation:slideUp .3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hint-panel h3{
+  font-family:var(--ff-title);
+  font-size:20px;
+  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--ink);
+  border-bottom:2px dashed var(--ink);
+  padding-bottom:10px;
+}
+.hint-panel h3 button{background:none;border:0;color:var(--ink);font-size:24px;font-family:var(--ff-marker);cursor:pointer}
+.hint-list{display:flex;flex-direction:column;gap:12px}
+.hint-item{
+  padding:14px;
+  background:var(--soft);
+  border:2px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink-dim);
+  transition:all .3s;
+  cursor:pointer;
+  box-shadow:2px 2px 0 var(--ink);
+}
+.hint-item.unlocked{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:#FFFFFF;
+}
+.hint-item.locked::before{content:"🔒 ";opacity:.6}
+.hint-item.unlocked::before{content:"💡 "}
+.hint-item.locked:hover{background:#E8E5DD;transform:translate(-1px, -1px)}
+.hint-item strong{color:var(--ink);font-family:var(--ff-title);font-weight:700}
+
+.reveal-btn{
+  width:100%;
+  margin-top:16px;
+  padding:12px;
+  background:var(--ink);
+  color:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  font-family:var(--ff-marker);
+  font-size:14px;
+  letter-spacing:.08em;
+  cursor:pointer;
+  display:none;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:all .2s;
+}
+.reveal-btn:hover{
+  background:#FFFFFF;
+  color:var(--ink);
+  transform:translate(-2px, -2px);
+  box-shadow:5px 5px 0 var(--ink);
+}
+.reveal-btn.show{display:block;animation:pulse 1.5s infinite}
+
+.eco{
+  background:var(--soft);
+  border-top:2.5px solid var(--ink);
+  border-bottom:2.5px solid var(--ink);
+}
+.eco__quote{
+  font-family:var(--ff-title);
+  font-size:clamp(24px,3vw,38px);
+  font-weight:900;
+  line-height:1.4;
+  max-width:920px;
+  margin:0 auto;
+  text-align:center;
+  color:var(--ink);
+}
+.eco__quote::before{
+  content:"\201C";
+  color:var(--ink);
+  font-family:var(--ff-marker);
+  font-size:90px;
+  display:block;
+  line-height:.5;
+  margin-bottom:20px;
+}
+.eco__principles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.principle{
+  padding:28px;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  background:#FFFFFF;
+  box-shadow:5px 5px 0 var(--ink);
+  transition:all .3s;
+}
+.principle:nth-child(1){transform:rotate(-1deg)}
+.principle:nth-child(2){transform:rotate(1deg)}
+.principle:nth-child(3){transform:rotate(-0.8deg)}
+.principle:hover{
+  transform:translate(-3px, -3px) rotate(0deg);
+  box-shadow:7px 7px 0 var(--ink);
+}
+.principle__num{
+  font-family:var(--ff-marker);
+  font-size:46px;
+  color:var(--ink);
+  line-height:1;
+  margin-bottom:16px;
+}
+.principle h3{font-family:var(--ff-title);font-size:22px;margin-bottom:10px;color:var(--ink)}
+.principle p{font-size:16px;color:var(--ink-dim);line-height:1.7}
+
+.daily{background:var(--bg)}
+.daily__card{
+  max-width:700px;
+  margin:0 auto;
+  padding:52px 44px;
+  border:3px dashed var(--ink);
+  border-radius:16px;
+  background:#FFFFFF;
+  text-align:center;
+  box-shadow:8px 8px 0 var(--ink);
+  position:relative;
+  transform:rotate(-0.5deg);
+}
+.daily__ratio{
+  font-family:var(--ff-marker);
+  font-size:72px;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:.05em;
+  margin:16px 0;
+}
+.daily__detail{font-size:17px;color:var(--ink-dim);margin-top:24px;line-height:1.8}
+.daily__detail b{color:var(--ink);font-family:var(--ff-title)}
+.daily__note{
+  margin-top:32px;
+  padding:20px;
+  background:var(--soft);
+  border:2px solid var(--ink);
+  border-left:6px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  font-size:15px;
+  text-align:left;
+  line-height:1.7;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.daily__note b{color:var(--ink);display:block;margin-bottom:4px;font-family:var(--ff-title);font-size:16px}
+
+/* ===================================================
+   06 / TEAM & D&D STORY (D&D 团队与手作故事)
+=================================================== */
+.team{background:#FFFFFF;border-top:2.5px solid var(--ink);padding:100px 0}
+.team__founders{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin:48px 0}
+.founder__card{
+  background:var(--soft);
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:36px;
+  box-shadow:6px 6px 0 var(--ink);
+  transition:all .3s;
+}
+.founder__card:hover{transform:translate(-3px, -3px);box-shadow:8px 8px 0 var(--ink)}
+.founder__role{font-size:14px;color:var(--ink-dim);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.founder__card h3{font-family:var(--ff-title);font-size:32px;margin:8px 0 6px;color:var(--ink)}
+.founder__tag{display:inline-block;background:#FFFFFF;border:1.5px solid var(--ink);padding:3px 10px;border-radius:20px;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.founder__card p{font-size:16px;line-height:1.7;color:var(--ink-dim);margin:0}
+.founder__card strong{color:var(--ink)}
+.team__practice{
+  background:#FFFFFF;
+  border:2.5px solid var(--ink);
+  border-radius:16px;
+  padding:40px;
+  box-shadow:8px 8px 0 var(--ink);
+  margin-top:24px;
+}
+.team__practice h3{font-family:var(--ff-title);font-size:26px;margin-bottom:24px;text-align:center;color:var(--ink)}
+.practice__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.practice__item{background:var(--soft);border:2px solid var(--ink);border-radius:12px;padding:24px}
+.practice__item h4{font-family:var(--ff-title);font-size:18px;margin-bottom:8px;color:var(--ink)}
+.practice__item p{font-size:15px;line-height:1.6;color:var(--ink-dim);margin:0}
+@media(max-width:900px){
+  .team__founders{grid-template-columns:1fr}
+  .practice__grid{grid-template-columns:1fr}
+}
+
+.faq{background:var(--soft);border-top:2.5px solid var(--ink)}
+.faq__list{max-width:900px;margin:48px auto 0}
+.faq__item{
+  border:2px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  background:#FFFFFF;
+  margin-bottom:16px;
+  padding:20px 24px;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .2s;
+}
+.faq__item:hover{
+  transform:translate(-2px, -2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.faq__q{
+  font-family:var(--ff-title);
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  user-select:none;
+  color:var(--ink);
+}
+.faq__q::after{
+  content:"+";
+  color:var(--ink);
+  font-size:28px;
+  font-family:var(--ff-marker);
+  transition:transform .3s;
+  flex-shrink:0;
+}
+.faq__item.open .faq__q::after{transform:rotate(45deg);color:var(--ink)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq__item.open .faq__a{max-height:600px}
+.faq__a-inner{
+  padding-top:16px;
+  font-size:16px;
+  color:var(--ink-dim);
+  line-height:1.8;
+  border-top:2px dashed var(--line);
+  margin-top:12px;
+}
+.faq__a-inner b{color:var(--ink);font-family:var(--ff-title)}
+.faq__a-inner code{
+  background:#FFFFFF;
+  padding:2px 8px;
+  font-size:14px;
+  color:var(--ink);
+  border:1.5px solid var(--ink);
+  font-family:var(--ff-mono);
+  font-weight:700;
+  border-radius:3px;
+}
+.faq__a-inner a{
+  color:var(--ink);
+  border-bottom:2px solid var(--ink);
+  font-family:var(--ff-marker);
+}
+
+.cta{text-align:center;padding:120px 0;background:var(--bg);border-top:2.5px solid var(--ink)}
+.cta h2{font-family:var(--ff-title);font-size:clamp(36px,6vw,68px);font-weight:900;margin-bottom:28px;color:var(--ink)}
+.cta__form{
+  display:flex;
+  max-width:500px;
+  margin:0 auto;
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  background:#FFFFFF;
+  box-shadow:6px 6px 0 var(--ink);
+  overflow:hidden;
+}
+.cta__form input{
+  flex:1;
+  background:transparent;
+  border:0;
+  padding:16px 20px;
+  color:var(--ink);
+  font-family:var(--ff-hand);
+  font-size:18px;
+  outline:none;
+}
+.cta__form input::placeholder{color:#9CA3AF}
+.cta__form button{
+  background:var(--ink);
+  color:#FFFFFF;
+  border:0;
+  border-left:2.5px solid var(--ink);
+  padding:16px 28px;
+  font-family:var(--ff-marker);
+  letter-spacing:.05em;
+  cursor:pointer;
+  font-size:16px;
+  transition:all .2s;
+}
+.cta__form button:hover{background:#333333}
+
+footer{
+  padding:40px 0;
+  border-top:2.5px solid var(--ink);
+  font-family:var(--ff-hand);
+  font-size:16px;
+  font-weight:700;
+  color:var(--ink-dim);
+  background:var(--soft);
+}
+.footer__row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+/* ===================================================
+   03 / PLAYGROUND (车库工坊)
+=================================================== */
+.playground{
+  padding:100px 0;
+  background:var(--soft);
+  border-top:2.5px solid var(--ink);
+  position:relative;
+}
+.pg__layout{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:40px;
+  align-items:start;
+  margin-top:40px;
+}
+.pg__stage-card{
+  background:var(--paper);
+  border:2.5px solid var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow:8px 8px 0 var(--ink);
+  padding:24px;
+  position:relative;
+}
+.pg__viewport{
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  background:#FAF9F6;
+  border:2px solid var(--ink);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.pg__layer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+}
+.pg__layer-bg{z-index:1;opacity:.95}
+.pg__layer-wheel{z-index:2}
+.pg__layer-bike{
+  z-index:3;
+  transition:opacity .2s ease, transform .2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pg__layer-bike.switching{
+  opacity:0;
+  transform:scale(0.96);
+}
+.pg__badge-row{
+  position:absolute;
+  top:14px;
+  left:14px;
+  display:flex;
+  gap:8px;
+  z-index:10;
+}
+.pg__badge{
+  font-family:var(--ff-mono);
+  font-size:12px;
+  font-weight:700;
+  background:#FFFFFF;
+  color:var(--ink);
+  border:1.5px solid var(--ink);
+  padding:3px 8px;
+  border-radius:3px;
+  box-shadow:2px 2px 0 var(--ink);
+}
+.pg__badge.brand-neutral{
+  background:#FEF3C7;
+  color:#92400E;
+}
+.pg__stage-info{
+  margin-top:20px;
+  padding-top:16px;
+  border-top:2px dashed var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.pg__title-wrap h3{
+  font-family:var(--ff-title);
+  font-size:26px;
+  color:var(--ink);
+  line-height:1.2;
+}
+.pg__title-wrap p{
+  font-family:var(--ff-hand);
+  font-size:15px;
+  color:var(--ink-dim);
+}
+.pg__actions{
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+}
+.pg__btn{
+  flex:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 18px;
+  font-family:var(--ff-marker);
+  font-size:16px;
+  border:2px solid var(--ink);
+  background:#FFFFFF;
+  color:var(--ink);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow:4px 4px 0 var(--ink);
+  cursor:pointer;
+  transition:all .15s ease;
+  text-decoration:none;
+}
+.pg__btn:hover{
+  transform:translate(-2px, -2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.pg__btn:active{
+  transform:translate(2px, 2px);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.pg__btn.btn-primary{
+  background:var(--ink);
+  color:#FFFFFF;
+}
+.pg__btn.btn-primary:hover{background:#333}
+
+/* Selector panel */
+.pg__panel{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.pg__panel-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.pg__panel-title h3{
+  font-family:var(--ff-title);
+  font-size:24px;
+  color:var(--ink);
+}
+.pg__panel-title span{
+  font-family:var(--ff-mono);
+  font-size:13px;
+  color:var(--ink-dim);
+}
+.pg__selector-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
+  gap:12px;
+}
+.pg__card{
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:8px;
+  padding:10px 8px;
+  cursor:pointer;
+  transition:all .2s ease;
+  box-shadow:3px 3px 0 var(--ink);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  position:relative;
+}
+.pg__card:hover{
+  transform:translateY(-2px);
+  box-shadow:5px 5px 0 var(--ink);
+}
+.pg__card.active{
+  border-color:var(--ink);
+  background:#FFFBEB;
+  box-shadow:5px 5px 0 var(--ink);
+  outline:2.5px solid var(--ink);
+}
+.pg__card-img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:contain;
+  margin-bottom:6px;
+  border-radius:4px;
+}
+.pg__card-name{
+  font-family:var(--ff-hand);
+  font-size:15px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.2;
+}
+.pg__card-badge{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  color:var(--ink-dim);
+  margin-top:2px;
+}
+.pg__wheel-explainer{
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-left:6px solid var(--ink);
+  padding:16px 18px;
+  border-radius:4px;
+  font-family:var(--ff-hand);
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink);
+  box-shadow:4px 4px 0 rgba(0,0,0,.06);
+}
+.pg__wheel-explainer strong{
+  font-family:var(--ff-marker);
+  font-weight:normal;
+  font-size:16px;
+  display:block;
+  margin-bottom:4px;
+}
+
+@media(max-width:900px){
+  .nav__links{display:none}
+  .hero__stats{grid-template-columns:repeat(2,1fr)}
+  .gallery__grid{grid-template-columns:repeat(2,1fr)}
+  .orig__grid{grid-template-columns:1fr}
+  .eco__principles{grid-template-columns:1fr}
+  .hero__num{display:none}
+  .daily__ratio{font-size:52px}
+  .hint-panel{right:16px;width:calc(100vw - 32px)}
+  .hint-btn{right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="nav__logo">BCM<span>🛵</span></a>
+    <nav class="nav__links">
+      <a href="#original">原创</a>
+      <a href="#collection">收藏</a>
+      <a href="#playground">车库工坊</a>
+      <a href="#eco">理念</a>
+      <a href="#daily">每日机车</a>
+      <a href="#team">D&D团队</a>
+      <a href="#faq">问答</a>
+    </nav>
+    <a href="#cta" class="nav__cta">订阅 →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__badge">One Machine. Every Day. Forever.</div>
+    <h1>101 个原创车架<br>组成 <em>7,700</em> 辆<span class="hl">数字机车</span></h1>
+    <p>BCM 是面向全球的 Web3 原创机车文化项目。源起 3 年用废弃零件手工焊接 101 部实体机车的真实历程，再把每个车架配上不同瓶盖元素，组合出 7,700 个独特数字收藏品。每 24 小时链上释放 1 辆机车供全球社区铸造。</p>
+    <div class="hero__stats">
+      <div class="stat"><b>101</b><span>原创车架（BCM 原创设计）</span></div>
+      <div class="stat"><b>7,700</b><span>数字机车 NFT (CC0 公共领域)</span></div>
+      <div class="stat"><b>24h</b><span>每日释放 1 辆机车</span></div>
+      <div class="stat"><b>100%</b><span>CC0 开放创作与商用</span></div>
+    </div>
+  </div>
+  <div class="hero__num" aria-hidden="true">7700</div>
+</section>
+
+<section id="original" class="original">
+  <div class="wrap">
+    <div class="sec__num">01 / 原创设计与 CC0 声明</div>
+    <h2 class="sec__title">7,700 辆机车 NFT 全面采用 CC0 协议</h2>
+    <p class="sec__lead">明确原创设计与版权边界：车是我们的原创设计，NFT 整体属于公共领域 (CC0)，瓶盖商标归原品牌方所有。</p>
+    <div class="orig__grid">
+      <div class="orig__body">
+        <p>
+          一辆完整的 BCM 数字机车 = <strong>原创车架与机械设计（我们自主原创）</strong> + <em>瓶盖元素（其他饮品品牌）</em>。
+        </p>
+        <p>
+          <strong>车身与机械结构是我们团队的原创设计</strong>：包括 101 个独立车架、机械骨架、轮毂、引擎、把手、避震系统等。BCM 团队历经 3 年时间，以废弃零件手工焊接 101 部实体机车并完成原创数字绘制。这是<strong>我们的原创工匠作品，拥有完整自主设计权</strong>。
+        </p>
+        <p>
+          <strong>7,700 部数字机车 NFT 全面采用 CC0</strong>：正因为车辆机械结构是我们的原创设计，我们主动选择以 <strong>CC0 1.0 Universal（放弃版权，进入公共领域）</strong> 的方式将 7,700 部数字机车 NFT 奉献给全球社区。任何人都可以自由进行二创、改装、商业化使用或衍生品开发，无需经过团队许可。
+        </p>
+        <p>
+          <strong>瓶盖元素来自其他饮品品牌（版权非 BCM 所有）</strong>：机车上的瓶盖图层取自市场上真实存在的饮料品牌 Logo（如可乐、纯水、矿泉水、茶饮、果汁等）。这些 Logo 和标识是<em>各大品牌厂商的注册商标与知识产权，版权不属于 BCM</em>。
+        </p>
+        <p>
+          ⚠️ <strong>艺术二创与非代言声明</strong>：BCM 采用波普艺术（Pop Art）拼贴手法向街头改装文化与环保反思致敬。<strong>BCM 与任何瓶盖饮料品牌均无商业代言、官方联名或背书合作关系</strong>。
+        </p>
+      </div>
+      <div class="orig__breakdown">
+        <div class="orig__part">
+          <div>
+            <h4>机车与车架（机械结构）</h4>
+            <p>101 个车架、车身轮廓、引擎把手、机械结构</p>
+          </div>
+          <span class="orig__tag tag-ours">BCM 原创设计</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4>7,700 部机车 NFT</h4>
+            <p>放弃版权主张，公共领域自由商用、二创与改装</p>
+          </div>
+          <span class="orig__tag tag-cc0">CC0 (No Rights Reserved)</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4>瓶盖品牌 Logo</h4>
+            <p>各大饮料品牌 Logo、注册商标、商业装潢</p>
+          </div>
+          <span class="orig__tag tag-them">归原品牌方所有</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4>商业关系声明</h4>
+            <p>波普艺术拼贴与街头文化致敬，绝非商业代言</p>
+          </div>
+          <span class="orig__tag" style="background:#fee2e2;color:#b91c1c;border:1px solid #b91c1c">非商业代言</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="wrap">
+    <div class="sec__num">02 / 收藏</div>
+    <h2 class="sec__title">7,700 个<span class="hl">独一无二</span>的组合</h2>
+    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成。点击右下角 🔍 解开 BCM 的小秘密。</p>
+    <div class="gallery__grid">
+      <div class="g-item"><span class="g-item__num">#0001</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1.png" alt="BCM 0001"></div>
+      <div class="g-item"><span class="g-item__num">#0100</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/100.png" alt="BCM 0100"></div>
+      <div class="g-item"><span class="g-item__num">#0200</span><span class="g-item__dots dots-3">★ ★ ★ ☆ ☆</span><img src="./images/200.png" alt="BCM 0200"></div>
+      <div class="g-item"><span class="g-item__num">#0400</span><span class="g-item__dots dots-1">★ ☆ ☆ ☆ ☆</span><img src="./images/400.png" alt="BCM 0400"></div>
+    </div>
+    <p style="margin-top:32px;font-size:13px;color:var(--ink-dim);line-height:1.7;text-align:center">
+      💡 注意每张图右上角的星号数量。它们在暗示什么。
+    </p>
+  </div>
+</section>
+
+<section id="playground" class="playground">
+  <div class="wrap">
+    <div class="sec__num">03 / 车库试玩工坊</div>
+    <h2 class="sec__title">Playground · <span class="hl">原创车架试配台</span></h2>
+    <p class="sec__lead">零门槛体验 · 选用 101 款原创车架中的精选 6 款涂装，搭载中立工程原型轮组（非商业品牌瓶盖），任何玩家无需持有 NFT 均可随时试玩组装！</p>
+    
+    <div class="pg__layout">
+      <!-- 预览展示卡片 -->
+      <div class="pg__stage-card">
+        <div class="pg__viewport" id="pgViewport">
+          <div class="pg__badge-row">
+            <span class="pg__badge">Garage DIY</span>
+            <span class="pg__badge brand-neutral" id="pgBadgeRarity">SSR 经典巡航 · #55</span>
+          </div>
+          <!-- 图层 1: 背景 Earth -->
+          <img src="./images/playground/bg_earth.png" alt="Earth BG" class="pg__layer pg__layer-bg">
+          <!-- 图层 2: 固定中立原型轮组 (非品牌瓶盖) -->
+          <img src="./images/playground/wheel_neutral.png" alt="Neutral Wheel" class="pg__layer pg__layer-wheel" id="pgWheel">
+          <!-- 图层 3: 动态车身涂装 -->
+          <img src="./images/playground/classic.png" alt="Bike Body" class="pg__layer pg__layer-bike" id="pgBike">
+        </div>
+
+        <div class="pg__stage-info">
+          <div class="pg__title-wrap">
+            <h3 id="pgBikeName">Classic 经典</h3>
+            <p id="pgBikeDesc">纯正手工焊接双管车架 · 标志性美式巡航轮廓</p>
+          </div>
+          <div style="text-align:right">
+            <span style="font-family:var(--ff-mono);font-size:12px;color:var(--ink-dim);display:block">底盘轮组设定</span>
+            <span style="font-family:var(--ff-marker);font-size:14px;color:var(--ink)">⚙️ 中立工程原型轮组（无Logo）</span>
+          </div>
+        </div>
+
+        <div class="pg__actions">
+          <button class="pg__btn" type="button" onclick="randomizeBike()">🎲 随机换涂装</button>
+          <button class="pg__btn btn-primary" type="button" onclick="exportBikePoster()">📸 保存改装海报</button>
+        </div>
+      </div>
+
+      <!-- 右侧涂装选择面板与说明 -->
+      <div class="pg__panel">
+        <div class="pg__panel-title">
+          <h3>选择原创涂装（6 款精选试玩）</h3>
+          <span>点击切换</span>
+        </div>
+
+        <div class="pg__selector-list" id="pgSelectorList">
+          <!-- 由 JS 动态渲染 7 款卡片 -->
+        </div>
+
+        <div class="pg__wheel-explainer">
+          <strong>💡 为什么轮子是单独固定的，而不是品牌瓶盖？</strong>
+          BCM 尚未部署正式 NFT 智能合约。为保护官方 7,700 款完整作品在正式揭晓时的稀缺惊喜与防抓包枚举，Playground 采用实验性的<strong>工程中立原型轮组（非商业饮料瓶盖）</strong>进行组合演示。<br>
+          任何玩家无需持有 NFT、无需连接钱包，都可以直接感受 101 款原创车架的设计轮廓与改装魅力。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eco" class="eco">
+  <div class="wrap">
+    <div class="sec__num">04 / 理念</div>
+    <h2 class="sec__title">为什么 BCM 存在？</h2>
+    <p class="eco__quote" style="font-family:var(--fc);font-size:clamp(20px,2vw,28px);font-weight:700;line-height:1.4;max-width:800px;margin:0 auto 48px;text-align:center">
+      "传统审美里，越炫酷越值钱。<br>BCM 想说：<span class="hl">越对地球温柔的作品，越值得被珍藏</span>。"
+    </p>
+    <div class="eco__principles">
+      <div class="principle">
+        <div class="principle__num">01</div>
+        <h3>艺术立场</h3>
+        <p>把"环保选择"做成视觉上的"高级选择"，让收藏者通过审美表达价值观。不用道德说教，用设计语言。</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">02</div>
+        <h3>文化溯源</h3>
+        <p>来自街头真实生长的改装车文化。重金属机车曾是反主流符号；单车是日常通勤工具。BCM 把两者放在同一坐标系。</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">03</div>
+        <h3>去投机化</h3>
+        <p>大多数 NFT 项目以"未来会涨"驱动需求。BCM 拒绝这种叙事——作品的价值来自它本身的设计、文化立场、稀缺性，不来自二级市场炒作。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="daily" class="daily">
+  <div class="wrap">
+    <div class="sec__num">05 / 每日发行模式</div>
+    <h2 class="sec__title">One Machine. Every Day. <span class="hl">Forever.</span></h2>
+    <p class="sec__lead">智能合约每 24 小时链上生成并释放 1 辆机车供全球社区竞拍与铸造。</p>
+    <div class="daily__card">
+      <div style="font-size:12px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase">Today's Release · 24-Hour Cycle</div>
+      <div class="daily__ratio">#0001</div>
+      <div style="font-size:15px;color:var(--ink);margin-bottom:8px;font-weight:bold">当前最高出价：<span style="color:#059669;font-size:22px;font-family:var(--ff-mono)">0.05 ETH</span> · 剩余时间：<span style="font-family:var(--ff-mono)">08h : 24m : 19s</span></div>
+      <div class="daily__detail">
+        <b>发行机制</b>：智能合约每 24 小时自动生成并上架 1 辆全新机车<br>
+        <b>原创与版权</b>：101 款手工焊接车架原创设计，NFT 整体全面遵循 CC0 协议<br>
+        <b>人人可参与</b>：无门槛公开竞拍，结标后下一辆机车自动接力开启<br>
+        <b>金库赋能</b>：100% 收益汇入社区金库，持续资助实体零废弃工坊与全球骑行生态
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team">
+  <div class="wrap">
+    <div class="sec__num">06 / 创始团队与手作故事</div>
+    <h2 class="sec__title">艺术与工程的灵感共鸣：<span class="hl">D&D 团队</span></h2>
+    <p class="sec__lead">“每一个瓶盖，都值得被重新看见。” 从垃圾场被遗弃的彩色瓶盖，到 101 部原创手作机车与 7,700 辆数字藏品。</p>
+    
+    <div class="team__founders">
+      <div class="founder__card">
+        <div class="founder__role">Co-Founder & 主创设计师</div>
+        <h3>Jay Zhou</h3>
+        <span class="founder__tag">工业设计师 · 艺术主创</span>
+        <p>
+          在参观垃圾处理场时，目睹堆积如山被随意丢弃的塑胶瓶盖，深受触动并萌生“让废弃物重获意义”的初心。历时 3 年手工焊接废金属，<strong>主导创作了 101 部风格迥异的原创电单车车身</strong>，并首创将 109 款瓶盖化为机车的轮子，赋予每一部车独一无二的生命。
+        </p>
+      </div>
+
+      <div class="founder__card">
+        <div class="founder__role">Co-Founder & 产品统筹</div>
+        <h3>Ethan Lau</h3>
+        <span class="founder__tag">资深科技产品人 · 架构统筹</span>
+        <p>
+          深耕科技产品领域多年，见证无数产品从概念走向成熟上市。对艺术设计有着极度热爱与严谨偏执，提出“把环保和电单车原创设计结合在一起，这才是我们想做的事情，这才是有意义的产品”。全面统筹 BCM 商业架构、Web3 落地与产品工程化落地。
+        </p>
+      </div>
+    </div>
+
+    <div class="team__practice">
+      <h3>D&D 团队的 5R 零废弃实践与初心</h3>
+      <div class="practice__grid">
+        <div class="practice__item">
+          <h4>♻️ 严格 5R 零废弃原则</h4>
+          <p>零废弃不是口号。绝不采购新材料，所有创作原料 100% 均来自被遗弃瓶盖与废金属回收，手作活动全程禁止一次性塑料制品。</p>
+        </div>
+        <div class="practice__item">
+          <h4>🛠️ 实体零废弃手作工坊</h4>
+          <p>已收集整理数千个废弃瓶盖，清洗消毒后举办多期实体手作活动，让上百名大人和孩子亲身体验废弃物化为艺术品的乐趣。</p>
+        </div>
+        <div class="practice__item">
+          <h4>📜 材料护照与健康生活</h4>
+          <p>设计“材料护照”系统量化环保成就感，提倡“健康骑车、低碳出行、天然饮食”，用好玩的方式让每个人为地球尽一份力。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="sec__num">07 / 常见问题</div>
+    <h2 class="sec__title">关于 BCM，<span class="hl">新用户常问的</span>问题</h2>
+    <div class="faq__list">
+      <div class="faq__item">
+        <div class="faq__q">机车是如何发行的？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          <b>One Machine. Every Day. Forever.</b><br>
+          智能合约每 24 小时自动生成并释放 1 辆机车进行公开铸造与竞拍。当天竞拍结束后，下一辆机车自动生成并开启新一轮 24 小时释放。
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">BCM 机车 NFT 的版权 (CC0) 与原创权是如何界定的？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          <b>101 款车身与机械结构 100% 属于团队原创设计</b>：团队历时 3 年用废弃金属手工焊接 101 部实体机车骨架。整体 7,700 辆数字机车 NFT 采用 <b>CC0（公共领域）协议</b>，向所有人开放商用与二次创作；轮毂瓶盖上的饮品品牌 Logo 属于对应商标持有人，属于非商业代言性质的当代波普环保致敬。
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">什么是"死亡螺旋"？BCM 会发生吗？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          <b>死亡螺旋（Death Spiral）</b> = GameFi 项目最常见的崩盘模式：新玩家增长停滞 → 奖励代币价格下跌 → 老玩家撤离 → 价格继续跌 → 死亡循环。<br><br>
+          经典案例：Axie Infinity 的 SLP 代币从高点跌 99%+。2026 年报告显示 <b>90%+ GameFi 项目已死</b>，$15B 融资中大部分归零。<br><br>
+          <b>BCM 为什么不同</b>：<br>
+          · <b>BCM 暂不发币</b>，没有 Token 价格风险<br>
+          · <b>BCM 不承诺收益</b>，不靠"投机型玩家"驱动需求<br>
+          · <b>BCM 作品价值来自设计本身与实体手作积淀</b>，不靠二级市场炒作
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">BCM 的 7,700 辆机车是如何组成的？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          由团队历时 3 年手工焊接打磨的 <b>101 款原创车架</b>，搭配 <b>109 种真实废弃瓶盖转换而来的轮毂元素</b>，加上引擎、车灯、把手等多种可组合配件，在区块链上形成 7,700 辆独一无二、数据不可篡改的链上机车资产。
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">Gas 费是什么？我要付多少？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          <b>Gas 费</b> = 区块链交易的"手续费"，付给网络矿工/验证者，<b>不是项目方收的</b>。<br><br>
+          <b>在 Layer 2 网络上参与时你要付的</b>：仅需极低 Gas 费（~¥1-5）。
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__q">我是 Web3 新手，怎么参与？</div>
+        <div class="faq__a"><div class="faq__a-inner">
+          <b>不需要懂复杂的区块链技术</b>。每日机车释放时，你只需要：<br>
+          1. 下载一个 Web3 钱包 App（MetaMask / OKX Wallet / Rabby）<br>
+          2. 准备少量 ETH（几百元即可参与出价或体验）<br>
+          3. 访问 bcm.motorcycle，连接钱包参与今日机车出价<br>
+          4. 确认交易后，机车资产直接进入你的个人钱包
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="cta">
+  <div class="wrap">
+    <h2>每日机车释放<br><span class="hl">第一时间</span>通知你</h2>
+    <p style="color:var(--ink-dim);margin-bottom:32px;font-size:14px">订阅邮件，获取每日机车释放提醒、拍卖动态与手作工坊现场资讯。</p>
+    <form class="cta__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='✓ 已订阅';">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">订阅 →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer__row">
+    <div>© 2026 BCM Project 🛵</div>
+    <div>车架与机械 = BCM 原创设计 · 7,700 机车 NFT = CC0 公共领域 · 瓶盖商标 = 归各品牌方所有（非商业代言）</div>
+  </div>
+</footer>
+
+<button class="hint-btn" id="hintBtn" aria-label="线索">🔍</button>
+
+<div class="hint-panel" id="hintPanel">
+  <h3>🔍 BCM 的小秘密 <button onclick="closeHints()">×</button></h3>
+  <p style="font-size:12px;color:var(--ink-dim);margin-bottom:16px">依次点击线索，一步步解谜。</p>
+  <div class="hint-list">
+    <div class="hint-item locked" data-hint="1" onclick="unlock(1)">
+      <strong>线索 1</strong><br>数一数右上角的星号。每辆机车有几颗？
+    </div>
+    <div class="hint-item locked" data-hint="2" onclick="unlock(2)">
+      <strong>线索 2</strong><br>想想哪种组合最难被设计出来？
+    </div>
+    <div class="hint-item locked" data-hint="3" onclick="unlock(3)">
+      <strong>线索 3</strong><br>🌱 越对地球温柔的组合，星越多。
+    </div>
+  </div>
+  <button class="reveal-btn" id="revealBtn" onclick="reveal()">🎁 解锁完整说明</button>
+</div>
+
+<script>
+const hints = {
+  1: '<strong>线索 1 解锁</strong><br>每辆机车有 1-5 颗星。但 7,700 张里，5 星的数量远少于 1 颗星。',
+  2: '<strong>线索 2 解锁</strong><br>5 颗星的车，是车架师花最长时间设计 + 瓶盖元素最稀少的组合。',
+  3: '<strong>线索 3 解锁</strong><br>🌱 单车 + 纯净水 = 5 星（零碳排）。跑车 + 碳酸饮料 = 1 颗星（高碳排）。BCM 反转了"炫酷 = 稀有"的传统规则。'
+};
+
+function toggleHints() {
+  document.getElementById('hintPanel').classList.toggle('open');
+}
+function closeHints() {
+  document.getElementById('hintPanel').classList.remove('open');
+}
+function unlock(n) {
+  const el = document.querySelector('[data-hint="' + n + '"]');
+  if (el.classList.contains('locked')) {
+    el.classList.remove('locked');
+    el.classList.add('unlocked');
+    el.innerHTML = hints[n];
+  }
+  if (document.querySelectorAll('.hint-item.unlocked').length === 3) {
+    document.getElementById('revealBtn').classList.add('show');
+  }
+}
+function reveal() {
+  const panel = document.getElementById('hintPanel');
+  panel.innerHTML = `
+    <h3>🎁 BCM 完整说明 <button onclick="closeHints()">×</button></h3>
+    <div style="font-size:15px;line-height:1.8;color:var(--ink);padding:8px 0">
+      BCM 用 <strong>星数</strong> 表达作品稀有度：<br>
+      · ★★★★★ 单车 + 纯净水（最少见，最难造）<br>
+      · ★★★★☆ 轻载具 + 矿泉水<br>
+      · ★★★☆☆ 中端载具 + 茶饮<br>
+      · ★★☆☆☆ 中重型 + 果汁<br>
+      · ★☆☆☆☆ 跑车 + 碳酸饮料（最常见）<br><br>
+      <div style="background:var(--soft);border:2px solid var(--ink);border-left:5px solid var(--ink);padding:12px 14px;margin-top:8px;font-size:14px;color:var(--ink)">
+        <strong>⚠ BCM 不承诺任何投资回报、Token 收益、增值预期。</strong><br>
+        星数只代表作品的环境价值观取向，不构成投资建议。
+      </div>
+    </div>
+  `;
+  panel.classList.add('open');
+}
+
+// ==========================================
+// 03 / PLAYGROUND (车库工坊) 试玩交互
+// ==========================================
+const pgBikes = [
+  {
+    slug: 'classic',
+    name: 'Classic 经典',
+    rarity: 'SSR 经典巡航 · #55',
+    desc: '纯正手工焊接双管车架 · 标志性美式巡航轮廓',
+    type: '复古巡航',
+    weight: '55'
+  },
+  {
+    slug: 'mustang',
+    name: 'Mustang 野马',
+    rarity: 'SR 肌肉性能 · #89',
+    desc: '重型加厚管梁 · 强劲马力肌肉改装风格',
+    type: '肌肉性能',
+    weight: '89'
+  },
+  {
+    slug: 'hornet',
+    name: 'Hornet 小黄蜂',
+    rarity: 'SSR 街头先锋 · #55',
+    desc: '街头 Cafe Racer 灵巧流线 · 极速破风造型',
+    type: '轻便先锋',
+    weight: '55'
+  },
+  {
+    slug: 'cybermetal',
+    name: 'CyberMetal 数码堡垒',
+    rarity: 'SSR 重装机甲 · #55',
+    desc: '赛博棱角机械外甲 · 工业重金属防护',
+    type: '重装机甲',
+    weight: '55'
+  },
+  {
+    slug: 'retro',
+    name: 'Retro 复古',
+    rarity: 'SR 典雅复古 · #89',
+    desc: '复古弯把慢骑车身 · 经典街头情怀沉淀',
+    type: '典雅复古',
+    weight: '89'
+  },
+  {
+    slug: 'offroad',
+    name: 'OffRoad 越野',
+    rarity: 'SR 全地形探险 · #89',
+    desc: '高位避震硬核 Scrambler 车架 · 专为崎岖泥泞打造',
+    type: '全地形探险',
+    weight: '89'
+  }
+];
+
+let currentPgBike = pgBikes[0];
+
+function renderPgSelectors() {
+  const container = document.getElementById('pgSelectorList');
+  if (!container) return;
+  container.innerHTML = pgBikes.map(b => `
+    <div class="pg__card ${b.slug === currentPgBike.slug ? 'active' : ''}" onclick="selectPgBike('${b.slug}')" id="card-${b.slug}">
+      <img src="./images/playground/thumb_${b.slug}.png" alt="${b.name}" class="pg__card-img">
+      <div class="pg__card-name">${b.name}</div>
+      <div class="pg__card-badge">${b.type}</div>
+    </div>
+  `).join('');
+}
+
+function selectPgBike(slug) {
+  const target = pgBikes.find(b => b.slug === slug);
+  if (!target) return;
+  
+  currentPgBike = target;
+  
+  document.querySelectorAll('.pg__card').forEach(c => c.classList.remove('active'));
+  const activeCard = document.getElementById('card-' + slug);
+  if (activeCard) activeCard.classList.add('active');
+
+  const bikeImg = document.getElementById('pgBike');
+  bikeImg.classList.add('switching');
+  setTimeout(() => {
+    bikeImg.src = './images/playground/' + target.slug + '.png';
+    document.getElementById('pgBikeName').textContent = target.name;
+    document.getElementById('pgBikeDesc').textContent = target.desc;
+    document.getElementById('pgBadgeRarity').textContent = target.rarity;
+    bikeImg.classList.remove('switching');
+  }, 120);
+}
+
+function randomizeBike() {
+  const remaining = pgBikes.filter(b => b.slug !== currentPgBike.slug);
+  const picked = remaining[Math.floor(Math.random() * remaining.length)];
+  selectPgBike(picked.slug);
+}
+
+function exportBikePoster() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 800;
+  canvas.height = 800;
+  const ctx = canvas.getContext('2d');
+
+  const bgImg = new Image();
+  const wheelImg = new Image();
+  const bikeImg = new Image();
+
+  bgImg.src = './images/playground/bg_earth.png';
+  bgImg.onload = () => {
+    ctx.drawImage(bgImg, 0, 0, 800, 800);
+    wheelImg.src = './images/playground/wheel_neutral.png';
+    wheelImg.onload = () => {
+      ctx.drawImage(wheelImg, 0, 0, 800, 800);
+      bikeImg.src = './images/playground/' + currentPgBike.slug + '.png';
+      bikeImg.onload = () => {
+        ctx.drawImage(bikeImg, 0, 0, 800, 800);
+        
+        ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
+        ctx.fillRect(24, 24, 240, 52);
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(24, 24, 240, 52);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 16px monospace';
+        ctx.fillText('BCM Garage · ' + currentPgBike.slug.toUpperCase(), 36, 48);
+        ctx.font = '12px sans-serif';
+        ctx.fillText('Prototype Wheel · DIY Demo', 36, 64);
+
+        const link = document.createElement('a');
+        link.download = 'BCM_Garage_' + currentPgBike.slug + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      };
+    };
+  };
+}
+
+renderPgSelectors();
+
+document.getElementById('hintBtn').addEventListener('click', toggleHints);
+document.querySelectorAll('.faq__q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+</script>
+
+</body>
+</html>
