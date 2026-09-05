@@ -158,7 +158,6 @@ BCM-Web-Demo/
 ├── start_demo.command    # Mac 1-点击即启动脚本（自动打开浏览器）
 ├── start_demo.bat        # Windows 1-点击即启动脚本
 ├── README.md             # 文件夹内说明文档
-├── PROGRESS_STATEMENT.md # 独立项目进展说明文档
 └── images/               # 静态图片资源目录
     ├── 1.png ~ 429.png   # 画廊展示切片
     └── playground/       # 车库试玩素材（包含 sample 原型轮组、背景及精选车架切片）
