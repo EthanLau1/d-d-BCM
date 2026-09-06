@@ -187,15 +187,6 @@ a{color:inherit;text-decoration:none}
   margin:10px 0 16px;
   width:100%;
 }
-.hero__bike-aura{
-  position:absolute;
-  width:clamp(240px, 45vw, 380px);
-  height:clamp(140px, 24vw, 200px);
-  background:radial-gradient(ellipse at center, rgba(255,230,0,0.32) 0%, rgba(255,230,0,0.06) 55%, transparent 72%);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:1;
-}
 .hero__bike-gif{
   position:relative;
   z-index:2;
@@ -205,7 +196,7 @@ a{color:inherit;text-decoration:none}
   display:block;
   transform:rotate(-1deg);
   transition:transform .3s ease;
-  filter:drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.08));
 }
 .hero__bike-gif:hover{
   transform:scale(1.03) rotate(0deg);
@@ -213,9 +204,9 @@ a{color:inherit;text-decoration:none}
 .hero__bike-shadow{
   position:relative;
   width:min(340px, 68vw);
-  height:12px;
-  background:radial-gradient(ellipse at center, rgba(17,17,17,0.22) 0%, rgba(17,17,17,0.06) 60%, transparent 75%);
-  margin-top:-10px;
+  height:10px;
+  background:radial-gradient(ellipse at center, rgba(17,17,17,0.18) 0%, rgba(17,17,17,0.04) 55%, transparent 72%);
+  margin-top:-8px;
   border-radius:50%;
   pointer-events:none;
   z-index:1;
@@ -1593,7 +1584,6 @@ footer{
 <header class="nav">
   <div class="wrap nav__inner">
     <a href="#" class="nav__logo" title="BCM · BottleCap Motorcycle">
-      <img src="./images/logo.gif" alt="BCM Motorcycle Logo" class="nav__logo-gif">
       <span class="nav__logo-text">BCM</span>
     </a>
     <nav class="nav__links">
@@ -1616,7 +1606,6 @@ footer{
     
     <!-- 居中巨幅动效机车 (Super Graphic C位展台) -->
     <div class="hero__showcase">
-      <div class="hero__bike-aura" aria-hidden="true"></div>
       <img src="./images/logo.gif" alt="BCM Motorcycle 瓶盖机车飞驰动效" class="hero__bike-gif">
       <div class="hero__bike-shadow" aria-hidden="true"></div>
     </div>
@@ -1809,16 +1798,16 @@ footer{
   <div class="wrap community__inner">
     <div class="sec__num">05 / 社区创作</div>
     <h2 class="sec__title">机车是载具，<span class="hl">HERO 属于社区</span></h2>
-    <p class="sec__lead">“从实体手作黏土，到链上数字像素。” BCM 机车是承载环保骑行的机械载具，而 BCM HERO 是属于社区的独立角色宇宙。全新 CC0 系列即将在链上启动。</p>
+    <p class="sec__lead">从实体手作黏土，到链上数字像素。无需持有 NFT，人人皆可共创环保英雄。</p>
     
     <!-- Tab 选项卡切换 -->
     <div class="community__tabs">
       <button type="button" class="community__tab-btn active" onclick="switchCommunityTab('nft', this)">
-        <span>🎮</span> BCM HERO 先锋 NFT 预告
+        <span>🎮</span> BCM HERO 像素先锋
         <span class="community__tab-badge">UPCOMING</span>
       </button>
       <button type="button" class="community__tab-btn" onclick="switchCommunityTab('offline', this)">
-        <span>📸</span> 实体工坊与真实足迹
+        <span>📸</span> 线下工坊与真实足迹
         <span class="community__tab-badge">FIELD NOTES</span>
       </button>
     </div>
@@ -1833,53 +1822,53 @@ footer{
         </div>
         <div class="comm-evolution__content">
           <div class="comm-evolution__badges">
-            <span class="comm-badge comm-badge--green">🧬 创作原点 · From Clay to Pixel</span>
-            <span class="comm-badge comm-badge--yellow">⚡ UPCOMING CC0 HERO NFT</span>
+            <span class="comm-badge comm-badge--green">🧬 实体手作到数字像素</span>
+            <span class="comm-badge comm-badge--yellow">⚡ CC0 社区英雄</span>
           </div>
-          <h3 class="comm-evolution__title">从实体黏土捏模，到链上数字英雄</h3>
+          <h3 class="comm-evolution__title">从工坊黏土，到数字英雄</h3>
           <p class="comm-evolution__desc">
-            每一个 BCM 英雄都不是凭空生成的冷冰代码，而是起源于线下工坊的真实黏土与草图。经过数字化重构与像素化提炼，转化为拥有独立环保超能力的奔跑姿态 NFT。
+            起源于线下工坊的孩子黏土与草图，经数字化提炼为拥有环保超能力的奔跑姿态英雄。
           </p>
           <div class="comm-evolution__traits">
             <div class="comm-trait-item">
               <span class="comm-trait-item__icon">🏃</span>
               <div>
-                <b>统一极速奔跑姿态 (Running Pose)</b>
-                <span>永不停歇的极速巡礼，穿越城市废墟与自然边境</span>
+                <b>奔跑姿态</b>
+                <span>永不停歇的极速环保行动</span>
               </div>
             </div>
             <div class="comm-trait-item">
               <span class="comm-trait-item__icon">🎨</span>
               <div>
-                <b>波普废弃物与迷因跨界</b>
-                <span>融合快餐纸盒、Web3 Meme、街机像素与极地生态</span>
+                <b>废品与迷因</b>
+                <span>快餐盒、Meme 与像素跨界</span>
               </div>
             </div>
             <div class="comm-trait-item">
               <span class="comm-trait-item__icon">🌐</span>
               <div>
-                <b>CC0 100% 开放版权</b>
-                <span>角色完全归属社区共创，自由商用与二创衍生</span>
+                <b>CC0 开放</b>
+                <span>完全归属社区，自由商用二创</span>
               </div>
             </div>
             <div class="comm-trait-item">
               <span class="comm-trait-item__icon">🛵</span>
               <div>
-                <b>机车与骑手双重赋能</b>
-                <span>未来与 101 款车架联动，持续反哺实体零废弃工坊</span>
+                <b>机车与骑手</b>
+                <span>角色与车架联动，赋能实体工坊</span>
               </div>
             </div>
           </div>
           <div class="comm-evolution__footer-hint">
-            💡 点击卡片可查看高清手捏黏土与像素进化海报大图
+            💡 点击查看实体黏土与像素进化图
           </div>
         </div>
       </div>
 
       <!-- 5位奔跑先锋英雄抢先预览 -->
       <div class="comm-subhead">
-        <div class="comm-subhead__title">先锋跑者档案 · 首批 5 位生态英雄抢先预览</div>
-        <div class="comm-subhead__sub">点击任意英雄查看高清立绘与专属技能档案</div>
+        <div class="comm-subhead__title">先锋跑者 · 首批 5 位环保英雄</div>
+        <div class="comm-subhead__sub">点击查看高清立绘与专属技能</div>
       </div>
 
       <div class="community__grid">
@@ -1894,12 +1883,12 @@ footer{
             <span>黄金小丑</span>
             <span class="comm-card__en">Golden Clown</span>
           </div>
-          <p class="comm-card__quote">“随手拆开的麦乐送纸盒与番茄酱红发。以快餐文化废品为甲胄，将一次性包装反客为主重塑为街头艺术。”</p>
+          <p class="comm-card__quote">麦乐送纸盒化身帅气战甲，把一次性包装变成街头艺术。</p>
           <div class="comm-card__skill">🍔 纸盒重构 · 变废为宝</div>
         </div>
 
         <!-- Card 2: Pepe / 佩佩跑者 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pepe.png', '#H02 佩佩跑者 (Pepe Runner) · Web3 Meme · 技能：🐸 迷因共振 · 极速巡礼')">
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pepe.png', '#H02 佩佩跑者 (Pepe Runner) · 技能：🐸 迷因共振 · 极速巡礼')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/hero_pepe.png" alt="#H02 佩佩跑者" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">#H02</span>
@@ -1909,12 +1898,12 @@ footer{
             <span>佩佩跑者</span>
             <span class="comm-card__en">Pepe Runner</span>
           </div>
-          <p class="comm-card__quote">“Web3 社区最负盛名的绿色迷因化身环保跑者。在链上全速穿行，把一切投机泡沫转化为真实的环保行动。”</p>
+          <p class="comm-card__quote">经典绿色 Meme 跑进现实，把网络热梗变成真实的环保行动。</p>
           <div class="comm-card__skill">🐸 迷因共振 · 极速巡礼</div>
         </div>
 
         <!-- Card 3: 蟑螂 / 顽强小强 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_survivor.png', '#H03 顽强小强 (The Survivor) · 极境生存者 · 技能：🪳 极境适应 · 不死生命')">
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_survivor.png', '#H03 顽强小强 (The Survivor) · 技能：🪳 极境适应 · 顽强生命')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/hero_survivor.png" alt="#H03 顽强小强" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">#H03</span>
@@ -1924,12 +1913,12 @@ footer{
             <span>顽强小强</span>
             <span class="comm-card__en">The Survivor</span>
           </div>
-          <p class="comm-card__quote">“披风猎猎、双角破空。无论辐射、废墟还是极端污染，都无法压制它顽强的生命力，象征地球环境最后的坚韧守望。”</p>
-          <div class="comm-card__skill">🪳 极境适应 · 不死生命</div>
+          <p class="comm-card__quote">最顽强的极境生命力，废墟与极端污染里的坚韧守望者。</p>
+          <div class="comm-card__skill">🪳 极境适应 · 顽强生命</div>
         </div>
 
         <!-- Card 4: 企鹅 / 极地企鹅 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pingu.png', '#H04 极地企鹅 (Pingu) · 极地生态 · 技能：🐧 极地守望 · 冰川预警')">
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pingu.png', '#H04 极地企鹅 (Pingu) · 技能：🐧 极地守护 · 冰川预警')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/hero_pingu.png" alt="#H04 极地企鹅" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">#H04</span>
@@ -1939,12 +1928,12 @@ footer{
             <span>极地企鹅</span>
             <span class="comm-card__en">Pingu</span>
           </div>
-          <p class="comm-card__quote">“标志性红三角尖嘴与极地黑白身躯。穿越融化冰川而来的两极使者，每一步奔跑都在向世界发出气候预警。”</p>
-          <div class="comm-card__skill">🐧 极地守望 · 冰川预警</div>
+          <p class="comm-card__quote">穿越融化冰川而来的两极使者，每一步奔跑都在呼吁保护冰川。</p>
+          <div class="comm-card__skill">🐧 极地守护 · 冰川预警</div>
         </div>
 
         <!-- Card 5: 吃豆人 / 吃豆先锋 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pacman.png', '#H05 吃豆先锋 (Pac-Chomp) · 复古街机 · 技能：🟡 像素吞噬 · 微塑料克星')">
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pacman.png', '#H05 吃豆先锋 (Pac-Chomp) · 技能：🟡 像素吞噬 · 微塑料克星')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/hero_pacman.png" alt="#H05 吃豆先锋" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">#H05</span>
@@ -1954,13 +1943,13 @@ footer{
             <span>吃豆先锋</span>
             <span class="comm-card__en">Pac-Chomp</span>
           </div>
-          <p class="comm-card__quote">“经典黄色像素头盔与奔跑身躯。在现实与数字缝隙中穿梭，将海洋和土壤里的微塑料颗粒通通吞噬殆尽。”</p>
+          <p class="comm-card__quote">经典街机像素形象，一路狂奔吞噬海洋与土壤里的微塑料。</p>
           <div class="comm-card__skill">🟡 像素吞噬 · 微塑料克星</div>
         </div>
       </div>
 
       <div class="community__footer-note">
-        ⚡ <strong>BCM HERO NFT 预告</strong>：CC0 开放版权 · 链上智能合约与发行规则发布在即 · 角色与机车双重赋能社区金库
+        ⚡ <strong>BCM HERO</strong>：CC0 开放版权 · 链上即将发布 · 角色持续赋能实体工坊
       </div>
     </div>
 
@@ -1978,7 +1967,7 @@ footer{
 
       <div class="community__grid">
         <!-- Card 1: No.001 星星人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/001.jpg', 'No.001 星星人 · 线下工坊草图与黏土共创立案档案')">
+        <div class="comm-card" onclick="openHeroModal('images/heroes/001.jpg', 'No.001 星星人 · 线下工坊草图与黏土档案')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/001.jpg" alt="No.001 星星人" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">No.001</span>
@@ -1988,12 +1977,12 @@ footer{
             <span>星星人</span>
             <span class="comm-card__en">Star Guy</span>
           </div>
-          <p class="comm-card__quote">“用触须分解有害垃圾，身体颜色随之变化。积攒的能量在夜晚发光，为怕黑的人亮起小夜灯。”</p>
-          <div class="comm-card__skill">♻️ 触须分解 · 夜光蓄能</div>
+          <p class="comm-card__quote">用触须分解有害垃圾，夜晚发光为怕黑的人引路。</p>
+          <div class="comm-card__skill">🌟 触须分解 · 夜光照明</div>
         </div>
 
         <!-- Card 2: No.002 铲铲人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/002.jpg', 'No.002 铲铲人 · 线下工坊草图与黏土共创立案档案')">
+        <div class="comm-card" onclick="openHeroModal('images/heroes/002.jpg', 'No.002 铲铲人 · 线下工坊草图与黏土档案')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/002.jpg" alt="No.002 铲铲人" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">No.002</span>
@@ -2003,12 +1992,12 @@ footer{
             <span>铲铲人</span>
             <span class="comm-card__en">Digger Boy</span>
           </div>
-          <p class="comm-card__quote">“把垃圾转化成各种知识图鉴。肚子变大证明回收了特别多垃圾，帮大家丰富对世界的理解。”</p>
-          <div class="comm-card__skill">♻️ 知识转化 · 百科图鉴</div>
+          <p class="comm-card__quote">肚子变大代表回收了更多垃圾，变成大家的知识图鉴。</p>
+          <div class="comm-card__skill">📚 垃圾回收 · 知识图鉴</div>
         </div>
 
         <!-- Card 3: No.004 喵喵人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/004.jpg', 'No.004 喵喵人 · 线下工坊草图与黏土共创立案档案')">
+        <div class="comm-card" onclick="openHeroModal('images/heroes/004.jpg', 'No.004 喵喵人 · 线下工坊草图与黏土档案')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/004.jpg" alt="No.004 喵喵人" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">No.004</span>
@@ -2018,12 +2007,12 @@ footer{
             <span>喵喵人</span>
             <span class="comm-card__en">Miao Cat</span>
           </div>
-          <p class="comm-card__quote">“用超能力尾巴将垃圾清理进垃圾桶，不断转化出爱心能量，给奔跑在环保之路的人加油打气。”</p>
-          <div class="comm-card__skill">♻️ 爱心转化 · 梦想守护</div>
+          <p class="comm-card__quote">用尾巴把垃圾扫进桶，转化爱心能量为大家打气。</p>
+          <div class="comm-card__skill">🐱 尾巴清扫 · 爱心打气</div>
         </div>
 
         <!-- Card 4: No.005 大王狮子 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/005.jpg', 'No.005 大王狮子 · 线下工坊草图与黏土共创立案档案')">
+        <div class="comm-card" onclick="openHeroModal('images/heroes/005.jpg', 'No.005 大王狮子 · 线下工坊草图与黏土档案')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/005.jpg" alt="No.005 大王狮子" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">No.005</span>
@@ -2033,12 +2022,12 @@ footer{
             <span>大王狮子</span>
             <span class="comm-card__en">Lion King</span>
           </div>
-          <p class="comm-card__quote">“具王者之威！变身工程师维护垃圾处理设备，让地球系统正常运转。路见不平拔刀相助！”</p>
-          <div class="comm-card__skill">♻️ 设备维护 · 守护系统</div>
+          <p class="comm-card__quote">变身工程师维护垃圾处理设备，让地球正常运转。</p>
+          <div class="comm-card__skill">🦁 设备检修 · 守护地球</div>
         </div>
 
         <!-- Card 5: No.007 粟猫儿 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/007.jpg', 'No.007 粟猫儿 · 线下工坊草图与黏土共创立案档案')">
+        <div class="comm-card" onclick="openHeroModal('images/heroes/007.jpg', 'No.007 粟猫儿 · 线下工坊草图与黏土档案')">
           <div class="comm-card__img-wrap">
             <img src="images/heroes/007.jpg" alt="No.007 粟猫儿" class="comm-card__img" loading="lazy">
             <span class="comm-card__tag">No.007</span>
@@ -2048,8 +2037,8 @@ footer{
             <span>粟猫儿</span>
             <span class="comm-card__en">Su-Cat</span>
           </div>
-          <p class="comm-card__quote">“极速收集废弃塑料与纸箱，为在外流浪的小动物做好临时避难所，是回收竞赛第一名！”</p>
-          <div class="comm-card__skill">♻️ 极速巡逻 · 动物庇护</div>
+          <p class="comm-card__quote">收集废纸箱与塑料，给流浪小动物搭建温暖的家。</p>
+          <div class="comm-card__skill">🐾 纸塑回收 · 动物避难</div>
         </div>
       </div>
 
@@ -2058,120 +2047,120 @@ footer{
         <div class="footprints__header">
           <div class="footprints__title-wrap">
             <span class="footprints__badge">📸 真实足迹</span>
-            <span class="footprints__sub">线下走访、工坊共创与手作纪实</span>
+            <span class="footprints__sub">线下走访与工坊手作纪实</span>
           </div>
-          <div class="footprints__hint">← 左右滑动浏览 · 点击任意照片放大查看细节 →</div>
+          <div class="footprints__hint">← 左右滑动浏览 · 点击照片查看大图 →</div>
         </div>
 
         <div class="footprints__reel">
           <!-- 01 废金属回收站探访 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/scrap_yard_visit.png', '废品回收站实地走访 · 探寻机车金属车架与低碳重生灵感')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/scrap_yard_visit.png', '废品回收站 · 实地探访寻找车架金属灵感')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/scrap_yard_visit.jpg" alt="废旧金属回收站探访" class="footprint-card__img" loading="lazy">
+              <img src="images/footprints/thumbs/scrap_yard_visit.jpg" alt="废品回收站探访" class="footprint-card__img" loading="lazy">
               <span class="footprint-card__tag">📍 废品回收站</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">实地溯源 · 寻找回收金属</div>
-              <div class="footprint-card__note">在成吨废金属前实地走访，探寻原创机车车架的低碳重生之源。</div>
+              <div class="footprint-card__title">废金属堆寻宝</div>
+              <div class="footprint-card__note">走访废品回收站，为机车车架寻找低碳灵感。</div>
             </div>
           </div>
 
           <!-- 02 孩子动手创作 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/nextgen_workshop.png', '社区教育现场 · 吸引新生代注意力，授予下一代年轻人动手创作力')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/nextgen_workshop.png', '社区工坊 · 带小朋友动手做环保机车')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/nextgen_workshop.jpg" alt="吸引新生代动手创作" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 社区新生代</span>
+              <img src="images/footprints/thumbs/nextgen_workshop.jpg" alt="小朋友动手创作" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 社区工坊</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">吸引新生代 · 赋予动手力</div>
-              <div class="footprint-card__note">将环保与机车设计融入社区，带小朋友用瓶盖与画纸亲手创作。</div>
+              <div class="footprint-card__title">小朋友动手做机车</div>
+              <div class="footprint-card__note">用废弃瓶盖和画笔，带孩子们亲手做出第一台机车。</div>
             </div>
           </div>
 
           <!-- 03 麦当劳外卖盒再造 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/mcdonalds_upcycle.png', '变废为宝实录 · 展开麦当劳外卖纸盒手绘机车，瓶盖重塑为轮子')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/mcdonalds_upcycle.png', '麦乐送纸盒 · 变废为宝手绘机车')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/mcdonalds_upcycle.jpg" alt="麦当劳纸盒变废为宝" class="footprint-card__img" loading="lazy">
+              <img src="images/footprints/thumbs/mcdonalds_upcycle.jpg" alt="麦乐送纸盒再造" class="footprint-card__img" loading="lazy">
               <span class="footprint-card__tag">📍 变废为宝</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">麦乐送纸盒 · 环保再造</div>
-              <div class="footprint-card__note">随手展开的外卖包装盒，嵌上两颗饮品瓶盖即成手绘原创机车。</div>
+              <div class="footprint-card__title">麦当劳纸盒再造</div>
+              <div class="footprint-card__note">展开外卖纸盒，嵌上两颗瓶盖就是原创机车。</div>
             </div>
           </div>
 
           <!-- 04 工坊工作台 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/craft_workbench.png', '手作工坊工作台 · 收集日常饮料瓶盖与手工精细裁切拼贴')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/craft_workbench.png', '手作工作台 · 切割垫、工具与洗净的瓶盖')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/craft_workbench.jpg" alt="线下工坊手作台" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 工坊现场</span>
+              <img src="images/footprints/thumbs/craft_workbench.jpg" alt="工坊手作台" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 手作工作台</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">工作台 · 五彩瓶盖库</div>
-              <div class="footprint-card__note">切割垫、刻刀与收集的各品牌瓶盖，每一份手作作品的真实起点。</div>
+              <div class="footprint-card__title">瓶盖工作台</div>
+              <div class="footprint-card__note">切割垫、刻刀和洗净的瓶盖，每件作品的起点。</div>
             </div>
           </div>
 
           <!-- 05 超市货架寻盖之旅 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/store_cap_hunt.png', '寻盖之旅 · 便利店与商超货架的日常瓶盖发掘与点赞打卡')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/store_cap_hunt.png', '寻盖之旅 · 在商超货架寻找特别色彩的瓶盖')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/store_cap_hunt.jpg" alt="便利店货架寻盖之旅" class="footprint-card__img" loading="lazy">
+              <img src="images/footprints/thumbs/store_cap_hunt.jpg" alt="商超寻盖之旅" class="footprint-card__img" loading="lazy">
               <span class="footprint-card__tag">📍 寻盖之旅</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">货架巡礼 · 生活中的零件</div>
-              <div class="footprint-card__note">在商超货架间寻找独特色泽的瓶盖，发掘日常废弃物的二次生命。</div>
+              <div class="footprint-card__title">货架寻宝</div>
+              <div class="footprint-card__note">在商超寻找独特色彩的瓶盖，发掘身边的再造可能。</div>
             </div>
           </div>
 
           <!-- 06 #287创意园展出 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/gallery_287_mirror.png', '#287 创意园线下艺术展 · 实木画框左侧加装真实机车后视镜')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/gallery_287_mirror.png', '#287 创意园 · 实木画框装上真实机车后视镜')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/gallery_287_mirror.jpg" alt="287创意园真后视镜展出" class="footprint-card__img" loading="lazy">
+              <img src="images/footprints/thumbs/gallery_287_mirror.jpg" alt="287创意园展出" class="footprint-card__img" loading="lazy">
               <span class="footprint-card__tag">📍 空间展陈</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">#287创意园 · 实体后视镜</div>
-              <div class="footprint-card__note">实木画框左侧加装真实机车镀铬后视镜，展出 1/48 原创机车画作。</div>
+              <div class="footprint-card__title">#287 创意园空间展</div>
+              <div class="footprint-card__note">画框装上真实机车后视镜，展出原创画作。</div>
             </div>
           </div>
 
           <!-- 07 Adventure Station 亚洲汽水 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/station_retro_riders.png', 'Adventure Station 空间展板 · 亚洲汽水 1946 经典铝盖挂板')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/station_retro_riders.png', '空间展板 · 1946 亚洲汽水经典老铝盖车轮')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/station_retro_riders.jpg" alt="Adventure Station 空间挂板" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 空间挂件</span>
+              <img src="images/footprints/thumbs/station_retro_riders.jpg" alt="亚洲汽水老铝盖展板" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 空间挂板</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">Adventure Station · 挂板</div>
-              <div class="footprint-card__note">选用 1946 经典亚洲汽水铝盖作为复古骑手机车的实体轮毂。</div>
+              <div class="footprint-card__title">经典汽水铝盖挂板</div>
+              <div class="footprint-card__note">用 1946 年亚洲汽水老铝盖，做成复古机车车轮。</div>
             </div>
           </div>
 
           <!-- 08 BCM手作日记 实体手办 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/miniature_figure_craft.png', 'BCM 团队手作日记 · NFT 实体微缩机械手办打磨与零件拼装')">
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/miniature_figure_craft.png', '手作日记 · 微缩机车模型打磨与零件拼装')">
             <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/miniature_figure_craft.jpg" alt="NFT实体手办打磨" class="footprint-card__img" loading="lazy">
+              <img src="images/footprints/thumbs/miniature_figure_craft.jpg" alt="微缩机车模型打磨" class="footprint-card__img" loading="lazy">
               <span class="footprint-card__tag">📍 团队日记</span>
               <span class="footprint-card__zoom">🔍 放大</span>
             </div>
             <div class="footprint-card__body">
-              <div class="footprint-card__title">手作日记 · 实体手办改装</div>
-              <div class="footprint-card__note">微型电磨与乐高科技机械件，将咖啡瓶盖精工打磨成微缩机械手办。</div>
+              <div class="footprint-card__title">实体微缩模型</div>
+              <div class="footprint-card__note">用电磨打磨废弃瓶盖与零件，拼出机车潮玩手办。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="community__footer-note">
-        🌱 <strong>零门槛参与</strong>：无需拥有任何机车 NFT，任何人均可在实体工坊或线上参与创作 · 点击卡片查看高清大图与手作细节
+        🌱 <strong>零门槛共创</strong>：无需持有任何 NFT，工坊与线上人人皆可参与 · 点击卡片查看大图
       </div>
     </div>
   </div>
