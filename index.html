@@ -119,7 +119,23 @@ a{color:inherit;text-decoration:none}
   box-shadow:1px 1px 0 var(--ink);
 }
 
-.hero{padding:54px 0 76px;position:relative;min-height:75vh;display:flex;align-items:center}
+.hero{
+  padding:48px 0 68px;
+  position:relative;
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero__inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  max-width:980px;
+  position:relative;
+  z-index:2;
+}
 .hero__badge{
   display:inline-flex;
   align-items:center;
@@ -127,14 +143,14 @@ a{color:inherit;text-decoration:none}
   border:1.5px solid var(--ink);
   background:#FFFFFF;
   color:var(--ink);
-  padding:5px 14px;
+  padding:5px 15px;
   font-family:var(--ff-marker);
-  font-size:13px;
+  font-size:12.5px;
   letter-spacing:.05em;
   border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
   box-shadow:2.5px 2.5px 0 var(--ink);
   transform:rotate(-1.5deg);
-  margin-bottom:22px;
+  margin-bottom:16px;
 }
 .hero__badge::before{
   content:"";
@@ -143,43 +159,93 @@ a{color:inherit;text-decoration:none}
   background:var(--ink);
   border-radius:50%;
 }
-.hero h1{
+.hero h1, .hero__title{
   font-family:var(--ff-title);
   font-weight:900;
-  font-size:clamp(32px,5vw,56px);
-  line-height:1.2;
+  font-size:clamp(26px,3.8vw,38px);
+  line-height:1.25;
   letter-spacing:.02em;
-  margin-bottom:20px;
+  margin-bottom:12px;
   color:var(--ink);
+  text-align:center;
 }
-.hero h1 em{
+.hero h1 em, .hero__title em{
   font-family:var(--ff-marker);
   font-style:normal;
   color:var(--ink);
   border-bottom:2.5px solid var(--ink);
   padding:0 5px;
 }
-.hero p{
+
+/* 居中巨幅机车 C 位展台 (Super Graphic Showcase) */
+.hero__showcase{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin:10px 0 16px;
+  width:100%;
+}
+.hero__bike-aura{
+  position:absolute;
+  width:clamp(240px, 45vw, 380px);
+  height:clamp(140px, 24vw, 200px);
+  background:radial-gradient(ellipse at center, rgba(255,230,0,0.32) 0%, rgba(255,230,0,0.06) 55%, transparent 72%);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+}
+.hero__bike-gif{
+  position:relative;
+  z-index:2;
+  width:min(440px, 86vw);
+  height:auto;
+  mix-blend-mode:multiply;
+  display:block;
+  transform:rotate(-1deg);
+  transition:transform .3s ease;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+}
+.hero__bike-gif:hover{
+  transform:scale(1.03) rotate(0deg);
+}
+.hero__bike-shadow{
+  position:relative;
+  width:min(340px, 68vw);
+  height:12px;
+  background:radial-gradient(ellipse at center, rgba(17,17,17,0.22) 0%, rgba(17,17,17,0.06) 60%, transparent 75%);
+  margin-top:-10px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+}
+
+.hero p, .hero__desc{
   font-family:var(--ff-body);
-  font-size:16px;
+  font-size:14.5px;
   color:var(--ink-dim);
-  max-width:640px;
-  margin-bottom:32px;
-  line-height:1.75;
+  max-width:580px;
+  margin:0 auto 26px;
+  line-height:1.7;
+  text-align:center;
 }
 .hero__stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:16px;
-  margin-top:36px;
+  width:100%;
+  max-width:880px;
+  margin:0 auto;
 }
 .stat{
   background:#FFFFFF;
   border:2px solid var(--ink);
   border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
-  padding:16px;
+  padding:14px 12px;
   box-shadow:3.5px 3.5px 0 var(--ink);
   transition:all .3s;
+  text-align:center;
 }
 .stat:nth-child(1){transform:rotate(-1deg)}
 .stat:nth-child(2){transform:rotate(1.2deg)}
@@ -192,30 +258,31 @@ a{color:inherit;text-decoration:none}
 .stat b{
   display:block;
   font-family:var(--ff-marker);
-  font-size:34px;
+  font-size:32px;
   color:var(--ink);
   line-height:1;
-  margin-bottom:5px;
+  margin-bottom:4px;
 }
 .stat span{
   font-family:var(--ff-body);
-  font-size:13px;
+  font-size:12px;
   font-weight:600;
   letter-spacing:.02em;
   color:var(--ink-dim);
 }
 .hero__num{
   position:absolute;
-  right:20px;
-  bottom:60px;
+  left:50%;
+  top:52%;
+  transform:translate(-50%, -50%) rotate(-3deg);
   font-family:var(--ff-marker);
-  font-size:clamp(120px,18vw,220px);
+  font-size:clamp(130px,20vw,240px);
   color:transparent;
-  -webkit-text-stroke:2px var(--line);
+  -webkit-text-stroke:2px rgba(229,228,220,0.5);
   line-height:.8;
   pointer-events:none;
   user-select:none;
-  transform:rotate(5deg);
+  z-index:0;
 }
 
 section{padding:72px 0;position:relative;z-index:2}
@@ -251,7 +318,7 @@ section{padding:72px 0;position:relative;z-index:2}
   line-height:1.65;
 }
 
-.original{
+.concept, .original{
   background:var(--soft);
   border-top:2px solid var(--ink);
   border-bottom:2px solid var(--ink);
@@ -316,7 +383,7 @@ section{padding:72px 0;position:relative;z-index:2}
 .tag-them{background:#FFFFFF;color:var(--ink);transform:rotate(1.5deg)}
 .tag-cc0{background:var(--soft);color:var(--ink);transform:rotate(-1deg)}
 
-#collection{padding:50px 0}
+#nft, #collection{padding:50px 0}
 .gallery__grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -598,8 +665,9 @@ section{padding:72px 0;position:relative;z-index:2}
 .community__step-arrow{font-family:var(--ff-mono);font-size:14px;color:var(--ink-dim);flex-shrink:0}
 .community__grid{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:16px;
+  grid-template-columns:repeat(5, 1fr);
+  gap:14px;
+  margin-top:24px;
 }
 .comm-card{
   background:#FFFFFF;
@@ -616,11 +684,11 @@ section{padding:72px 0;position:relative;z-index:2}
 .comm-card__img-wrap{
   position:relative;
   width:100%;
-  aspect-ratio:1/1;
+  aspect-ratio:3/4;
   border-radius:8px;
   border:1.5px solid var(--ink);
   overflow:hidden;
-  background:#FFFFFF;
+  background:#111111;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -628,11 +696,12 @@ section{padding:72px 0;position:relative;z-index:2}
 .comm-card__img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
+  object-position:center top;
   display:block;
-  transition:transform .2s ease;
+  transition:transform .25s ease;
 }
-.comm-card:hover .comm-card__img{transform:scale(1.03)}
+.comm-card:hover .comm-card__img{transform:scale(1.04)}
 .comm-card__tag{
   position:absolute;
   top:5px;
@@ -699,6 +768,240 @@ section{padding:72px 0;position:relative;z-index:2}
   color:var(--ink-dim);
 }
 .community__footer-note strong{color:var(--ink)}
+
+/* --- 06.1 COMMUNITY TABS & NFT PREVIEW --- */
+.community__tabs{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:24px 0 28px;
+  flex-wrap:wrap;
+}
+.community__tab-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#FFFFFF;
+  color:var(--ink);
+  border:2px solid var(--ink);
+  border-radius:30px;
+  padding:10px 22px;
+  font-family:var(--ff-title);
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:all .18s ease;
+}
+.community__tab-btn:hover{
+  transform:translate(-1px, -1px);
+  box-shadow:4.5px 4.5px 0 var(--ink);
+  background:#FFFDF0;
+}
+.community__tab-btn.active{
+  background:var(--ink);
+  color:#FFFFFF;
+  box-shadow:1.5px 1.5px 0 var(--ink);
+  transform:translate(1.5px, 1.5px);
+}
+.community__tab-badge{
+  font-family:var(--ff-mono);
+  font-size:10px;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:12px;
+  background:rgba(0,0,0,0.08);
+  color:var(--ink);
+  letter-spacing:.04em;
+  transition:all .18s ease;
+}
+.community__tab-btn.active .community__tab-badge{
+  background:#FFE600;
+  color:#111111;
+}
+.community__tab-pane{
+  display:none;
+}
+.community__tab-pane.active{
+  display:block;
+  animation:commFadeIn .25s ease-out;
+}
+@keyframes commFadeIn{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* NFT Hero Evolution Concept Card */
+.comm-evolution{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:24px;
+  background:#FFFFFF;
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:4px 4px 0 var(--ink);
+  margin-bottom:28px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.comm-evolution:hover{
+  transform:translate(-2px, -2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.comm-evolution__visual{
+  position:relative;
+  background:radial-gradient(circle at 50% 50%, #FAF9F6 20%, #ECE9DF 100%);
+  border:1.5px solid var(--ink);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  overflow:hidden;
+}
+.comm-evolution__img{
+  width:100%;
+  max-height:360px;
+  object-fit:contain;
+  display:block;
+  transition:transform .25s ease;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,0.12));
+}
+.comm-evolution:hover .comm-evolution__img{
+  transform:scale(1.03);
+}
+.comm-evolution__content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.comm-evolution__badges{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.comm-badge{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  font-weight:700;
+  padding:3px 9px;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+.comm-badge--green{
+  background:#EBF7EE;
+  color:#1F7A3E;
+  border:1px solid #1F7A3E;
+}
+.comm-badge--yellow{
+  background:#FFF3C4;
+  color:#946C00;
+  border:1px solid #C49200;
+}
+.comm-evolution__title{
+  font-family:var(--ff-title);
+  font-size:22px;
+  color:var(--ink);
+  margin-bottom:8px;
+  line-height:1.3;
+}
+.comm-evolution__desc{
+  font-family:var(--ff-body);
+  font-size:13px;
+  line-height:1.6;
+  color:var(--ink);
+  margin-bottom:16px;
+  background:#FFFDF2;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:10px 12px;
+}
+.comm-evolution__traits{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:14px;
+}
+.comm-trait-item{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 10px;
+}
+.comm-trait-item__icon{
+  font-size:16px;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.comm-trait-item b{
+  display:block;
+  font-family:var(--ff-title);
+  font-size:12.5px;
+  color:var(--ink);
+  line-height:1.25;
+}
+.comm-trait-item span{
+  display:block;
+  font-family:var(--ff-body);
+  font-size:11px;
+  color:var(--ink-dim);
+  line-height:1.35;
+}
+.comm-evolution__footer-hint{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  color:var(--ink-dim);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* NFT Running Hero Subhead & Cards */
+.comm-subhead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:20px 0 14px;
+  padding-bottom:8px;
+  border-bottom:1.5px dashed var(--line);
+}
+.comm-subhead__title{
+  font-family:var(--ff-title);
+  font-size:16px;
+  color:var(--ink);
+}
+.comm-subhead__sub{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  color:var(--ink-dim);
+}
+.comm-card--nft .comm-card__img-wrap{
+  aspect-ratio:1/1;
+  background:radial-gradient(circle at 50% 50%, #FFFFFF 30%, #F5F4EC 75%, #EBE8DC 100%);
+  padding:10px;
+}
+.comm-card--nft .comm-card__img{
+  object-fit:contain;
+  object-position:center center;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,0.16));
+}
+.comm-card--nft:hover .comm-card__img{
+  transform:scale(1.08) translateY(-2px);
+}
+.comm-card--nft .comm-card__skill{
+  font-weight:700;
+  background:#FFFDE8;
+  color:var(--ink);
+  border-color:#DFD8B4;
+}
 
 /* Community Footprints Reel (真实足迹 · 社区探访与手作实录) */
 .footprints-block{
@@ -849,12 +1152,21 @@ section{padding:72px 0;position:relative;z-index:2}
   overflow:hidden;
 }
 
-@media(max-width:860px){
-  .community__grid{grid-template-columns:repeat(2, 1fr)}
+@media(max-width:1120px){
+  .community__grid{grid-template-columns:repeat(3, 1fr)}
   .community__flow{flex-wrap:wrap;gap:12px}
   .community__step-arrow{display:none}
 }
-@media(max-width:520px){
+@media(max-width:920px){
+  .comm-evolution{grid-template-columns:1fr;gap:16px}
+  .comm-evolution__visual{max-height:280px}
+  .comm-evolution__img{max-height:260px}
+  .comm-evolution__traits{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .community__grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media(max-width:480px){
   .community__grid{grid-template-columns:1fr}
   .footprint-card{flex:0 0 190px}
 }
@@ -1285,11 +1597,10 @@ footer{
       <span class="nav__logo-text">BCM</span>
     </a>
     <nav class="nav__links">
-      <a href="#original">原创</a>
-      <a href="#collection">收藏</a>
+      <a href="#concept">概念</a>
+      <a href="#nft">NFT</a>
       <a href="#playground">车库工坊</a>
-      <a href="#eco">理念</a>
-      <a href="#daily">每日机车</a>
+      <a href="#daily">每日一 mint</a>
       <a href="#community">社区创作</a>
       <a href="#team">D&D团队</a>
       <a href="#faq">问答</a>
@@ -1299,10 +1610,19 @@ footer{
 </header>
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero__inner">
     <div class="hero__badge">One Machine. Every Day. Forever.</div>
-    <h1>101 个原创车架<br>组成 <em>7,700</em> 辆<span class="hl">数字机车</span></h1>
-    <p>BCM（BottleCap Motorcycle · 瓶盖机车）是面向全球的 Web3 原创机车文化项目。名字源于“BottleCap（废弃瓶盖）+ Motorcycle（硬核机车）”的解构碰撞：由团队主创独立完成 101 个原创机车车架设计，再把每个车架配上不同瓶盖元素作为轮毂，组合出 7,700 个独特数字收藏品。每 24 小时链上释放 1 辆机车供全球社区铸造。</p>
+    <h1 class="hero__title">101 个原创车架<br>组成 <em>7,700</em> 辆<span class="hl">数字机车</span></h1>
+    
+    <!-- 居中巨幅动效机车 (Super Graphic C位展台) -->
+    <div class="hero__showcase">
+      <div class="hero__bike-aura" aria-hidden="true"></div>
+      <img src="./images/logo.gif" alt="BCM Motorcycle 瓶盖机车飞驰动效" class="hero__bike-gif">
+      <div class="hero__bike-shadow" aria-hidden="true"></div>
+    </div>
+
+    <p class="hero__desc">BCM（BottleCap Motorcycle · 瓶盖机车）是面向全球的 Web3 原创机车文化项目。名字源于“BottleCap（废弃瓶盖）+ Motorcycle（硬核机车）”的解构碰撞：由团队主创独立完成 101 个原创机车车架设计，再把每个车架配上不同瓶盖元素作为轮毂，组合出 7,700 个独特数字收藏品。每 24 小时链上释放 1 辆机车供全球社区铸造。</p>
+    
     <div class="hero__stats">
       <div class="stat"><b>101</b><span>原创车架（BCM 原创设计）</span></div>
       <div class="stat"><b>7,700</b><span>数字机车 NFT (CC0 公共领域)</span></div>
@@ -1313,13 +1633,35 @@ footer{
   <div class="hero__num" aria-hidden="true">7700</div>
 </section>
 
-<section id="original" class="original">
+<section id="concept" class="concept original">
   <div class="wrap">
-    <div class="sec__num">01 / 原创设计与 CC0 声明</div>
-    <h2 class="sec__title">7,700 辆机车 NFT 全面采用 CC0 协议</h2>
-    <p class="sec__lead">明确原创设计与版权边界：车是我们的原创设计，NFT 整体属于公共领域 (CC0)，瓶盖商标归原品牌方所有。</p>
-    <div class="orig__grid">
+    <div class="sec__num">01 / 概念</div>
+    <h2 class="sec__title">为什么 BCM 存在？<span class="hl">概念与初心</span></h2>
+    <p class="eco__quote" style="margin-bottom:36px;">
+      "每一个瓶盖，都值得被重新看见。<br>不做高高在上的说教，<span class="hl">把被遗弃的日常废品，变成帅气热血的艺术品</span>。"
+    </p>
+    
+    <div class="eco__principles" style="margin-top:0;margin-bottom:48px;">
+      <div class="principle">
+        <div class="principle__num">01</div>
+        <h3>废弃物的艺术重生 (BottleCap → Motorcycle)</h3>
+        <p>源于主创在垃圾处理场的震撼：堆积如山、等待填埋或焚烧的废塑料瓶盖，是日常随手丢弃的缩影。BCM（BottleCap Motorcycle）将日常饮品瓶盖（BottleCap）清洗分类并解构，重构为 109 种独特的电单车（Motorcycle）机械车轮，让最微小的日常废品在热血机械艺术中重获新生。</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">02</div>
+        <h3>两个世代的原创执念</h3>
+        <p>20多岁青年设计师的街头美学，碰撞30多岁科技产品人的工程严谨。倾注心血打磨出 101 部原创车身骨架。“把环保与电单车原创设计结合，做真正有意义的产品”是团队唯一的初心。</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">03</div>
+        <h3>拒绝空谈的真实手作</h3>
+        <p>严格恪守 5R 零废弃原则，所有原料 100% 取自回收废品，绝不采购新塑料。已在广州成功举办多期实体手作工坊，带领上百位参与者亲手把瓶盖变成机车潮玩，让环保成为触手可及的生活方式。</p>
+      </div>
+    </div>
+
+    <div class="orig__grid" style="border-top:1.5px dashed var(--line);padding-top:40px;">
       <div class="orig__body">
+        <h3 style="font-family:var(--ff-title);font-size:22px;margin-bottom:16px;color:var(--ink)">🎨 原创设计与 CC0 协议声明</h3>
         <p>
           <strong>BCM = BottleCap Motorcycle（瓶盖机车）</strong>：名字直观体现了“废弃瓶盖 + 机械机车”的艺术结合。一辆完整的 BCM 数字机车 = <strong>原创车架与机械设计（自主原创 Motorcycle）</strong> + <em>日常饮品瓶盖元素（品牌废弃 BottleCap）</em>。
         </p>
@@ -1370,18 +1712,17 @@ footer{
   </div>
 </section>
 
-<section id="collection">
+<section id="nft" class="collection">
   <div class="wrap">
-    <div class="sec__num">02 / 收藏</div>
-    <h2 class="sec__title">7,700 个<span class="hl">独一无二</span>的组合</h2>
-    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成。</p>
+    <div class="sec__num">02 / NFT</div>
+    <h2 class="sec__title">7,700 个<span class="hl">独一无二</span>的数字机车 NFT</h2>
+    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成，CC0 开放协议。</p>
     <div class="gallery__grid">
       <div class="g-item"><span class="g-item__num">#0001</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1.png" alt="BCM 0001"></div>
       <div class="g-item"><span class="g-item__num">#0100</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/100.png" alt="BCM 0100"></div>
       <div class="g-item"><span class="g-item__num">#0200</span><span class="g-item__dots dots-3">★ ★ ★ ☆ ☆</span><img src="./images/200.png" alt="BCM 0200"></div>
       <div class="g-item"><span class="g-item__num">#0400</span><span class="g-item__dots dots-1">★ ☆ ☆ ☆ ☆</span><img src="./images/400.png" alt="BCM 0400"></div>
     </div>
-    
   </div>
 </section>
 
@@ -1445,44 +1786,17 @@ footer{
   </div>
 </section>
 
-<section id="eco" class="eco">
-  <div class="wrap">
-    <div class="sec__num">04 / 理念</div>
-    <h2 class="sec__title">为什么 BCM 存在？</h2>
-    <p class="eco__quote" style="font-family:var(--fc);font-size:clamp(20px,2vw,28px);font-weight:700;line-height:1.4;max-width:800px;margin:0 auto 48px;text-align:center">
-      "每一个瓶盖，都值得被重新看见。<br>不做高高在上的说教，<span class="hl">把被遗弃的日常废品，变成帅气热血的艺术品</span>。"
-    </p>
-    <div class="eco__principles">
-      <div class="principle">
-        <div class="principle__num">01</div>
-        <h3>废弃物的艺术重生 (BottleCap → Motorcycle)</h3>
-        <p>源于主创在垃圾处理场的震撼：堆积如山、等待填埋或焚烧的废塑料瓶盖，是日常随手丢弃的缩影。BCM（BottleCap Motorcycle）将日常饮品瓶盖（BottleCap）清洗分类并解构，重构为 109 种独特的电单车（Motorcycle）机械车轮，让最微小的日常废品在热血机械艺术中重获新生。</p>
-      </div>
-      <div class="principle">
-        <div class="principle__num">02</div>
-        <h3>两个世代的原创执念</h3>
-        <p>20多岁青年设计师的街头美学，碰撞30多岁科技产品人的工程严谨。倾注心血打磨出 101 部原创车身骨架。“把环保与电单车原创设计结合，做真正有意义的产品”是团队唯一的初心。</p>
-      </div>
-      <div class="principle">
-        <div class="principle__num">03</div>
-        <h3>拒绝空谈的真实手作</h3>
-        <p>严格恪守 5R 零废弃原则，所有原料 100% 取自回收废品，绝不采购新塑料。已在广州成功举办多期实体手作工坊，带领上百位参与者亲手把瓶盖变成机车潮玩，让环保成为触手可及的生活方式。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="daily" class="daily">
   <div class="wrap">
-    <div class="sec__num">05 / 每日发行模式</div>
+    <div class="sec__num">04 / 每日一 mint</div>
     <h2 class="sec__title">One Machine. Every Day. <span class="hl">Forever.</span></h2>
     <p class="sec__lead">智能合约每 24 小时链上生成并释放 1 辆机车供全球社区竞拍与铸造。</p>
     <div class="daily__card">
-      <div style="font-size:12px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase">Today's Release · 24-Hour Cycle</div>
+      <div style="font-size:12px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase">Today's Release · 24-Hour Mint Cycle</div>
       <div class="daily__ratio">#0001</div>
       <div style="font-size:15px;color:var(--ink);margin-bottom:8px;font-weight:bold">当前最高出价：<span style="color:#059669;font-size:22px;font-family:var(--ff-mono)">0.05 ETH</span> · 剩余时间：<span style="font-family:var(--ff-mono)">08h : 24m : 19s</span></div>
       <div class="daily__detail">
-        <b>发行机制</b>：智能合约每 24 小时自动生成并上架 1 辆全新机车<br>
+        <b>每日一 mint 机制</b>：智能合约每 24 小时自动生成并上架 1 辆全新机车<br>
         <b>原创与版权</b>：101 款车架均为团队原创设计，NFT 整体全面遵循 CC0 协议<br>
         <b>人人可参与</b>：无门槛公开竞拍，结标后下一辆机车自动接力开启<br>
         <b>金库赋能</b>：100% 收益汇入社区金库，持续资助实体零废弃工坊与全球骑行生态
@@ -1493,208 +1807,379 @@ footer{
 
 <section id="community" class="community">
   <div class="wrap community__inner">
-    <div class="sec__num">06 / 社区创作</div>
-    <h2 class="sec__title">每个人心目中的<span class="hl">环保角色</span></h2>
-    <p class="sec__lead">“BCM 机车是硬核载具，而社区创作属于所有人。” 无需持有任何 NFT，任何人都可以在工坊用一张草图、一块黏土，亲手捏出自己心中的环保角色与超能力。</p>
+    <div class="sec__num">05 / 社区创作</div>
+    <h2 class="sec__title">机车是载具，<span class="hl">HERO 属于社区</span></h2>
+    <p class="sec__lead">“从实体手作黏土，到链上数字像素。” BCM 机车是承载环保骑行的机械载具，而 BCM HERO 是属于社区的独立角色宇宙。全新 CC0 系列即将在链上启动。</p>
     
-    <div class="community__flow">
-      <div class="community__step"><b>1. 纸上草图</b><span>画出心目中的形象</span></div>
-      <div class="community__step-arrow">➔</div>
-      <div class="community__step"><b>2. 黏土捏模</b><span>亲手塑造成型</span></div>
-      <div class="community__step-arrow">➔</div>
-      <div class="community__step"><b>3. 赋予环保技能</b><span>写下守护超能力</span></div>
-      <div class="community__step-arrow">➔</div>
-      <div class="community__step"><b>4. 社区档案归档</b><span>获得专属档案编号</span></div>
+    <!-- Tab 选项卡切换 -->
+    <div class="community__tabs">
+      <button type="button" class="community__tab-btn active" onclick="switchCommunityTab('nft', this)">
+        <span>🎮</span> BCM HERO 先锋 NFT 预告
+        <span class="community__tab-badge">UPCOMING</span>
+      </button>
+      <button type="button" class="community__tab-btn" onclick="switchCommunityTab('offline', this)">
+        <span>📸</span> 实体工坊与真实足迹
+        <span class="community__tab-badge">FIELD NOTES</span>
+      </button>
     </div>
 
-    <div class="community__grid">
-      <!-- Card 1 -->
-      <div class="comm-card" onclick="openHeroModal('images/heroes/01.jpg', 'No.001 星星人 · 黏土手模与环保技能档案')">
-        <div class="comm-card__img-wrap">
-          <img src="images/heroes/01.jpg" alt="No.001 星星人" class="comm-card__img" loading="lazy">
-          <span class="comm-card__tag">No.001</span>
-          <span class="comm-card__zoom">🔍 放大</span>
+    <!-- TAB 1: BCM HERO NFT 预告 -->
+    <div id="community-tab-nft" class="community__tab-pane active">
+      <!-- 核心概念原点海报与进化图谱 -->
+      <div class="comm-evolution" onclick="openHeroModal('images/heroes/hero_evolution.png', 'BCM HERO 概念原点进化图谱 · 从实体手捏黏土到链上像素跑者 · CC0 开放版权')">
+        <div class="comm-evolution__visual">
+          <img src="images/heroes/hero_evolution.png" alt="BCM HERO 概念进化图谱" class="comm-evolution__img" loading="lazy">
+          <span class="comm-card__zoom">🔍 放大图谱</span>
         </div>
-        <div class="comm-card__title">
-          <span>星星人</span>
-          <span class="comm-card__en">Star Guy</span>
+        <div class="comm-evolution__content">
+          <div class="comm-evolution__badges">
+            <span class="comm-badge comm-badge--green">🧬 创作原点 · From Clay to Pixel</span>
+            <span class="comm-badge comm-badge--yellow">⚡ UPCOMING CC0 HERO NFT</span>
+          </div>
+          <h3 class="comm-evolution__title">从实体黏土捏模，到链上数字英雄</h3>
+          <p class="comm-evolution__desc">
+            每一个 BCM 英雄都不是凭空生成的冷冰代码，而是起源于线下工坊的真实黏土与草图。经过数字化重构与像素化提炼，转化为拥有独立环保超能力的奔跑姿态 NFT。
+          </p>
+          <div class="comm-evolution__traits">
+            <div class="comm-trait-item">
+              <span class="comm-trait-item__icon">🏃</span>
+              <div>
+                <b>统一极速奔跑姿态 (Running Pose)</b>
+                <span>永不停歇的极速巡礼，穿越城市废墟与自然边境</span>
+              </div>
+            </div>
+            <div class="comm-trait-item">
+              <span class="comm-trait-item__icon">🎨</span>
+              <div>
+                <b>波普废弃物与迷因跨界</b>
+                <span>融合快餐纸盒、Web3 Meme、街机像素与极地生态</span>
+              </div>
+            </div>
+            <div class="comm-trait-item">
+              <span class="comm-trait-item__icon">🌐</span>
+              <div>
+                <b>CC0 100% 开放版权</b>
+                <span>角色完全归属社区共创，自由商用与二创衍生</span>
+              </div>
+            </div>
+            <div class="comm-trait-item">
+              <span class="comm-trait-item__icon">🛵</span>
+              <div>
+                <b>机车与骑手双重赋能</b>
+                <span>未来与 101 款车架联动，持续反哺实体零废弃工坊</span>
+              </div>
+            </div>
+          </div>
+          <div class="comm-evolution__footer-hint">
+            💡 点击卡片可查看高清手捏黏土与像素进化海报大图
+          </div>
         </div>
-        <p class="comm-card__quote">“用触须分解有害垃圾，身体颜色随之变化。积攒的能量在夜晚发光，为怕黑的人亮起小夜灯。”</p>
-        <div class="comm-card__skill">♻️ 触须分解 · 夜光蓄能</div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="comm-card" onclick="openHeroModal('images/heroes/02.jpg', 'No.002 铲铲人 · 黏土手模与环保技能档案')">
-        <div class="comm-card__img-wrap">
-          <img src="images/heroes/02.jpg" alt="No.002 铲铲人" class="comm-card__img" loading="lazy">
-          <span class="comm-card__tag">No.002</span>
-          <span class="comm-card__zoom">🔍 放大</span>
-        </div>
-        <div class="comm-card__title">
-          <span>铲铲人</span>
-          <span class="comm-card__en">Digger Boy</span>
-        </div>
-        <p class="comm-card__quote">“把垃圾转化成各种知识图鉴。肚子变大证明回收了特别多垃圾，帮大家丰富对世界的理解。”</p>
-        <div class="comm-card__skill">♻️ 知识转化 · 百科图鉴</div>
+      <!-- 5位奔跑先锋英雄抢先预览 -->
+      <div class="comm-subhead">
+        <div class="comm-subhead__title">先锋跑者档案 · 首批 5 位生态英雄抢先预览</div>
+        <div class="comm-subhead__sub">点击任意英雄查看高清立绘与专属技能档案</div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="comm-card" onclick="openHeroModal('images/heroes/05.jpg', 'No.005 大王狮子 · 黏土手模与环保技能档案')">
-        <div class="comm-card__img-wrap">
-          <img src="images/heroes/05.jpg" alt="No.005 大王狮子" class="comm-card__img" loading="lazy">
-          <span class="comm-card__tag">No.005</span>
-          <span class="comm-card__zoom">🔍 放大</span>
+      <div class="community__grid">
+        <!-- Card 1: 麦当劳 / 黄金小丑 -->
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_mcdonalds.png', '#H01 黄金小丑 (Golden Clown) · 波普快餐符号 · 技能：🍔 纸盒重构 · 变废为宝')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/hero_mcdonalds.png" alt="#H01 黄金小丑" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">#H01</span>
+            <span class="comm-card__zoom">🔍 查看立绘</span>
+          </div>
+          <div class="comm-card__title">
+            <span>黄金小丑</span>
+            <span class="comm-card__en">Golden Clown</span>
+          </div>
+          <p class="comm-card__quote">“随手拆开的麦乐送纸盒与番茄酱红发。以快餐文化废品为甲胄，将一次性包装反客为主重塑为街头艺术。”</p>
+          <div class="comm-card__skill">🍔 纸盒重构 · 变废为宝</div>
         </div>
-        <div class="comm-card__title">
-          <span>大王狮子</span>
-          <span class="comm-card__en">Lion King</span>
+
+        <!-- Card 2: Pepe / 佩佩跑者 -->
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pepe.png', '#H02 佩佩跑者 (Pepe Runner) · Web3 Meme · 技能：🐸 迷因共振 · 极速巡礼')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/hero_pepe.png" alt="#H02 佩佩跑者" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">#H02</span>
+            <span class="comm-card__zoom">🔍 查看立绘</span>
+          </div>
+          <div class="comm-card__title">
+            <span>佩佩跑者</span>
+            <span class="comm-card__en">Pepe Runner</span>
+          </div>
+          <p class="comm-card__quote">“Web3 社区最负盛名的绿色迷因化身环保跑者。在链上全速穿行，把一切投机泡沫转化为真实的环保行动。”</p>
+          <div class="comm-card__skill">🐸 迷因共振 · 极速巡礼</div>
         </div>
-        <p class="comm-card__quote">“具王者之威！变身工程师维护垃圾处理设备，让地球系统正常运转。路见不平拔刀相助！”</p>
-        <div class="comm-card__skill">♻️ 设备维护 · 守护系统</div>
+
+        <!-- Card 3: 蟑螂 / 顽强小强 -->
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_survivor.png', '#H03 顽强小强 (The Survivor) · 极境生存者 · 技能：🪳 极境适应 · 不死生命')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/hero_survivor.png" alt="#H03 顽强小强" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">#H03</span>
+            <span class="comm-card__zoom">🔍 查看立绘</span>
+          </div>
+          <div class="comm-card__title">
+            <span>顽强小强</span>
+            <span class="comm-card__en">The Survivor</span>
+          </div>
+          <p class="comm-card__quote">“披风猎猎、双角破空。无论辐射、废墟还是极端污染，都无法压制它顽强的生命力，象征地球环境最后的坚韧守望。”</p>
+          <div class="comm-card__skill">🪳 极境适应 · 不死生命</div>
+        </div>
+
+        <!-- Card 4: 企鹅 / 极地企鹅 -->
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pingu.png', '#H04 极地企鹅 (Pingu) · 极地生态 · 技能：🐧 极地守望 · 冰川预警')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/hero_pingu.png" alt="#H04 极地企鹅" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">#H04</span>
+            <span class="comm-card__zoom">🔍 查看立绘</span>
+          </div>
+          <div class="comm-card__title">
+            <span>极地企鹅</span>
+            <span class="comm-card__en">Pingu</span>
+          </div>
+          <p class="comm-card__quote">“标志性红三角尖嘴与极地黑白身躯。穿越融化冰川而来的两极使者，每一步奔跑都在向世界发出气候预警。”</p>
+          <div class="comm-card__skill">🐧 极地守望 · 冰川预警</div>
+        </div>
+
+        <!-- Card 5: 吃豆人 / 吃豆先锋 -->
+        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pacman.png', '#H05 吃豆先锋 (Pac-Chomp) · 复古街机 · 技能：🟡 像素吞噬 · 微塑料克星')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/hero_pacman.png" alt="#H05 吃豆先锋" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">#H05</span>
+            <span class="comm-card__zoom">🔍 查看立绘</span>
+          </div>
+          <div class="comm-card__title">
+            <span>吃豆先锋</span>
+            <span class="comm-card__en">Pac-Chomp</span>
+          </div>
+          <p class="comm-card__quote">“经典黄色像素头盔与奔跑身躯。在现实与数字缝隙中穿梭，将海洋和土壤里的微塑料颗粒通通吞噬殆尽。”</p>
+          <div class="comm-card__skill">🟡 像素吞噬 · 微塑料克星</div>
+        </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="comm-card" onclick="openHeroModal('images/heroes/07.jpg', 'No.007 粟猫儿 · 黏土手模与环保技能档案')">
-        <div class="comm-card__img-wrap">
-          <img src="images/heroes/07.jpg" alt="No.007 粟猫儿" class="comm-card__img" loading="lazy">
-          <span class="comm-card__tag">No.007</span>
-          <span class="comm-card__zoom">🔍 放大</span>
-        </div>
-        <div class="comm-card__title">
-          <span>粟猫儿</span>
-          <span class="comm-card__en">Su-Cat</span>
-        </div>
-        <p class="comm-card__quote">“极速收集废弃塑料与纸箱，为在外流浪的小动物做好临时避难所，是回收竞赛第一名！”</p>
-        <div class="comm-card__skill">♻️ 极速巡逻 · 动物庇护</div>
-      </div>
-    </div>
-
-    <!-- 真实足迹 · 社区探访与手作实录 (The Field Reel) -->
-    <div class="footprints-block">
-      <div class="footprints__header">
-        <div class="footprints__title-wrap">
-          <span class="footprints__badge">📸 真实足迹</span>
-          <span class="footprints__sub">线下走访、工坊共创与手作纪实</span>
-        </div>
-        <div class="footprints__hint">← 左右滑动浏览 · 点击任意照片放大查看细节 →</div>
-      </div>
-
-      <div class="footprints__reel">
-        <!-- 01 废金属回收站探访 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/scrap_yard_visit.png', '废品回收站实地走访 · 探寻机车金属车架与低碳重生灵感')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/scrap_yard_visit.jpg" alt="废旧金属回收站探访" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 废品回收站</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">实地溯源 · 寻找回收金属</div>
-            <div class="footprint-card__note">在成吨废金属前实地走访，探寻原创机车车架的低碳重生之源。</div>
-          </div>
-        </div>
-
-        <!-- 02 孩子动手创作 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/nextgen_workshop.png', '社区教育现场 · 吸引新生代注意力，授予下一代年轻人动手创作力')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/nextgen_workshop.jpg" alt="吸引新生代动手创作" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 社区新生代</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">吸引新生代 · 赋予动手力</div>
-            <div class="footprint-card__note">将环保与机车设计融入社区，带小朋友用瓶盖与画纸亲手创作。</div>
-          </div>
-        </div>
-
-        <!-- 03 麦当劳外卖盒再造 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/mcdonalds_upcycle.png', '变废为宝实录 · 展开麦当劳外卖纸盒手绘机车，瓶盖重塑为轮子')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/mcdonalds_upcycle.jpg" alt="麦当劳纸盒变废为宝" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 变废为宝</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">麦乐送纸盒 · 环保再造</div>
-            <div class="footprint-card__note">随手展开的外卖包装盒，嵌上两颗饮品瓶盖即成手绘原创机车。</div>
-          </div>
-        </div>
-
-        <!-- 04 工坊工作台 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/craft_workbench.png', '手作工坊工作台 · 收集日常饮料瓶盖与手工精细裁切拼贴')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/craft_workbench.jpg" alt="线下工坊手作台" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 工坊现场</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">工作台 · 五彩瓶盖库</div>
-            <div class="footprint-card__note">切割垫、刻刀与收集的各品牌瓶盖，每一份手作作品的真实起点。</div>
-          </div>
-        </div>
-
-        <!-- 05 超市货架寻盖之旅 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/store_cap_hunt.png', '寻盖之旅 · 便利店与商超货架的日常瓶盖发掘与点赞打卡')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/store_cap_hunt.jpg" alt="便利店货架寻盖之旅" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 寻盖之旅</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">货架巡礼 · 生活中的零件</div>
-            <div class="footprint-card__note">在商超货架间寻找独特色泽的瓶盖，发掘日常废弃物的二次生命。</div>
-          </div>
-        </div>
-
-        <!-- 06 #287创意园展出 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/gallery_287_mirror.png', '#287 创意园线下艺术展 · 实木画框左侧加装真实机车后视镜')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/gallery_287_mirror.jpg" alt="287创意园真后视镜展出" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 空间展陈</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">#287创意园 · 实体后视镜</div>
-            <div class="footprint-card__note">实木画框左侧加装真实机车镀铬后视镜，展出 1/48 原创机车画作。</div>
-          </div>
-        </div>
-
-        <!-- 07 Adventure Station 亚洲汽水 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/station_retro_riders.png', 'Adventure Station 空间展板 · 亚洲汽水 1946 经典铝盖挂板')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/station_retro_riders.jpg" alt="Adventure Station 空间挂板" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 空间挂件</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">Adventure Station · 挂板</div>
-            <div class="footprint-card__note">选用 1946 经典亚洲汽水铝盖作为复古骑手机车的实体轮毂。</div>
-          </div>
-        </div>
-
-        <!-- 08 BCM手作日记 实体手办 -->
-        <div class="footprint-card" onclick="openHeroModal('images/footprints/miniature_figure_craft.png', 'BCM 团队手作日记 · NFT 实体微缩机械手办打磨与零件拼装')">
-          <div class="footprint-card__img-wrap">
-            <img src="images/footprints/thumbs/miniature_figure_craft.jpg" alt="NFT实体手办打磨" class="footprint-card__img" loading="lazy">
-            <span class="footprint-card__tag">📍 团队日记</span>
-            <span class="footprint-card__zoom">🔍 放大</span>
-          </div>
-          <div class="footprint-card__body">
-            <div class="footprint-card__title">手作日记 · 实体手办改装</div>
-            <div class="footprint-card__note">微型电磨与乐高科技机械件，将咖啡瓶盖精工打磨成微缩机械手办。</div>
-          </div>
-        </div>
+      <div class="community__footer-note">
+        ⚡ <strong>BCM HERO NFT 预告</strong>：CC0 开放版权 · 链上智能合约与发行规则发布在即 · 角色与机车双重赋能社区金库
       </div>
     </div>
 
-    <div class="community__footer-note">
-      🌱 <strong>零门槛参与</strong>：无需拥有任何机车 NFT，任何人均可在实体工坊或线上参与创作 · 点击卡片查看高清大图与手作细节
+    <!-- TAB 2: 实体工坊与真实足迹 -->
+    <div id="community-tab-offline" class="community__tab-pane">
+      <div class="community__flow">
+        <div class="community__step"><b>1. 纸上草图</b><span>画出心目中的形象</span></div>
+        <div class="community__step-arrow">➔</div>
+        <div class="community__step"><b>2. 黏土捏模</b><span>亲手塑造成型</span></div>
+        <div class="community__step-arrow">➔</div>
+        <div class="community__step"><b>3. 赋予环保技能</b><span>写下守护超能力</span></div>
+        <div class="community__step-arrow">➔</div>
+        <div class="community__step"><b>4. 社区档案归档</b><span>获得专属档案编号</span></div>
+      </div>
+
+      <div class="community__grid">
+        <!-- Card 1: No.001 星星人 -->
+        <div class="comm-card" onclick="openHeroModal('images/heroes/001.jpg', 'No.001 星星人 · 线下工坊草图与黏土共创立案档案')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/001.jpg" alt="No.001 星星人" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">No.001</span>
+            <span class="comm-card__zoom">🔍 放大</span>
+          </div>
+          <div class="comm-card__title">
+            <span>星星人</span>
+            <span class="comm-card__en">Star Guy</span>
+          </div>
+          <p class="comm-card__quote">“用触须分解有害垃圾，身体颜色随之变化。积攒的能量在夜晚发光，为怕黑的人亮起小夜灯。”</p>
+          <div class="comm-card__skill">♻️ 触须分解 · 夜光蓄能</div>
+        </div>
+
+        <!-- Card 2: No.002 铲铲人 -->
+        <div class="comm-card" onclick="openHeroModal('images/heroes/002.jpg', 'No.002 铲铲人 · 线下工坊草图与黏土共创立案档案')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/002.jpg" alt="No.002 铲铲人" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">No.002</span>
+            <span class="comm-card__zoom">🔍 放大</span>
+          </div>
+          <div class="comm-card__title">
+            <span>铲铲人</span>
+            <span class="comm-card__en">Digger Boy</span>
+          </div>
+          <p class="comm-card__quote">“把垃圾转化成各种知识图鉴。肚子变大证明回收了特别多垃圾，帮大家丰富对世界的理解。”</p>
+          <div class="comm-card__skill">♻️ 知识转化 · 百科图鉴</div>
+        </div>
+
+        <!-- Card 3: No.004 喵喵人 -->
+        <div class="comm-card" onclick="openHeroModal('images/heroes/004.jpg', 'No.004 喵喵人 · 线下工坊草图与黏土共创立案档案')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/004.jpg" alt="No.004 喵喵人" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">No.004</span>
+            <span class="comm-card__zoom">🔍 放大</span>
+          </div>
+          <div class="comm-card__title">
+            <span>喵喵人</span>
+            <span class="comm-card__en">Miao Cat</span>
+          </div>
+          <p class="comm-card__quote">“用超能力尾巴将垃圾清理进垃圾桶，不断转化出爱心能量，给奔跑在环保之路的人加油打气。”</p>
+          <div class="comm-card__skill">♻️ 爱心转化 · 梦想守护</div>
+        </div>
+
+        <!-- Card 4: No.005 大王狮子 -->
+        <div class="comm-card" onclick="openHeroModal('images/heroes/005.jpg', 'No.005 大王狮子 · 线下工坊草图与黏土共创立案档案')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/005.jpg" alt="No.005 大王狮子" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">No.005</span>
+            <span class="comm-card__zoom">🔍 放大</span>
+          </div>
+          <div class="comm-card__title">
+            <span>大王狮子</span>
+            <span class="comm-card__en">Lion King</span>
+          </div>
+          <p class="comm-card__quote">“具王者之威！变身工程师维护垃圾处理设备，让地球系统正常运转。路见不平拔刀相助！”</p>
+          <div class="comm-card__skill">♻️ 设备维护 · 守护系统</div>
+        </div>
+
+        <!-- Card 5: No.007 粟猫儿 -->
+        <div class="comm-card" onclick="openHeroModal('images/heroes/007.jpg', 'No.007 粟猫儿 · 线下工坊草图与黏土共创立案档案')">
+          <div class="comm-card__img-wrap">
+            <img src="images/heroes/007.jpg" alt="No.007 粟猫儿" class="comm-card__img" loading="lazy">
+            <span class="comm-card__tag">No.007</span>
+            <span class="comm-card__zoom">🔍 放大</span>
+          </div>
+          <div class="comm-card__title">
+            <span>粟猫儿</span>
+            <span class="comm-card__en">Su-Cat</span>
+          </div>
+          <p class="comm-card__quote">“极速收集废弃塑料与纸箱，为在外流浪的小动物做好临时避难所，是回收竞赛第一名！”</p>
+          <div class="comm-card__skill">♻️ 极速巡逻 · 动物庇护</div>
+        </div>
+      </div>
+
+      <!-- 真实足迹 · 社区探访与手作实录 (The Field Reel) -->
+      <div class="footprints-block">
+        <div class="footprints__header">
+          <div class="footprints__title-wrap">
+            <span class="footprints__badge">📸 真实足迹</span>
+            <span class="footprints__sub">线下走访、工坊共创与手作纪实</span>
+          </div>
+          <div class="footprints__hint">← 左右滑动浏览 · 点击任意照片放大查看细节 →</div>
+        </div>
+
+        <div class="footprints__reel">
+          <!-- 01 废金属回收站探访 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/scrap_yard_visit.png', '废品回收站实地走访 · 探寻机车金属车架与低碳重生灵感')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/scrap_yard_visit.jpg" alt="废旧金属回收站探访" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 废品回收站</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">实地溯源 · 寻找回收金属</div>
+              <div class="footprint-card__note">在成吨废金属前实地走访，探寻原创机车车架的低碳重生之源。</div>
+            </div>
+          </div>
+
+          <!-- 02 孩子动手创作 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/nextgen_workshop.png', '社区教育现场 · 吸引新生代注意力，授予下一代年轻人动手创作力')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/nextgen_workshop.jpg" alt="吸引新生代动手创作" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 社区新生代</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">吸引新生代 · 赋予动手力</div>
+              <div class="footprint-card__note">将环保与机车设计融入社区，带小朋友用瓶盖与画纸亲手创作。</div>
+            </div>
+          </div>
+
+          <!-- 03 麦当劳外卖盒再造 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/mcdonalds_upcycle.png', '变废为宝实录 · 展开麦当劳外卖纸盒手绘机车，瓶盖重塑为轮子')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/mcdonalds_upcycle.jpg" alt="麦当劳纸盒变废为宝" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 变废为宝</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">麦乐送纸盒 · 环保再造</div>
+              <div class="footprint-card__note">随手展开的外卖包装盒，嵌上两颗饮品瓶盖即成手绘原创机车。</div>
+            </div>
+          </div>
+
+          <!-- 04 工坊工作台 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/craft_workbench.png', '手作工坊工作台 · 收集日常饮料瓶盖与手工精细裁切拼贴')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/craft_workbench.jpg" alt="线下工坊手作台" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 工坊现场</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">工作台 · 五彩瓶盖库</div>
+              <div class="footprint-card__note">切割垫、刻刀与收集的各品牌瓶盖，每一份手作作品的真实起点。</div>
+            </div>
+          </div>
+
+          <!-- 05 超市货架寻盖之旅 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/store_cap_hunt.png', '寻盖之旅 · 便利店与商超货架的日常瓶盖发掘与点赞打卡')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/store_cap_hunt.jpg" alt="便利店货架寻盖之旅" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 寻盖之旅</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">货架巡礼 · 生活中的零件</div>
+              <div class="footprint-card__note">在商超货架间寻找独特色泽的瓶盖，发掘日常废弃物的二次生命。</div>
+            </div>
+          </div>
+
+          <!-- 06 #287创意园展出 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/gallery_287_mirror.png', '#287 创意园线下艺术展 · 实木画框左侧加装真实机车后视镜')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/gallery_287_mirror.jpg" alt="287创意园真后视镜展出" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 空间展陈</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">#287创意园 · 实体后视镜</div>
+              <div class="footprint-card__note">实木画框左侧加装真实机车镀铬后视镜，展出 1/48 原创机车画作。</div>
+            </div>
+          </div>
+
+          <!-- 07 Adventure Station 亚洲汽水 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/station_retro_riders.png', 'Adventure Station 空间展板 · 亚洲汽水 1946 经典铝盖挂板')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/station_retro_riders.jpg" alt="Adventure Station 空间挂板" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 空间挂件</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">Adventure Station · 挂板</div>
+              <div class="footprint-card__note">选用 1946 经典亚洲汽水铝盖作为复古骑手机车的实体轮毂。</div>
+            </div>
+          </div>
+
+          <!-- 08 BCM手作日记 实体手办 -->
+          <div class="footprint-card" onclick="openHeroModal('images/footprints/miniature_figure_craft.png', 'BCM 团队手作日记 · NFT 实体微缩机械手办打磨与零件拼装')">
+            <div class="footprint-card__img-wrap">
+              <img src="images/footprints/thumbs/miniature_figure_craft.jpg" alt="NFT实体手办打磨" class="footprint-card__img" loading="lazy">
+              <span class="footprint-card__tag">📍 团队日记</span>
+              <span class="footprint-card__zoom">🔍 放大</span>
+            </div>
+            <div class="footprint-card__body">
+              <div class="footprint-card__title">手作日记 · 实体手办改装</div>
+              <div class="footprint-card__note">微型电磨与乐高科技机械件，将咖啡瓶盖精工打磨成微缩机械手办。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="community__footer-note">
+        🌱 <strong>零门槛参与</strong>：无需拥有任何机车 NFT，任何人均可在实体工坊或线上参与创作 · 点击卡片查看高清大图与手作细节
+      </div>
     </div>
   </div>
 </section>
 
 <section id="team" class="team">
   <div class="wrap">
-    <div class="sec__num">07 / 创始团队与手作故事</div>
+    <div class="sec__num">06 / 创始团队与手作故事</div>
     <h2 class="sec__title">艺术与工程的灵感共鸣：<span class="hl">D&D 团队</span></h2>
     <p class="sec__lead">“每一个瓶盖，都值得被重新看见。” 从垃圾场被遗弃的彩色瓶盖，到 101 部原创手作机车与 7,700 辆数字藏品。</p>
     
@@ -1766,7 +2251,7 @@ footer{
 
 <section id="faq" class="faq">
   <div class="wrap">
-    <div class="sec__num">08 / 常见问题</div>
+    <div class="sec__num">07 / 常见问题</div>
     <h2 class="sec__title">关于 BCM，<span class="hl">新用户常问的</span>问题</h2>
     <div class="faq__list">
       <div class="faq__item">
@@ -1787,10 +2272,10 @@ footer{
         </div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">机车是如何发行的？</div>
+        <div class="faq__q">机车是如何发行的？（什么是每日一 mint？）</div>
         <div class="faq__a"><div class="faq__a-inner">
           <b>One Machine. Every Day. Forever.</b><br>
-          智能合约每 24 小时自动生成并释放 1 辆机车进行公开铸造与竞拍。当天竞拍结束后，下一辆机车自动生成并开启新一轮 24 小时释放。
+          智能合约每 24 小时自动生成并释放 1 辆机车进行公开铸造（每日一 mint）与竞拍。当天竞拍结束后，下一辆机车自动生成并开启新一轮 24 小时释放。
         </div></div>
       </div>
       <div class="faq__item">
@@ -1826,7 +2311,7 @@ footer{
       <div class="faq__item">
         <div class="faq__q">我是 Web3 新手，怎么参与？</div>
         <div class="faq__a"><div class="faq__a-inner">
-          <b>不需要懂复杂的区块链技术</b>。每日机车释放时，你只需要：<br>
+          <b>不需要懂复杂的区块链技术</b>。每日一 mint 释放时，你只需要：<br>
           1. 下载一个 Web3 钱包 App（MetaMask / OKX Wallet / Rabby）<br>
           2. 准备少量 ETH（几百元即可参与出价或体验）<br>
           3. 访问 bcm.motorcycle，连接钱包参与今日机车出价<br>
@@ -1839,8 +2324,8 @@ footer{
 
 <section id="cta" class="cta">
   <div class="wrap">
-    <h2>每日机车释放<br><span class="hl">第一时间</span>通知你</h2>
-    <p style="color:var(--ink-dim);margin-bottom:32px;font-size:14px">订阅邮件，获取每日机车释放提醒、拍卖动态与手作工坊现场资讯。</p>
+    <h2>每日一 mint<br><span class="hl">第一时间</span>通知你</h2>
+    <p style="color:var(--ink-dim);margin-bottom:32px;font-size:14px">订阅邮件，获取每日一 mint 释放提醒、拍卖动态与手作工坊现场资讯。</p>
     <form class="cta__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='✓ 已订阅';">
       <input type="email" placeholder="your@email.com" required>
       <button type="submit">订阅 →</button>
@@ -2008,6 +2493,14 @@ function openHeroModal(imgSrc, caption) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+}
+
+function switchCommunityTab(tabName, btn) {
+  document.querySelectorAll('.community__tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.community__tab-pane').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const target = document.getElementById('community-tab-' + tabName);
+  if (target) target.classList.add('active');
 }
 
 function closeHeroModal() {
