@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BCM 🛵 — 原创机车艺术</title>
+<title data-i18n="doc_title">BCM 🛵 — Bespoke Motorcycle Art & CC0 On-Chain Collectibles</title>
 <link rel="icon" type="image/gif" href="./images/logo.gif">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,50 @@ a{color:inherit;text-decoration:none}
 .nav__cta:active{
   transform:translate(2px, 2px);
   box-shadow:1px 1px 0 var(--ink);
+}
+.nav__actions{display:flex;align-items:center;gap:12px}
+.nav__lang-toggle{
+  display:inline-flex;
+  align-items:center;
+  background:var(--paper-warm);
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:4px 10px;
+  font-family:var(--ff-title);
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:2px 2px 0 var(--ink);
+  transition:all .15s ease;
+  user-select:none;
+  gap:4px;
+  line-height:1;
+}
+.nav__lang-toggle:hover{
+  transform:translateY(-1px);
+  box-shadow:3px 3px 0 var(--ink);
+  background:#FFFFFF;
+}
+.nav__lang-toggle:active{
+  transform:translateY(1px);
+  box-shadow:1px 1px 0 var(--ink);
+}
+.lang-opt{
+  color:var(--ink-dim);
+  transition:color .15s ease, font-weight .15s ease;
+  font-size:12px;
+}
+.lang-opt.active{
+  color:var(--ink);
+  font-weight:900;
+  text-decoration:underline;
+  text-decoration-thickness:2px;
+  text-underline-offset:2px;
+}
+.lang-opt-sep{
+  color:var(--line);
+  font-weight:400;
+  font-size:11px;
 }
 
 .hero{
@@ -760,65 +804,19 @@ section{padding:72px 0;position:relative;z-index:2}
 }
 .community__footer-note strong{color:var(--ink)}
 
-/* --- 06.1 COMMUNITY TABS & NFT PREVIEW --- */
-.community__tabs{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin:24px 0 28px;
-  flex-wrap:wrap;
-}
-.community__tab-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:#FFFFFF;
-  color:var(--ink);
-  border:2px solid var(--ink);
-  border-radius:30px;
-  padding:10px 22px;
-  font-family:var(--ff-title);
-  font-size:15px;
-  cursor:pointer;
-  box-shadow:3px 3px 0 var(--ink);
-  transition:all .18s ease;
-}
-.community__tab-btn:hover{
-  transform:translate(-1px, -1px);
-  box-shadow:4.5px 4.5px 0 var(--ink);
-  background:#FFFDF0;
-}
-.community__tab-btn.active{
-  background:var(--ink);
-  color:#FFFFFF;
-  box-shadow:1.5px 1.5px 0 var(--ink);
-  transform:translate(1.5px, 1.5px);
-}
-.community__tab-badge{
+.hero-tag-badge{
+  display:inline-block;
   font-family:var(--ff-mono);
   font-size:10px;
   font-weight:700;
   padding:2px 7px;
   border-radius:12px;
-  background:rgba(0,0,0,0.08);
-  color:var(--ink);
-  letter-spacing:.04em;
-  transition:all .18s ease;
-}
-.community__tab-btn.active .community__tab-badge{
   background:#FFE600;
   color:#111111;
-}
-.community__tab-pane{
-  display:none;
-}
-.community__tab-pane.active{
-  display:block;
-  animation:commFadeIn .25s ease-out;
-}
-@keyframes commFadeIn{
-  from{opacity:0;transform:translateY(6px)}
-  to{opacity:1;transform:translateY(0)}
+  border:1.5px solid var(--ink);
+  letter-spacing:.04em;
+  vertical-align:middle;
+  margin-left:6px;
 }
 
 /* NFT Hero Evolution Concept Card */
@@ -1587,36 +1585,43 @@ footer{
       <span class="nav__logo-text">BCM</span>
     </a>
     <nav class="nav__links">
-      <a href="#concept">概念</a>
-      <a href="#nft">NFT</a>
-      <a href="#playground">车库工坊</a>
-      <a href="#daily">每日一 mint</a>
-      <a href="#community">社区创作</a>
-      <a href="#team">D&D团队</a>
-      <a href="#faq">问答</a>
+      <a href="#concept" data-i18n="nav_concept">Concept</a>
+      <a href="#nft" data-i18n="nav_nft">NFTs</a>
+      <a href="#playground" data-i18n="nav_playground">Workshop</a>
+      <a href="#daily" data-i18n="nav_daily">Daily Mint</a>
+      <a href="#community" data-i18n="nav_community">Community</a>
+      <a href="#team" data-i18n="nav_team">D&D Team</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </nav>
-    <a href="#cta" class="nav__cta">订阅 →</a>
+        <div class="nav__actions">
+      <button id="langToggle" class="nav__lang-toggle" type="button" onclick="toggleLanguage()" aria-label="Switch Language (EN / 中)">
+        <span class="lang-opt lang-opt--en active">EN</span>
+        <span class="lang-opt-sep">/</span>
+        <span class="lang-opt lang-opt--zh">中</span>
+      </button>
+      <a href="#cta" class="nav__cta" data-i18n="nav_subscribe">Subscribe →</a>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap hero__inner">
     <div class="hero__badge">One Machine. Every Day. Forever.</div>
-    <h1 class="hero__title">101 个原创车架<br>组成 <em>7,700</em> 辆<span class="hl">数字机车</span></h1>
+    <h1 class="hero__title" data-i18n-html="hero_title">101 Bespoke Frames<br>Forming <em>7,700</em> Digital <span class="hl">Motorbikes</span></h1>
     
-    <!-- 居中巨幅动效机车 (Super Graphic C位展台) -->
+    <!-- Center Super Graphic Hero Showcase -->
     <div class="hero__showcase">
-      <img src="./images/logo.gif" alt="BCM Motorcycle 瓶盖机车飞驰动效" class="hero__bike-gif">
+      <img src="./images/logo.gif" alt="BCM Motorcycle In Motion" data-i18n-alt="hero_img_alt" class="hero__bike-gif">
       <div class="hero__bike-shadow" aria-hidden="true"></div>
     </div>
 
-    <p class="hero__desc">BCM（BottleCap Motorcycle · 瓶盖机车）是面向全球的 Web3 原创机车文化项目。名字源于“BottleCap（废弃瓶盖）+ Motorcycle（硬核机车）”的解构碰撞：由团队主创独立完成 101 个原创机车车架设计，再把每个车架配上不同瓶盖元素作为轮毂，组合出 7,700 个独特数字收藏品。每 24 小时链上释放 1 辆机车供全球社区铸造。</p>
+    <p class="hero__desc" data-i18n="hero_desc">BCM (BottleCap Motorcycle) is a global Web3 initiative rooted in bespoke motorcycle craft and sustainable urban culture. Born from a collision of upcycled bottle caps and raw mechanical aesthetics: 101 fully original motorcycle chassis, each paired with diverse reclaimed bottle caps as custom wheels, yielding 7,700 distinct digital collectibles. Released on-chain at a rate of 1 motorcycle every 24 hours for the global community to mint.</p>
     
     <div class="hero__stats">
-      <div class="stat"><b>101</b><span>原创车架（BCM 原创设计）</span></div>
-      <div class="stat"><b>7,700</b><span>数字机车 NFT (CC0 公共领域)</span></div>
-      <div class="stat"><b>24h</b><span>每日释放 1 辆机车</span></div>
-      <div class="stat"><b>100%</b><span>CC0 开放创作与商用</span></div>
+      <div class="stat"><b>101</b><span data-i18n="hero_stat1">原创车架（BCM 原创设计）</span></div>
+      <div class="stat"><b>7,700</b><span data-i18n="hero_stat2">数字机车 NFT (CC0 公共领域)</span></div>
+      <div class="stat"><b>24h</b><span data-i18n="hero_stat3">每日释放 1 辆机车</span></div>
+      <div class="stat"><b>100%</b><span data-i18n="hero_stat4">CC0 开放创作与商用</span></div>
     </div>
   </div>
   <div class="hero__num" aria-hidden="true">7700</div>
@@ -1624,78 +1629,25 @@ footer{
 
 <section id="concept" class="concept original">
   <div class="wrap">
-    <div class="sec__num">01 / 概念</div>
-    <h2 class="sec__title">为什么 BCM 存在？<span class="hl">概念与初心</span></h2>
-    <p class="eco__quote" style="margin-bottom:36px;">
-      "每一个瓶盖，都值得被重新看见。<br>不做高高在上的说教，<span class="hl">把被遗弃的日常废品，变成帅气热血的艺术品</span>。"
-    </p>
+    <div class="sec__num" data-i18n="concept_num">01 / CONCEPT</div>
+    <h2 class="sec__title" data-i18n-html="concept_title">Why BCM Exists: <span class="hl">Concept & Purpose</span></h2>
+    <p class="eco__quote" style="margin-bottom:36px;" data-i18n-html="concept_quote">"Every bottle cap deserves to be seen anew.<br>No preaching from above — <span class="hl">just turning discarded daily rubbish into fierce, full-throttle works of art</span>."</p>
     
     <div class="eco__principles" style="margin-top:0;margin-bottom:48px;">
       <div class="principle">
         <div class="principle__num">01</div>
-        <h3>废弃物的艺术重生 (BottleCap → Motorcycle)</h3>
-        <p>源于主创在垃圾处理场的震撼：堆积如山、等待填埋或焚烧的废塑料瓶盖，是日常随手丢弃的缩影。BCM（BottleCap Motorcycle）将日常饮品瓶盖（BottleCap）清洗分类并解构，重构为 109 种独特的电单车（Motorcycle）机械车轮，让最微小的日常废品在热血机械艺术中重获新生。</p>
+        <h3 data-i18n="concept_p1_title">Artistic Rebirth of Waste (BottleCap → Motorcycle)</h3>
+        <p data-i18n="concept_p1_desc">Sparked by a visceral shock at a waste recycling depot: towering mounds of discarded plastic bottle caps awaiting landfill or incineration. BCM (BottleCap Motorcycle) washes, sorts, and deconstructs everyday drink caps, reimagining them as 109 distinct mechanical wheels, giving the humblest waste a second life in hard-edged industrial art.</p>
       </div>
       <div class="principle">
         <div class="principle__num">02</div>
-        <h3>两个世代的原创执念</h3>
-        <p>20多岁青年设计师的街头美学，碰撞30多岁科技产品人的工程严谨。倾注心血打磨出 101 部原创车身骨架。“把环保与电单车原创设计结合，做真正有意义的产品”是团队唯一的初心。</p>
+        <h3 data-i18n="concept_p2_title">Two Generations, One Craft Obsession</h3>
+        <p data-i18n="concept_p2_desc">The street aesthetics of a twenty-something designer fused with the engineering rigour of a thirty-something tech builder. Pouring heart and soul into 101 bespoke chassis designs. "Combining sustainability with original motorbike craft to create products of genuine substance" remains our singular founding conviction.</p>
       </div>
       <div class="principle">
         <div class="principle__num">03</div>
-        <h3>拒绝空谈的真实手作</h3>
-        <p>严格恪守 5R 零废弃原则，所有原料 100% 取自回收废品，绝不采购新塑料。已在广州成功举办多期实体手作工坊，带领上百位参与者亲手把瓶盖变成机车潮玩，让环保成为触手可及的生活方式。</p>
-      </div>
-    </div>
-
-    <div class="orig__grid" style="border-top:1.5px dashed var(--line);padding-top:40px;">
-      <div class="orig__body">
-        <h3 style="font-family:var(--ff-title);font-size:22px;margin-bottom:16px;color:var(--ink)">🎨 原创设计与 CC0 协议声明</h3>
-        <p>
-          <strong>BCM = BottleCap Motorcycle（瓶盖机车）</strong>：名字直观体现了“废弃瓶盖 + 机械机车”的艺术结合。一辆完整的 BCM 数字机车 = <strong>原创车架与机械设计（自主原创 Motorcycle）</strong> + <em>日常饮品瓶盖元素（品牌废弃 BottleCap）</em>。
-        </p>
-        <p>
-          <strong>车身与机械结构是我们团队的原创设计</strong>：包括 101 个独立车架、机械骨架、轮毂、引擎、把手、避震系统等。由主创团队完全原创设计与数字绘制。这是<strong>我们的原创工匠作品，拥有完整自主设计权</strong>。
-        </p>
-        <p>
-          <strong>7,700 部数字机车 NFT 全面采用 CC0</strong>：正因为车辆机械结构是我们的原创设计，我们主动选择以 <strong>CC0 1.0 Universal（放弃版权，进入公共领域）</strong> 的方式将 7,700 部数字机车 NFT 奉献给全球社区。任何人都可以自由进行二创、改装、商业化使用或衍生品开发，无需经过团队许可。
-        </p>
-        <p>
-          <strong>瓶盖元素来自其他饮品品牌（版权非 BCM 所有）</strong>：机车上的瓶盖图层取自市场上真实存在的饮料品牌 Logo（如可乐、纯水、矿泉水、茶饮、果汁等）。这些 Logo 和标识是<em>各大品牌厂商的注册商标与知识产权，版权不属于 BCM</em>。
-        </p>
-        <p>
-          ⚠️ <strong>艺术二创与非代言声明</strong>：BCM 采用波普艺术（Pop Art）拼贴手法向街头改装文化与环保反思致敬。<strong>BCM 与任何瓶盖饮料品牌均无商业代言、官方联名或背书合作关系</strong>。
-        </p>
-      </div>
-      <div class="orig__breakdown">
-        <div class="orig__part">
-          <div>
-            <h4>机车与车架（机械结构）</h4>
-            <p>101 个车架、车身轮廓、引擎把手、机械结构</p>
-          </div>
-          <span class="orig__tag tag-ours">BCM 原创设计</span>
-        </div>
-        <div class="orig__part">
-          <div>
-            <h4>7,700 部机车 NFT</h4>
-            <p>放弃版权主张，公共领域自由商用、二创与改装</p>
-          </div>
-          <span class="orig__tag tag-cc0">CC0 (No Rights Reserved)</span>
-        </div>
-        <div class="orig__part">
-          <div>
-            <h4>瓶盖品牌 Logo</h4>
-            <p>各大饮料品牌 Logo、注册商标、商业装潢</p>
-          </div>
-          <span class="orig__tag tag-them">归原品牌方所有</span>
-        </div>
-        <div class="orig__part">
-          <div>
-            <h4>商业关系声明</h4>
-            <p>波普艺术拼贴与街头文化致敬，绝非商业代言</p>
-          </div>
-          <span class="orig__tag" style="background:#fee2e2;color:#b91c1c;border:1px solid #b91c1c">非商业代言</span>
-        </div>
+        <h3 data-i18n="concept_p3_title">No Rhetoric, Just Honest Handcraft</h3>
+        <p data-i18n="concept_p3_desc">Strictly honouring 5R zero-waste principles: 100% reclaimed materials, zero virgin plastics. Having hosted numerous hands-on workshops in Guangzhou, guiding over a hundred makers to handcraft tactile bike toys, making sustainable living an immediate, accessible reality.</p>
       </div>
     </div>
   </div>
@@ -1703,72 +1655,123 @@ footer{
 
 <section id="nft" class="collection">
   <div class="wrap">
-    <div class="sec__num">02 / NFT</div>
-    <h2 class="sec__title">7,700 个<span class="hl">独一无二</span>的数字机车 NFT</h2>
-    <p class="sec__lead">每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成，CC0 开放协议。</p>
+    <div class="sec__num" data-i18n="nft_num">02 / NFT COLLECTION</div>
+    <h2 class="sec__title" data-i18n-html="nft_title">7,700 <span class="hl">One-of-a-Kind</span> Digital Motorbike NFTs</h2>
+    <p class="sec__lead" data-i18n="nft_lead">Each machine pairs 1 bespoke chassis with 1 bottle cap element under the CC0 Public Domain dedication.</p>
     <div class="gallery__grid">
-      <div class="g-item"><span class="g-item__num">#0001</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1.png" alt="BCM #0001 · 绝版酷儿"></div>
-      <div class="g-item"><span class="g-item__num">#1161</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1161.png" alt="BCM #1161 · 可口可乐"></div>
-      <div class="g-item"><span class="g-item__num">#5227</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/5227.png" alt="BCM #5227 · 百事可乐"></div>
-      <div class="g-item"><span class="g-item__num">#5765</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/5765.png" alt="BCM #5765 · 七喜"></div>
+      <div class="g-item"><span class="g-item__num">#0001</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1.png" alt="BCM #0001 · Rare Qoo Edition" data-i18n-alt="g_alt1"></div>
+      <div class="g-item"><span class="g-item__num">#1161</span><span class="g-item__dots dots-5">★ ★ ★ ★ ★</span><img src="./images/1161.png" alt="BCM #1161 · Coca-Cola Edition" data-i18n-alt="g_alt2"></div>
+      <div class="g-item"><span class="g-item__num">#5227</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/5227.png" alt="BCM #5227 · Pepsi Edition" data-i18n-alt="g_alt3"></div>
+      <div class="g-item"><span class="g-item__num">#5765</span><span class="g-item__dots dots-4">★ ★ ★ ★ ☆</span><img src="./images/5765.png" alt="BCM #5765 · 7-Up Edition" data-i18n-alt="g_alt4"></div>
+    </div>
+
+    <!-- Original Design & CC0 Dedication Statement (Placed directly below 7,700 NFT Gallery) -->
+    <div class="orig__grid" style="border-top:1.5px dashed var(--line);padding-top:40px;margin-top:48px;">
+      <div class="orig__body">
+        <h3 style="font-family:var(--ff-title);font-size:22px;margin-bottom:16px;color:var(--ink)" data-i18n="nft_orig_title">🎨 Original Design & CC0 Dedication Statement</h3>
+        <p>
+          <span data-i18n-html="nft_orig_p1"><strong>BCM = BottleCap Motorcycle</strong>: An artistic synergy of discarded bottle caps and mechanical motorbikes. Each complete BCM digital motorcycle = <strong>Bespoke Chassis & Mechanical Engineering (Original Motorcycle)</strong> + <em>Everyday Beverage Bottle Cap Elements (Discarded BottleCaps)</em>.</span>
+        </p>
+        <p>
+          <span data-i18n-html="nft_orig_p2"><strong>Chassis and mechanical architecture are 100% our original design</strong>: Comprising 101 bespoke frames, skeletal structures, wheel hubs, engines, handlebars, and suspension systems, conceived and illustrated entirely in-house. These are <strong>our authentic artisan creations, over which we retain full intellectual provenance</strong>.</span>
+        </p>
+        <p>
+          <span data-i18n-html="nft_orig_p3"><strong>All 7,700 Digital Motorbike NFTs are dedicated to CC0</strong>: Precisely because the vehicles are our original designs, we proactively dedicate all 7,700 digital motorbike NFTs to the global community under <strong>CC0 1.0 Universal (No Rights Reserved)</strong>. Anyone is free to remix, modify, commercialise, or produce derivative works without requiring permission.</span>
+        </p>
+        <p>
+          <span data-i18n-html="nft_orig_p4"><strong>Bottle cap elements originate from existing beverage brands (Copyright not owned by BCM)</strong>: Cap textures incorporate logos of commercially available beverage brands (colas, mineral waters, teas, fruit juices). These logos and insignia remain the <em>registered trademarks and intellectual property of their respective owners and are not owned by BCM</em>.</span>
+        </p>
+        <p>
+          <span data-i18n-html="nft_orig_p5">⚠️ <strong>Pop Art Fair-Dealing & Non-Endorsement Notice</strong>: BCM adopts a Pop Art collage approach as a homage to street custom culture and environmental contemplation. <strong>BCM maintains no commercial sponsorship, official partnership, or endorsement from any featured beverage brand</strong>.</span>
+        </p>
+      </div>
+      <div class="orig__breakdown">
+        <div class="orig__part">
+          <div>
+            <h4 data-i18n="nft_c1_h">Motorcycle Chassis & Mechanics</h4>
+            <p data-i18n="nft_c1_p">101 bespoke frames, bodywork, engines, handlebars, and mechanics</p>
+          </div>
+          <span class="orig__tag tag-ours" data-i18n="nft_c1_tag">BCM Original Design</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4 data-i18n="nft_c2_h">7,700 Motorbike NFTs</h4>
+            <p data-i18n="nft_c2_p">No rights reserved; free for commercial builds, remixes, and adaptations</p>
+          </div>
+          <span class="orig__tag tag-cc0" data-i18n="nft_c2_tag">CC0 (Public Domain)</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4 data-i18n="nft_c3_h">Bottle Cap Brand Logos</h4>
+            <p data-i18n="nft_c3_p">Beverage brand trademarks, emblems, and commercial trade dress</p>
+          </div>
+          <span class="orig__tag tag-them" data-i18n="nft_c3_tag">Property of Respective Owners</span>
+        </div>
+        <div class="orig__part">
+          <div>
+            <h4 data-i18n="nft_c4_h">Commercial Status Notice</h4>
+            <p data-i18n="nft_c4_p">Pop Art collage homage to custom culture; strictly non-endorsed</p>
+          </div>
+          <span class="orig__tag" style="background:#fee2e2;color:#b91c1c;border:1px solid #b91c1c" data-i18n="nft_c4_tag">Non-Endorsement</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="playground" class="playground">
   <div class="wrap">
-    <div class="sec__num">03 / 车库试玩工坊</div>
-    <h2 class="sec__title">Playground · <span class="hl">原创车架试配台</span></h2>
-    <p class="sec__lead">零门槛体验 · 选用 101 款原创车架中的精选 6 款涂装，搭载中立工程原型轮组（非商业品牌瓶盖），任何玩家无需持有 NFT 均可随时试玩组装！</p>
+    <div class="sec__num" data-i18n="pg_num">03 / WORKSHOP PLAYGROUND</div>
+    <h2 class="sec__title" data-i18n-html="pg_title">Playground · <span class="hl">Bespoke Chassis Test Bench</span></h2>
+    <p class="sec__lead" data-i18n="pg_lead">Zero-barrier trial · Explore 6 featured liveries from our 101 bespoke frames, equipped with neutral engineering prototype wheels (non-branded bottle caps). Anyone can build and experiment freely without owning an NFT or connecting a wallet!</p>
     
     <div class="pg__layout">
-      <!-- 预览展示卡片 -->
+      <!-- Workshop Preview Stage -->
       <div class="pg__stage-card">
         <div class="pg__viewport" id="pgViewport">
           <div class="pg__badge-row">
             <span class="pg__badge">Garage DIY</span>
-            <span class="pg__badge brand-neutral" id="pgBadgeRarity">SSR 经典巡航 · #55</span>
+            <span class="pg__badge brand-neutral" id="pgBadgeRarity">SSR Classic Cruiser · #55</span>
           </div>
-          <!-- 图层 1: 背景 Earth -->
+          <!-- Layer 1: Earth Background -->
           <img src="./images/playground/bg_earth.png" alt="Earth BG" class="pg__layer pg__layer-bg">
-          <!-- 图层 2: 固定中立原型轮组 (非品牌瓶盖) -->
+          <!-- Layer 2: Fixed Neutral Prototype Wheel Spec (Unbranded) -->
           <img src="./images/playground/wheel_neutral.png" alt="Neutral Wheel" class="pg__layer pg__layer-wheel" id="pgWheel">
-          <!-- 图层 3: 动态车身涂装 -->
+          <!-- Layer 3: Dynamic Bespoke Chassis Livery -->
           <img src="./images/playground/classic.png" alt="Bike Body" class="pg__layer pg__layer-bike" id="pgBike">
         </div>
 
         <div class="pg__stage-info">
           <div class="pg__title-wrap">
-            <h3 id="pgBikeName">Classic 经典</h3>
-            <p id="pgBikeDesc">纯正双管车架 · 标志性美式巡航轮廓</p>
+            <h3 id="pgBikeName">Classic Cruiser</h3>
+            <p id="pgBikeDesc">Authentic twin-tube chassis · Iconic American cruiser profile</p>
           </div>
           <div style="text-align:right">
-            <span style="font-family:var(--ff-mono);font-size:12px;color:var(--ink-dim);display:block">底盘轮组设定</span>
-            <span style="font-family:var(--ff-marker);font-size:14px;color:var(--ink)">⚙️ 中立工程原型轮组（无Logo）</span>
+            <span style="font-family:var(--ff-mono);font-size:12px;color:var(--ink-dim);display:block" data-i18n="pg_spec_lbl">底盘轮组设定</span>
+            <span style="font-family:var(--ff-marker);font-size:14px;color:var(--ink)" data-i18n="pg_spec_val">⚙️ 中立工程原型轮组（无Logo）</span>
           </div>
         </div>
 
         <div class="pg__actions">
-          <button class="pg__btn" type="button" onclick="randomizeBike()">🎲 随机换涂装</button>
-          <button class="pg__btn btn-primary" type="button" onclick="exportBikePoster()">📸 保存改装海报</button>
+          <button class="pg__btn" type="button" onclick="randomizeBike()" data-i18n="pg_btn_rand">🎲 Randomise Livery</button>
+          <button class="pg__btn btn-primary" type="button" onclick="exportBikePoster()" data-i18n="pg_btn_poster">📸 Export Poster</button>
         </div>
       </div>
 
-      <!-- 右侧涂装选择面板与说明 -->
+      <!-- Custom Livery Selection Panel -->
       <div class="pg__panel">
         <div class="pg__panel-title">
-          <h3>选择原创涂装（6 款精选试玩）</h3>
-          <span>点击切换</span>
+          <h3 data-i18n="pg_chooser_t">Select Bespoke Livery (6 Featured Builds)</h3>
+          <span data-i18n="pg_chooser_s">Click to switch</span>
         </div>
 
         <div class="pg__selector-list" id="pgSelectorList">
-          <!-- 由 JS 动态渲染 7 款卡片 -->
+          <!-- Dynamically rendered by JS -->
         </div>
 
         <div class="pg__wheel-explainer">
-          <strong>💡 为什么轮子是单独固定的，而不是品牌瓶盖？</strong>
-          BCM 尚未部署正式 NFT 智能合约。为保护官方 7,700 款完整作品在正式揭晓时的稀缺惊喜与防抓包枚举，Playground 采用实验性的<strong>工程中立原型轮组（非商业饮料瓶盖）</strong>进行组合演示。<br>
-          任何玩家无需持有 NFT、无需连接钱包，都可以直接感受 101 款原创车架的设计轮廓与改装魅力。
+          <strong data-i18n="pg_wheel_q">💡 Why are wheels fixed prototypes rather than branded bottle caps?</strong>
+          <span data-i18n-html="pg_wheel_a">BCM has not yet deployed its official on-chain NFT smart contracts. To safeguard the novelty, scarcity, and metadata integrity of the full 7,700 collection prior to official release, the Playground employs experimental <strong>engineering prototype wheels (unbranded)</strong> for demonstration.<br>Any creator can explore the mechanical contours and bespoke chassis designs without owning an NFT or connecting a wallet.</span>
         </div>
       </div>
     </div>
@@ -1777,18 +1780,18 @@ footer{
 
 <section id="daily" class="daily">
   <div class="wrap">
-    <div class="sec__num">04 / 每日一 mint</div>
+    <div class="sec__num" data-i18n="daily_num">04 / DAILY MINT</div>
     <h2 class="sec__title">One Machine. Every Day. <span class="hl">Forever.</span></h2>
-    <p class="sec__lead">智能合约每 24 小时链上生成并释放 1 辆机车供全球社区竞拍与铸造。</p>
+    <p class="sec__lead" data-i18n="daily_lead">Smart contract generates and releases 1 unique motorbike on-chain every 24 hours for global community bidding and minting.</p>
     <div class="daily__card">
       <div style="font-size:12px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase">Today's Release · 24-Hour Mint Cycle</div>
       <div class="daily__ratio">#0001</div>
-      <div style="font-size:15px;color:var(--ink);margin-bottom:8px;font-weight:bold">当前最高出价：<span style="color:#059669;font-size:22px;font-family:var(--ff-mono)">0.05 ETH</span> · 剩余时间：<span style="font-family:var(--ff-mono)">08h : 24m : 19s</span></div>
+      <div style="font-size:15px;color:var(--ink);margin-bottom:8px;font-weight:bold" data-i18n-html="daily_bid_status">Current Highest Bid: <span style="color:#059669;font-size:22px;font-family:var(--ff-mono)">0.05 ETH</span> · Time Remaining: <span style="font-family:var(--ff-mono)">08h : 24m : 19s</span></div>
       <div class="daily__detail">
-        <b>每日一 mint 机制</b>：智能合约每 24 小时自动生成并上架 1 辆全新机车<br>
-        <b>原创与版权</b>：101 款车架均为团队原创设计，NFT 整体全面遵循 CC0 协议<br>
-        <b>人人可参与</b>：无门槛公开竞拍，结标后下一辆机车自动接力开启<br>
-        <b>金库赋能</b>：100% 收益汇入社区金库，持续资助实体零废弃工坊与全球骑行生态
+        <span data-i18n-html="daily_d1"><b>24-Hour Mint Cadence</b>: Smart contract generates and lists 1 brand-new motorbike every 24 hours automatically</span><br>
+        <span data-i18n-html="daily_d2"><b>Originality & Rights</b>: All 101 chassis are 100% team-designed originals; the entire NFT collection adopts CC0 1.0 Universal</span><br>
+        <span data-i18n-html="daily_d3"><b>Open Participation</b>: Permissionless public auction; as each finishes, the next machine seamlessly begins</span><br>
+        <span data-i18n-html="daily_d4"><b>Treasury Empowerment</b>: 100% of proceeds flow to the community treasury, continually funding physical zero-waste workshops and global riding culture</span>
       </div>
     </div>
   </div>
@@ -1796,414 +1799,178 @@ footer{
 
 <section id="community" class="community">
   <div class="wrap community__inner">
-    <div class="sec__num">05 / 社区创作</div>
-    <h2 class="sec__title">机车是载具，<span class="hl">HERO 属于社区</span></h2>
-    <p class="sec__lead">从实体手作黏土，到链上数字像素。无需持有 NFT，人人皆可共创环保英雄。</p>
-    
-    <!-- Tab 选项卡切换 -->
-    <div class="community__tabs">
-      <button type="button" class="community__tab-btn active" onclick="switchCommunityTab('nft', this)">
-        <span>🎮</span> BCM HERO 像素先锋
-        <span class="community__tab-badge">UPCOMING</span>
-      </button>
-      <button type="button" class="community__tab-btn" onclick="switchCommunityTab('offline', this)">
-        <span>📸</span> 线下工坊与真实足迹
-        <span class="community__tab-badge">FIELD NOTES</span>
-      </button>
-    </div>
+    <div class="sec__num" data-i18n-html="comm_num">05 / COMMUNITY CREATION · 🎮 BCM HERO PIXEL RUNNERS <span class="hero-tag-badge">UPCOMING</span></div>
+    <h2 class="sec__title" data-i18n-html="comm_title">The Bike is the Vessel, <span class="hl">The HERO Belongs to the Community</span></h2>
+    <p class="sec__lead" data-i18n="comm_lead">From tactile workshop clay to on-chain digital pixels. Every BCM Hero possesses a unique environmental superpower. A brand-new CC0 series launching on-chain soon.</p>
 
-    <!-- TAB 1: BCM HERO NFT 预告 -->
-    <div id="community-tab-nft" class="community__tab-pane active">
-      <!-- 核心概念原点海报与进化图谱 -->
-      <div class="comm-evolution" onclick="openHeroModal('images/heroes/hero_evolution.png', 'BCM HERO 概念原点进化图谱 · 从实体手捏黏土到链上像素跑者 · CC0 开放版权')">
-        <div class="comm-evolution__visual">
-          <img src="images/heroes/hero_evolution.png" alt="BCM HERO 概念进化图谱" class="comm-evolution__img" loading="lazy">
-          <span class="comm-card__zoom">🔍 放大图谱</span>
-        </div>
-        <div class="comm-evolution__content">
-          <div class="comm-evolution__badges">
-            <span class="comm-badge comm-badge--green">🧬 实体手作到数字像素</span>
-            <span class="comm-badge comm-badge--yellow">⚡ CC0 社区英雄</span>
-          </div>
-          <h3 class="comm-evolution__title">从工坊黏土，到数字英雄</h3>
-          <p class="comm-evolution__desc">
-            起源于线下工坊的孩子黏土与草图，经数字化提炼为拥有环保超能力的奔跑姿态英雄。
-          </p>
-          <div class="comm-evolution__traits">
-            <div class="comm-trait-item">
-              <span class="comm-trait-item__icon">🏃</span>
-              <div>
-                <b>奔跑姿态</b>
-                <span>永不停歇的极速环保行动</span>
-              </div>
-            </div>
-            <div class="comm-trait-item">
-              <span class="comm-trait-item__icon">🎨</span>
-              <div>
-                <b>废品与迷因</b>
-                <span>快餐盒、Meme 与像素跨界</span>
-              </div>
-            </div>
-            <div class="comm-trait-item">
-              <span class="comm-trait-item__icon">🌐</span>
-              <div>
-                <b>CC0 开放</b>
-                <span>完全归属社区，自由商用二创</span>
-              </div>
-            </div>
-            <div class="comm-trait-item">
-              <span class="comm-trait-item__icon">🛵</span>
-              <div>
-                <b>机车与骑手</b>
-                <span>角色与车架联动，赋能实体工坊</span>
-              </div>
-            </div>
-          </div>
-          <div class="comm-evolution__footer-hint">
-            💡 点击查看实体黏土与像素进化图
-          </div>
-        </div>
+    <!-- Concept Origin Poster & Evolution Chart -->
+    <div class="comm-evolution" onclick="openHeroModal('images/heroes/hero_evolution.png', currentLang === 'zh' ? 'BCM HERO 概念原点进化图谱 · 从实体手捏黏土到链上像素跑者 · CC0 开放版权' : 'BCM HERO Concept Origin & Evolution Chart · Workshop Clay to Pixel Runners · CC0 Public Domain')">
+      <div class="comm-evolution__visual">
+        <img src="images/heroes/hero_evolution.png" alt="BCM HERO Concept Evolution Chart" class="comm-evolution__img" loading="lazy">
+        <span class="comm-card__zoom" data-i18n="comm_zoom_chart">🔍 Enlarge Chart</span>
       </div>
-
-      <!-- 5位奔跑先锋英雄抢先预览 -->
-      <div class="comm-subhead">
-        <div class="comm-subhead__title">先锋跑者 · 首批 5 位环保英雄</div>
-        <div class="comm-subhead__sub">点击查看高清立绘与专属技能</div>
-      </div>
-
-      <div class="community__grid">
-        <!-- Card 1: 麦当劳 / 黄金小丑 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_mcdonalds.png', '#H01 黄金小丑 (Golden Clown) · 波普快餐符号 · 技能：🍔 纸盒重构 · 变废为宝')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/hero_mcdonalds.png" alt="#H01 黄金小丑" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">#H01</span>
-            <span class="comm-card__zoom">🔍 查看立绘</span>
-          </div>
-          <div class="comm-card__title">
-            <span>黄金小丑</span>
-            <span class="comm-card__en">Golden Clown</span>
-          </div>
-          <p class="comm-card__quote">麦乐送纸盒化身帅气战甲，把一次性包装变成街头艺术。</p>
-          <div class="comm-card__skill">🍔 纸盒重构 · 变废为宝</div>
+      <div class="comm-evolution__content">
+        <div class="comm-evolution__badges">
+          <span class="comm-badge comm-badge--green" data-i18n="comm_badge1">🧬 Tactile Clay to Digital Pixel</span>
+          <span class="comm-badge comm-badge--yellow" data-i18n="comm_badge2">⚡ CC0 Community Heroes</span>
         </div>
-
-        <!-- Card 2: Pepe / 佩佩跑者 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pepe.png', '#H02 佩佩跑者 (Pepe Runner) · 技能：🐸 迷因共振 · 极速巡礼')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/hero_pepe.png" alt="#H02 佩佩跑者" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">#H02</span>
-            <span class="comm-card__zoom">🔍 查看立绘</span>
+        <h3 class="comm-evolution__title" data-i18n="comm_evo_t">From Workshop Clay to Digital Heroes</h3>
+        <p class="comm-evolution__desc" data-i18n="comm_evo_d">Originating from children's clay sculpts and sketches in offline workshops, digitally distilled into dynamic running champions endowed with eco-superpowers.</p>
+        <div class="comm-evolution__traits">
+          <div class="comm-trait-item">
+            <span class="comm-trait-item__icon">🏃</span>
+            <div>
+              <b data-i18n="comm_t1_b">Running Stance</b>
+              <span data-i18n="comm_t1_s">Relentless, rapid environmental action</span>
+            </div>
           </div>
-          <div class="comm-card__title">
-            <span>佩佩跑者</span>
-            <span class="comm-card__en">Pepe Runner</span>
+          <div class="comm-trait-item">
+            <span class="comm-trait-item__icon">🎨</span>
+            <div>
+              <b data-i18n="comm_t2_b">Waste & Memes</b>
+              <span data-i18n="comm_t2_s">Takeaway cartons, viral memes & pixel crossover</span>
+            </div>
           </div>
-          <p class="comm-card__quote">经典绿色 Meme 跑进现实，把网络热梗变成真实的环保行动。</p>
-          <div class="comm-card__skill">🐸 迷因共振 · 极速巡礼</div>
+          <div class="comm-trait-item">
+            <span class="comm-trait-item__icon">🌐</span>
+            <div>
+              <b data-i18n="comm_t3_b">CC0 Freedom</b>
+              <span data-i18n="comm_t3_s">Wholly owned by community; open for commercial remix</span>
+            </div>
+          </div>
+          <div class="comm-trait-item">
+            <span class="comm-trait-item__icon">🛵</span>
+            <div>
+              <b data-i18n="comm_t4_b">Bikes & Riders</b>
+              <span data-i18n="comm_t4_s">Symbiotic frame pairing; empowering physical craft workshops</span>
+            </div>
+          </div>
         </div>
-
-        <!-- Card 3: 蟑螂 / 顽强小强 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_survivor.png', '#H03 顽强小强 (The Survivor) · 技能：🪳 极境适应 · 顽强生命')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/hero_survivor.png" alt="#H03 顽强小强" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">#H03</span>
-            <span class="comm-card__zoom">🔍 查看立绘</span>
-          </div>
-          <div class="comm-card__title">
-            <span>顽强小强</span>
-            <span class="comm-card__en">The Survivor</span>
-          </div>
-          <p class="comm-card__quote">最顽强的极境生命力，废墟与极端污染里的坚韧守望者。</p>
-          <div class="comm-card__skill">🪳 极境适应 · 顽强生命</div>
+        <div class="comm-evolution__footer-hint">
+          <span data-i18n="comm_evo_hint">💡 Click to view physical clay & pixel evolution diagram</span>
         </div>
-
-        <!-- Card 4: 企鹅 / 极地企鹅 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pingu.png', '#H04 极地企鹅 (Pingu) · 技能：🐧 极地守护 · 冰川预警')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/hero_pingu.png" alt="#H04 极地企鹅" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">#H04</span>
-            <span class="comm-card__zoom">🔍 查看立绘</span>
-          </div>
-          <div class="comm-card__title">
-            <span>极地企鹅</span>
-            <span class="comm-card__en">Pingu</span>
-          </div>
-          <p class="comm-card__quote">穿越融化冰川而来的两极使者，每一步奔跑都在呼吁保护冰川。</p>
-          <div class="comm-card__skill">🐧 极地守护 · 冰川预警</div>
-        </div>
-
-        <!-- Card 5: 吃豆人 / 吃豆先锋 -->
-        <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pacman.png', '#H05 吃豆先锋 (Pac-Chomp) · 技能：🟡 像素吞噬 · 微塑料克星')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/hero_pacman.png" alt="#H05 吃豆先锋" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">#H05</span>
-            <span class="comm-card__zoom">🔍 查看立绘</span>
-          </div>
-          <div class="comm-card__title">
-            <span>吃豆先锋</span>
-            <span class="comm-card__en">Pac-Chomp</span>
-          </div>
-          <p class="comm-card__quote">经典街机像素形象，一路狂奔吞噬海洋与土壤里的微塑料。</p>
-          <div class="comm-card__skill">🟡 像素吞噬 · 微塑料克星</div>
-        </div>
-      </div>
-
-      <div class="community__footer-note">
-        ⚡ <strong>BCM HERO</strong>：CC0 开放版权 · 链上即将发布 · 角色持续赋能实体工坊
       </div>
     </div>
 
-    <!-- TAB 2: 实体工坊与真实足迹 -->
-    <div id="community-tab-offline" class="community__tab-pane">
-      <div class="community__flow">
-        <div class="community__step"><b>1. 纸上草图</b><span>画出心目中的形象</span></div>
-        <div class="community__step-arrow">➔</div>
-        <div class="community__step"><b>2. 黏土捏模</b><span>亲手塑造成型</span></div>
-        <div class="community__step-arrow">➔</div>
-        <div class="community__step"><b>3. 赋予环保技能</b><span>写下守护超能力</span></div>
-        <div class="community__step-arrow">➔</div>
-        <div class="community__step"><b>4. 社区档案归档</b><span>获得专属档案编号</span></div>
+    <!-- First 5 Pixel Runner Eco Heroes Preview -->
+    <div class="comm-subhead">
+      <div class="comm-subhead__title" data-i18n="comm_sub_t">Pioneer Runners · First 5 Eco Heroes</div>
+      <div class="comm-subhead__sub" data-i18n="comm_sub_s">Click to view hi-res illustration & signature skills</div>
+    </div>
+
+    <div class="community__grid">
+      <!-- Card 1: Golden Clown (Fast-Food Carton Upcycle) -->
+      <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_mcdonalds.png', currentLang === 'zh' ? '#H01 黄金小丑 (Golden Clown) · 波普快餐符号 · 技能：🍔 纸盒重构 · 变废为宝' : '#H01 Golden Clown · Pop Culture Emblem · Skill: 🍔 Carton Upcycle · Waste to Treasure')">
+        <div class="comm-card__img-wrap">
+          <img src="images/heroes/hero_mcdonalds.png" alt="#H01 Golden Clown" class="comm-card__img" loading="lazy">
+          <span class="comm-card__tag">#H01</span>
+          <span class="comm-card__zoom" data-i18n="comm_zoom_art">🔍 View Artwork</span>
+        </div>
+        <div class="comm-card__title">
+          <span data-i18n="hero1_name">Golden Clown</span>
+          <span class="comm-card__en">Golden Clown</span>
+        </div>
+        <p class="comm-card__quote" data-i18n="hero1_q">A delivery carton reborn as crisp urban armour, turning disposable packaging into street art.</p>
+        <div class="comm-card__skill" data-i18n="hero1_sk">🍔 Carton Upcycle · Waste to Treasure</div>
       </div>
 
-      <div class="community__grid">
-        <!-- Card 1: No.001 星星人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/001.jpg', 'No.001 星星人 · 线下工坊草图与黏土档案')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/001.jpg" alt="No.001 星星人" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">No.001</span>
-            <span class="comm-card__zoom">🔍 放大</span>
-          </div>
-          <div class="comm-card__title">
-            <span>星星人</span>
-            <span class="comm-card__en">Star Guy</span>
-          </div>
-          <p class="comm-card__quote">用触须分解有害垃圾，夜晚发光为怕黑的人引路。</p>
-          <div class="comm-card__skill">🌟 触须分解 · 夜光照明</div>
+      <!-- Card 2: Pepe Runner (Meme Resonance) -->
+      <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pepe.png', currentLang === 'zh' ? '#H02 佩佩跑者 (Pepe Runner) · 技能：🐸 迷因共振 · 极速巡礼' : '#H02 Pepe Runner · Meme Resonance · Skill: 🐸 Viral Speed Patrol')">
+        <div class="comm-card__img-wrap">
+          <img src="images/heroes/hero_pepe.png" alt="#H02 Pepe Runner" class="comm-card__img" loading="lazy">
+          <span class="comm-card__tag">#H02</span>
+          <span class="comm-card__zoom" data-i18n="comm_zoom_art">🔍 View Artwork</span>
         </div>
-
-        <!-- Card 2: No.002 铲铲人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/002.jpg', 'No.002 铲铲人 · 线下工坊草图与黏土档案')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/002.jpg" alt="No.002 铲铲人" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">No.002</span>
-            <span class="comm-card__zoom">🔍 放大</span>
-          </div>
-          <div class="comm-card__title">
-            <span>铲铲人</span>
-            <span class="comm-card__en">Digger Boy</span>
-          </div>
-          <p class="comm-card__quote">肚子变大代表回收了更多垃圾，变成大家的知识图鉴。</p>
-          <div class="comm-card__skill">📚 垃圾回收 · 知识图鉴</div>
+        <div class="comm-card__title">
+          <span data-i18n="hero2_name">Pepe Runner</span>
+          <span class="comm-card__en">Pepe Runner</span>
         </div>
-
-        <!-- Card 3: No.004 喵喵人 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/004.jpg', 'No.004 喵喵人 · 线下工坊草图与黏土档案')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/004.jpg" alt="No.004 喵喵人" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">No.004</span>
-            <span class="comm-card__zoom">🔍 放大</span>
-          </div>
-          <div class="comm-card__title">
-            <span>喵喵人</span>
-            <span class="comm-card__en">Miao Cat</span>
-          </div>
-          <p class="comm-card__quote">用尾巴把垃圾扫进桶，转化爱心能量为大家打气。</p>
-          <div class="comm-card__skill">🐱 尾巴清扫 · 爱心打气</div>
-        </div>
-
-        <!-- Card 4: No.005 大王狮子 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/005.jpg', 'No.005 大王狮子 · 线下工坊草图与黏土档案')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/005.jpg" alt="No.005 大王狮子" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">No.005</span>
-            <span class="comm-card__zoom">🔍 放大</span>
-          </div>
-          <div class="comm-card__title">
-            <span>大王狮子</span>
-            <span class="comm-card__en">Lion King</span>
-          </div>
-          <p class="comm-card__quote">变身工程师维护垃圾处理设备，让地球正常运转。</p>
-          <div class="comm-card__skill">🦁 设备检修 · 守护地球</div>
-        </div>
-
-        <!-- Card 5: No.007 粟猫儿 -->
-        <div class="comm-card" onclick="openHeroModal('images/heroes/007.jpg', 'No.007 粟猫儿 · 线下工坊草图与黏土档案')">
-          <div class="comm-card__img-wrap">
-            <img src="images/heroes/007.jpg" alt="No.007 粟猫儿" class="comm-card__img" loading="lazy">
-            <span class="comm-card__tag">No.007</span>
-            <span class="comm-card__zoom">🔍 放大</span>
-          </div>
-          <div class="comm-card__title">
-            <span>粟猫儿</span>
-            <span class="comm-card__en">Su-Cat</span>
-          </div>
-          <p class="comm-card__quote">收集废纸箱与塑料，给流浪小动物搭建温暖的家。</p>
-          <div class="comm-card__skill">🐾 纸塑回收 · 动物避难</div>
-        </div>
+        <p class="comm-card__quote" data-i18n="hero2_q">The iconic green meme sprinting into reality, turning viral internet culture into genuine eco-action.</p>
+        <div class="comm-card__skill" data-i18n="hero2_sk">🐸 Meme Resonance · High-Speed Patrol</div>
       </div>
 
-      <!-- 真实足迹 · 社区探访与手作实录 (The Field Reel) -->
-      <div class="footprints-block">
-        <div class="footprints__header">
-          <div class="footprints__title-wrap">
-            <span class="footprints__badge">📸 真实足迹</span>
-            <span class="footprints__sub">线下走访与工坊手作纪实</span>
-          </div>
-          <div class="footprints__hint">← 左右滑动浏览 · 点击照片查看大图 →</div>
+      <!-- Card 3: The Survivor (Tenacious Adaptability) -->
+      <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_survivor.png', currentLang === 'zh' ? '#H03 顽强小强 (The Survivor) · 技能：🪳 极境适应 · 顽强生命' : '#H03 The Survivor · Extreme Vitality · Skill: 🪳 Tenacious Adaptability')">
+        <div class="comm-card__img-wrap">
+          <img src="images/heroes/hero_survivor.png" alt="#H03 The Survivor" class="comm-card__img" loading="lazy">
+          <span class="comm-card__tag">#H03</span>
+          <span class="comm-card__zoom" data-i18n="comm_zoom_art">🔍 View Artwork</span>
         </div>
-
-        <div class="footprints__reel">
-          <!-- 01 废金属回收站探访 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/scrap_yard_visit.png', '废品回收站 · 实地探访寻找车架金属灵感')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/scrap_yard_visit.jpg" alt="废品回收站探访" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 废品回收站</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">废金属堆寻宝</div>
-              <div class="footprint-card__note">走访废品回收站，为机车车架寻找低碳灵感。</div>
-            </div>
-          </div>
-
-          <!-- 02 孩子动手创作 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/nextgen_workshop.png', '社区工坊 · 带小朋友动手做环保机车')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/nextgen_workshop.jpg" alt="小朋友动手创作" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 社区工坊</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">小朋友动手做机车</div>
-              <div class="footprint-card__note">用废弃瓶盖和画笔，带孩子们亲手做出第一台机车。</div>
-            </div>
-          </div>
-
-          <!-- 03 麦当劳外卖盒再造 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/mcdonalds_upcycle.png', '麦乐送纸盒 · 变废为宝手绘机车')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/mcdonalds_upcycle.jpg" alt="麦乐送纸盒再造" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 变废为宝</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">麦当劳纸盒再造</div>
-              <div class="footprint-card__note">展开外卖纸盒，嵌上两颗瓶盖就是原创机车。</div>
-            </div>
-          </div>
-
-          <!-- 04 工坊工作台 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/craft_workbench.png', '手作工作台 · 切割垫、工具与洗净的瓶盖')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/craft_workbench.jpg" alt="工坊手作台" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 手作工作台</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">瓶盖工作台</div>
-              <div class="footprint-card__note">切割垫、刻刀和洗净的瓶盖，每件作品的起点。</div>
-            </div>
-          </div>
-
-          <!-- 05 超市货架寻盖之旅 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/store_cap_hunt.png', '寻盖之旅 · 在商超货架寻找特别色彩的瓶盖')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/store_cap_hunt.jpg" alt="商超寻盖之旅" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 寻盖之旅</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">货架寻宝</div>
-              <div class="footprint-card__note">在商超寻找独特色彩的瓶盖，发掘身边的再造可能。</div>
-            </div>
-          </div>
-
-          <!-- 06 #287创意园展出 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/gallery_287_mirror.png', '#287 创意园 · 实木画框装上真实机车后视镜')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/gallery_287_mirror.jpg" alt="287创意园展出" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 空间展陈</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">#287 创意园空间展</div>
-              <div class="footprint-card__note">画框装上真实机车后视镜，展出原创画作。</div>
-            </div>
-          </div>
-
-          <!-- 07 Adventure Station 亚洲汽水 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/station_retro_riders.png', '空间展板 · 1946 亚洲汽水经典老铝盖车轮')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/station_retro_riders.jpg" alt="亚洲汽水老铝盖展板" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 空间挂板</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">经典汽水铝盖挂板</div>
-              <div class="footprint-card__note">用 1946 年亚洲汽水老铝盖，做成复古机车车轮。</div>
-            </div>
-          </div>
-
-          <!-- 08 BCM手作日记 实体手办 -->
-          <div class="footprint-card" onclick="openHeroModal('images/footprints/miniature_figure_craft.png', '手作日记 · 微缩机车模型打磨与零件拼装')">
-            <div class="footprint-card__img-wrap">
-              <img src="images/footprints/thumbs/miniature_figure_craft.jpg" alt="微缩机车模型打磨" class="footprint-card__img" loading="lazy">
-              <span class="footprint-card__tag">📍 团队日记</span>
-              <span class="footprint-card__zoom">🔍 放大</span>
-            </div>
-            <div class="footprint-card__body">
-              <div class="footprint-card__title">实体微缩模型</div>
-              <div class="footprint-card__note">用电磨打磨废弃瓶盖与零件，拼出机车潮玩手办。</div>
-            </div>
-          </div>
+        <div class="comm-card__title">
+          <span data-i18n="hero3_name">The Survivor</span>
+          <span class="comm-card__en">The Survivor</span>
         </div>
+        <p class="comm-card__quote" data-i18n="hero3_q">Indomitable vitality in extreme conditions — a steadfast guardian across ruins and pollution.</p>
+        <div class="comm-card__skill" data-i18n="hero3_sk">🪳 Extreme Adaptability · Tenacious Life</div>
       </div>
 
-      <div class="community__footer-note">
-        🌱 <strong>零门槛共创</strong>：无需持有任何 NFT，工坊与线上人人皆可参与 · 点击卡片查看大图
+      <!-- Card 4: Polar Guardian (Glacial Preservation) -->
+      <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pingu.png', currentLang === 'zh' ? '#H04 极地企鹅 (Pingu) · 技能：🐧 极地守护 · 冰川预警' : '#H04 Polar Guardian · Glacial Sentinel · Skill: 🐧 Frozen Ecosystem Alert')">
+        <div class="comm-card__img-wrap">
+          <img src="images/heroes/hero_pingu.png" alt="Polar Guardian" data-i18n-alt="hero4_img_alt" class="comm-card__img" loading="lazy">
+          <span class="comm-card__tag">#H04</span>
+          <span class="comm-card__zoom" data-i18n="comm_zoom_art">🔍 View Artwork</span>
+        </div>
+        <div class="comm-card__title">
+          <span data-i18n="hero4_name">Polar Guardian</span>
+          <span class="comm-card__en">Pingu</span>
+        </div>
+        <p class="comm-card__quote" data-i18n="hero4_q">A polar envoy sprinting across melting glaciers, rallying for frozen ecosystems with every stride.</p>
+        <div class="comm-card__skill" data-i18n="hero4_sk">🐧 Polar Sentinel · Glacial Warning</div>
+      </div>
+
+      <!-- Card 5: Pixel Chomp (Devour Microplastics) -->
+      <div class="comm-card comm-card--nft" onclick="openHeroModal('images/heroes/hero_pacman.png', currentLang === 'zh' ? '#H05 吃豆先锋 (Pac-Chomp) · 技能：🟡 像素吞噬 · 微塑料克星' : '#H05 Pixel Chomp · Arcade Nemesis · Skill: 🟡 Devour Microplastics')">
+        <div class="comm-card__img-wrap">
+          <img src="images/heroes/hero_pacman.png" alt="Pixel Chomp" data-i18n-alt="hero5_img_alt" class="comm-card__img" loading="lazy">
+          <span class="comm-card__tag">#H05</span>
+          <span class="comm-card__zoom" data-i18n="comm_zoom_art">🔍 View Artwork</span>
+        </div>
+        <div class="comm-card__title">
+          <span data-i18n="hero5_name">Pixel Chomp</span>
+          <span class="comm-card__en">Pac-Chomp</span>
+        </div>
+        <p class="comm-card__quote" data-i18n="hero5_q">Classic arcade pixel sprite, racing across terrain to devour microplastics in ocean and soil.</p>
+        <div class="comm-card__skill" data-i18n="hero5_sk">🟡 Pixel Chomp · Microplastic Nemesis</div>
       </div>
     </div>
+
+    <div class="community__footer-note" data-i18n-html="comm_footer_note">⚡ <strong>BCM HERO Pixel Runners</strong>: CC0 Public Domain · Launching on-chain soon · Continually empowering physical craft workshops</div>
   </div>
 </section>
 
 <section id="team" class="team">
   <div class="wrap">
-    <div class="sec__num">06 / 创始团队与手作故事</div>
-    <h2 class="sec__title">艺术与工程的灵感共鸣：<span class="hl">D&D 团队</span></h2>
-    <p class="sec__lead">“每一个瓶盖，都值得被重新看见。” 从垃圾场被遗弃的彩色瓶盖，到 101 部原创手作机车与 7,700 辆数字藏品。</p>
+    <div class="sec__num" data-i18n="team_num">06 / FOUNDING TEAM & CRAFT STORY</div>
+    <h2 class="sec__title" data-i18n-html="team_title">Resonance of Art & Engineering: <span class="hl">D&D Studio</span></h2>
+    <p class="sec__lead" data-i18n="team_lead">"Every bottle cap deserves to be seen anew." From discarded colourful caps in waste yards to 101 bespoke handcrafted bikes and 7,700 digital collectibles.</p>
     
     <div class="team__founders">
       <div class="founder__card">
-        <div class="founder__role">Co-Founder & 主创设计师</div>
+        <div class="founder__role" data-i18n="team_jay_role">Co-Founder & Lead Designer</div>
         <h3>Jay Zhou</h3>
-        <span class="founder__tag">工业设计师 · 艺术主创</span>
-        <p>
-          在参观垃圾处理场时，目睹堆积如山被随意丢弃的塑胶瓶盖，深受触动并萌生“让废弃物重获意义”的初心。<strong>主导创作了 101 部风格迥异的原创电单车车身</strong>，并首创将 109 款瓶盖化为机车的轮子，赋予每一部车独一无二的生命。
-        </p>
+        <span class="founder__tag" data-i18n="team_jay_tag">Industrial Designer · Creative Lead</span>
+        <p data-i18n-html="team_jay_bio">Moved by towering mounds of plastic bottle caps during a visit to a waste depot, sparking his conviction to give discarded materials renewed purpose. <strong>He spearheaded the creation of 101 distinct bespoke motorcycle chassis</strong> and pioneered transforming 109 reclaimed caps into wheels, imbuing each machine with distinct vitality.</p>
       </div>
 
       <div class="founder__card">
-        <div class="founder__role">Co-Founder & 产品统筹</div>
+        <div class="founder__role" data-i18n="team_ethan_role">Co-Founder & Product Lead</div>
         <h3>Ethan Lau</h3>
-        <span class="founder__tag">科技产品人 · 架构统筹</span>
-        <p>
-          探索科技产品领域多年，协同多个产品从概念走向落地。对艺术设计有着极度热爱与严谨偏执，提出“把环保和电单车原创设计结合在一起，这才是我们想做的事情，这才是有意义的产品”。全面统筹 BCM 商业架构、Web3 落地与产品工程化落地。
-        </p>
+        <span class="founder__tag" data-i18n="team_ethan_tag">Tech Product Builder · Systems Architect</span>
+        <p data-i18n-html="team_ethan_bio">With a decade in technology product leadership, steering systems from inception to scale. Possessing deep passion and exacting standards for industrial craft, he framed the vision: "Merging zero-waste sustainability with bespoke motorcycle design — that is our purpose, that is a product of substance." He orchestrates BCM architecture, on-chain execution, and engineering scalability.</p>
       </div>
     </div>
 
-    <!-- D&D 官方团队实录视频 -->
+    <!-- D&D Studio Official Documentary Video -->
     <div class="team__video-block">
       <div class="team__video-header">
         <div>
-          <div class="team__video-badge">📹 官方团队实录纪录片 · 01:59</div>
-          <h3 class="team__video-title">D&D 团队故事：从实体手作到数字原点</h3>
+          <div class="team__video-badge" data-i18n="team_vid_badge">📹 Official Documentary · 01:59</div>
+          <h3 class="team__video-title" data-i18n="team_vid_title">D&D Studio Story: From Physical Handcraft to Digital Genesis</h3>
         </div>
         <span style="font-family:var(--ff-mono);font-size:13px;color:var(--ink-dim)">D&D Studio Official Film</span>
       </div>
-      <p class="team__video-desc">
-        真实记录 D&D 团队从垃圾堆中收集清洗废弃瓶盖、探讨电单车机械构造，到广州线下实体手作工坊的真实历程。
-      </p>
+      <p class="team__video-desc" data-i18n="team_vid_desc">A candid documentary following D&D Studio: from collecting and washing discarded caps in waste depots and drafting motorcycle mechanics, to hosting tactile zero-waste workshops in Guangzhou.</p>
       <div class="team__video-container">
         <video 
           id="teamVideoPlayer"
@@ -2213,25 +1980,25 @@ footer{
           poster="./images/video_poster.jpg" 
           playsinline>
           <source src="./videos/dd_intro.mp4" type="video/mp4">
-          您的浏览器暂不支持原生视频播放。
+          <span data-i18n="team_vid_fallback">Your browser does not support native video playback.</span>
         </video>
       </div>
     </div>
 
     <div class="team__practice">
-      <h3>D&D 团队的 5R 零废弃实践与初心</h3>
+      <h3 data-i18n="team_5r_title">D&D Studio's 5R Zero-Waste Practice & Founding Ethos</h3>
       <div class="practice__grid">
         <div class="practice__item">
-          <h4>♻️ 严格 5R 零废弃原则</h4>
-          <p>零废弃不是口号。绝不采购新材料，所有创作原料 100% 均来自被遗弃瓶盖回收，手作活动全程禁止一次性塑料制品。</p>
+          <h4 data-i18n="team_5r_h1">♻️ Strict 5R Zero-Waste Principles</h4>
+          <p data-i18n="team_5r_p1">Zero-waste is never a slogan. We purchase zero new plastics; 100% of creative materials derive from reclaimed bottle caps, and workshops strictly ban single-use plastics.</p>
         </div>
         <div class="practice__item">
-          <h4>🛠️ 实体零废弃手作工坊</h4>
-          <p>已收集整理数千个废弃瓶盖，清洗消毒后举办多期实体手作活动，让上百名大人和孩子亲身体验废弃物化为艺术品的乐趣。</p>
+          <h4 data-i18n="team_5r_h2">🛠️ Hands-on Zero-Waste Workshops</h4>
+          <p data-i18n="team_5r_p2">Having cleaned and classified thousands of discarded caps to host physical workshops, introducing hundreds of adults and children to the joy of turning waste into craft.</p>
         </div>
         <div class="practice__item">
-          <h4>📜 材料护照与健康生活</h4>
-          <p>设计“材料护照”系统量化环保成就感，提倡“健康骑车、低碳出行、天然饮食”，用好玩的方式让每个人为地球尽一份力。</p>
+          <h4 data-i18n="team_5r_h3">📜 Material Passports & Sustainable Living</h4>
+          <p data-i18n="team_5r_p3">Conceiving "Material Passport" records to quantify eco-contributions, championing green riding, low-carbon mobility, and healthy living in an engaging, participatory way.</p>
         </div>
       </div>
     </div>
@@ -2240,72 +2007,40 @@ footer{
 
 <section id="faq" class="faq">
   <div class="wrap">
-    <div class="sec__num">07 / 常见问题</div>
-    <h2 class="sec__title">关于 BCM，<span class="hl">新用户常问的</span>问题</h2>
+    <div class="sec__num" data-i18n="faq_num">07 / FAQ</div>
+    <h2 class="sec__title" data-i18n-html="faq_title">Frequently Asked Questions <span class="hl">About BCM</span></h2>
     <div class="faq__list">
       <div class="faq__item">
-        <div class="faq__q">BCM 这个名字代表什么含义？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>BCM 全称为 BottleCap Motorcycle（瓶盖机车 / 樽盖车）</b>。<br>
-          它源于两个维度的强烈碰撞与重构：一边是日常生活中最微小、随手即弃的 <b>BottleCap（废弃塑料瓶盖）</b>；另一边则是代表硬核机械工业美学、自由与热血的 <b>Motorcycle（机车）</b>。<br>
-          主创团队通过 101 款独立原创车架设计，把日常废弃瓶盖重组为电单车机械车轮，让被忽视的日常废品在当代艺术与数字藏品中重新被看见。
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q1">What does the name BCM stand for?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a1"><b>BCM stands for BottleCap Motorcycle</b>.<br>It springs from the clash and reconstruction of two worlds: on one hand, the humblest, everyday disposable item — <b>BottleCap (discarded plastic drink caps)</b>; on the other, the industrial aesthetics of freedom and raw horsepower — the <b>Motorcycle</b>.<br>Through 101 bespoke chassis designs, the team transforms discarded caps into mechanical wheels, ensuring overlooked waste is seen anew as striking contemporary art and digital collectibles.</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">什么是 BCM 英雄？它和 BCM 机车是什么关系？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>BCM 英雄的初衷是纯粹的“社区环保英雄”，绝非用来骑车。</b><br>
-          我们发起 BCM 英雄共创的核心目标，是探索与展现<b>“在不同人（尤其是孩子与社区创作者）心目中，守护地球的环保角色究竟是什么模样”</b>。<br><br>
-          · <b>BCM 机车</b>：代表低碳骑行与绿色出行，是团队倾力打磨的 101 款原创车架与 CC0 链上数字机车资产；<br>
-          · <b>BCM 英雄</b>：是一个完全开放给社区共创的<b>独立环保角色宇宙</b>。每个人都可以通过“画草图 ➔ 捏黏土 ➔ 赋予独特环保超能力”来定义自己心中的环保英雄，获得专属编号与官方数字化档案。你<b>无需预先持有任何 NFT</b>，零门槛即可参与共创！
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q2">What are BCM Heroes, and what is their relationship to BCM Motorbikes?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a2"><b>BCM Heroes are pure community environmental champions, not riders for the bikes.</b><br>Our core aim in initiating BCM Hero co-creation is exploring <b>"what Earth-defending eco-champions look like in the eyes of diverse creators — especially children and grassroots makers."</b><br><br>· <b>BCM Motorbikes</b>: Symbolising low-carbon mobility and green transit, embodied by 101 bespoke chassis and CC0 on-chain collectibles.<br>· <b>BCM Heroes</b>: An independent, community-driven <b>eco-character universe</b>. Anyone can define their own champion through "Sketch ➔ Clay Moulding ➔ Assign Eco Superpower" to receive an archival registry code. You <b>do not need to hold an NFT</b> — participation is 100% barrier-free!</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">机车是如何发行的？（什么是每日一 mint？）</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>One Machine. Every Day. Forever.</b><br>
-          智能合约每 24 小时自动生成并释放 1 辆机车进行公开铸造（每日一 mint）与竞拍。当天竞拍结束后，下一辆机车自动生成并开启新一轮 24 小时释放。
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q3">How are the motorbikes released? (What is the Daily Mint?)</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a3"><b>One Machine. Every Day. Forever.</b><br>The smart contract automatically generates and releases 1 bespoke motorbike every 24 hours for public minting and auction. Upon auction conclusion, the next machine seamlessly generates and begins the subsequent 24-hour cycle.</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">BCM 机车 NFT 的版权 (CC0) 与原创权是如何界定的？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>101 款车身与机械结构 100% 属于团队原创设计</b>：由团队工业设计师原创设计 101 款车身与机械结构。整体 7,700 辆数字机车 NFT 采用 <b>CC0（公共领域）协议</b>，向所有人开放商用与二次创作；轮毂瓶盖上的饮品品牌 Logo 属于对应商标持有人，属于非商业代言性质的当代波普环保致敬。
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q4">How are copyright (CC0) and original provenance defined for BCM NFTs?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a4"><b>All 101 chassis and mechanical frameworks are 100% original creations of our team</b>, crafted in-house by our industrial designers. The entire 7,700 digital motorbike collection adopts the <b>CC0 1.0 Universal (Public Domain)</b> dedication, freely open for commercial application and remixing. Beverage logos appearing on bottle cap wheels remain the registered trademarks of their respective owners, forming a Pop Art cultural homage without commercial endorsement.</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">什么是"死亡螺旋"？BCM 会发生吗？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>死亡螺旋（Death Spiral）</b> = GameFi 项目最常见的崩盘模式：新玩家增长停滞 → 奖励代币价格下跌 → 老玩家撤离 → 价格继续跌 → 死亡循环。<br><br>
-          经典案例：Axie Infinity 的 SLP 代币从高点跌 99%+。2026 年报告显示 <b>90%+ GameFi 项目已死</b>，$15B 融资中大部分归零。<br><br>
-          <b>BCM 为什么不同</b>：<br>
-          · <b>BCM 暂不发币</b>，没有 Token 价格风险<br>
-          · <b>BCM 不承诺收益</b>，不靠"投机型玩家"驱动需求<br>
-          · <b>BCM 作品价值来自设计本身与实体手作积淀</b>，不靠二级市场炒作
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q5">What is a "death spiral", and could it happen to BCM?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a5"><b>Death Spiral</b> = The classic collapse loop in speculative GameFi: new player growth plateaus → reward token drops → veteran players liquidate → price drops further → terminal loop.<br><br>Historical precedent: Axie Infinity's SLP plunged 99%+ from peaks. Industry reports show <b>90%+ of GameFi projects have collapsed</b>, with the bulk of $15B funding wiped out.<br><br><b>Why BCM is Different</b>:<br>· <b>BCM issues no speculative tokens</b>, carrying zero token volatility risk<br>· <b>BCM promises zero yield</b>, eschewing mercenary speculators<br>· <b>BCM value stems from design craftsmanship and tactile physical roots</b>, rather than secondary-market manipulation.</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">BCM 的 7,700 辆机车是如何组成的？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          由团队倾力设计的 <b>101 款原创车架</b>，搭配 <b>109 种真实废弃瓶盖转换而来的轮毂元素</b>，加上引擎、车灯、把手等多种可组合配件，在区块链上形成 7,700 辆独一无二、数据不可篡改的链上机车资产。
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q6">How are the 7,700 BCM motorbikes composed?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a6">Combining <b>101 bespoke chassis designs</b> with <b>109 reclaimed bottle cap wheel elements</b>, along with engines, headlamps, and handlebars, procedurally composed on-chain into 7,700 unique, immutable digital motorcycle assets.</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">Gas 费是什么？我要付多少？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>Gas 费</b> = 区块链交易的"手续费"，付给网络矿工/验证者，<b>不是项目方收的</b>。<br><br>
-          <b>在 Layer 2 网络上参与时你要付的</b>：仅需极低 Gas 费（~¥1-5）。
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q7">What are gas fees, and how much will I pay?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a7"><b>Gas Fee</b> = The transaction processing fee paid directly to network validators/miners, <b>not collected by the BCM team</b>.<br><br><b>When participating on Layer 2 networks</b>: Gas costs are negligible (typically less than £0.20 / ~$0.25 per transaction).</div></div>
       </div>
       <div class="faq__item">
-        <div class="faq__q">我是 Web3 新手，怎么参与？</div>
-        <div class="faq__a"><div class="faq__a-inner">
-          <b>不需要懂复杂的区块链技术</b>。每日一 mint 释放时，你只需要：<br>
-          1. 下载一个 Web3 钱包 App（MetaMask / OKX Wallet / Rabby）<br>
-          2. 准备少量 ETH（几百元即可参与出价或体验）<br>
-          3. 访问 bcm.motorcycle，连接钱包参与今日机车出价<br>
-          4. 确认交易后，机车资产直接进入你的个人钱包
-        </div></div>
+        <div class="faq__q" data-i18n="faq_q8">I am a Web3 beginner, how do I participate?</div>
+        <div class="faq__a"><div class="faq__a-inner" data-i18n-html="faq_a8"><b>No complex blockchain knowledge is required</b>. When the daily mint goes live, simply:<br>1. Install a Web3 wallet (MetaMask / Rabby / Coinbase Wallet)<br>2. Fund with a modest amount of ETH<br>3. Visit bcm.motorcycle and connect your wallet to place a bid on today's release<br>4. Confirm the transaction, and the motorbike collectible will transfer directly into your wallet.</div></div>
       </div>
     </div>
   </div>
@@ -2313,11 +2048,11 @@ footer{
 
 <section id="cta" class="cta">
   <div class="wrap">
-    <h2>每日一 mint<br><span class="hl">第一时间</span>通知你</h2>
-    <p style="color:var(--ink-dim);margin-bottom:32px;font-size:14px">订阅邮件，获取每日一 mint 释放提醒、拍卖动态与手作工坊现场资讯。</p>
-    <form class="cta__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='✓ 已订阅';">
+    <h2 data-i18n-html="cta_title">Get Notified First<br><span class="hl">for Every Daily Mint</span></h2>
+    <p style="color:var(--ink-dim);margin-bottom:32px;font-size:14px" data-i18n="cta_lead">Subscribe to receive 24-hour mint reminders, auction dispatches, and workshop invitations.</p>
+    <form class="cta__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent=(currentLang==='zh'?'✓ 已订阅':'✓ Subscribed');">
       <input type="email" placeholder="your@email.com" required>
-      <button type="submit">订阅 →</button>
+      <button type="submit" data-i18n="cta_btn">Subscribe →</button>
     </form>
   </div>
 </section>
@@ -2328,74 +2063,82 @@ footer{
       <img src="./images/logo.gif" alt="BCM Logo" style="height:32px;width:auto;mix-blend-mode:multiply;transform:rotate(-1deg)">
       <div>© 2026 BCM Project · BottleCap Motorcycle</div>
     </div>
-    <div>车架与机械 = BCM 原创设计 · 7,700 机车 NFT = CC0 公共领域 · 瓶盖商标 = 归各品牌方所有（非商业代言）</div>
+    <div data-i18n="footer_rights">Chassis & Mechanics = BCM Original Design · 7,700 Motorbike NFTs = CC0 Public Domain · Bottle Cap Trademarks = Property of Respective Owners (Non-Endorsement)</div>
   </div>
 </footer>
 <script>
 // ==========================================
-// 03 / PLAYGROUND (车库工坊) 试玩交互
+// 03 / PLAYGROUND (车库工坊) 试玩交互 (Bilingual Support)
 // ==========================================
 const pgBikes = [
   {
     slug: 'classic',
-    name: 'Classic 经典',
-    rarity: 'SSR 经典巡航 · #55',
-    desc: '纯正双管车架 · 标志性美式巡航轮廓',
-    type: '复古巡航',
+    name: { zh: 'Classic 经典', en: 'Classic Cruiser' },
+    rarity: { zh: 'SSR 经典巡航 · #55', en: 'SSR Classic Cruiser · #55' },
+    desc: { zh: '纯正双管车架 · 标志性美式巡航轮廓', en: 'Authentic twin-tube chassis · Iconic American cruiser profile' },
+    type: { zh: '复古巡航', en: 'Retro Cruiser' },
     weight: '55'
   },
   {
     slug: 'mustang',
-    name: 'Mustang 野马',
-    rarity: 'SR 肌肉性能 · #89',
-    desc: '重型加厚管梁 · 强劲马力肌肉改装风格',
-    type: '肌肉性能',
+    name: { zh: 'Mustang 野马', en: 'Mustang Muscle' },
+    rarity: { zh: 'SR 肌肉性能 · #89', en: 'SR Muscle Performance · #89' },
+    desc: { zh: '重型加厚管梁 · 强劲马力肌肉改装风格', en: 'Heavy-gauge tubular beams · High-torque muscle custom styling' },
+    type: { zh: '肌肉性能', en: 'Muscle Build' },
     weight: '89'
   },
   {
     slug: 'hornet',
-    name: 'Hornet 小黄蜂',
-    rarity: 'SSR 街头先锋 · #55',
-    desc: '街头 Cafe Racer 灵巧流线 · 极速破风造型',
-    type: '轻便先锋',
+    name: { zh: 'Hornet 小黄蜂', en: 'Hornet Racer' },
+    rarity: { zh: 'SSR 街头先锋 · #55', en: 'SSR Street Pioneer · #55' },
+    desc: { zh: '街头 Cafe Racer 灵巧流线 · 极速破风造型', en: 'Nimble Cafe Racer silhouette · Streamlined wind-cheating contours' },
+    type: { zh: '轻便先锋', en: 'Street Racer' },
     weight: '55'
   },
   {
     slug: 'cybermetal',
-    name: 'CyberMetal 数码堡垒',
-    rarity: 'SSR 重装机甲 · #55',
-    desc: '赛博棱角机械外甲 · 工业重金属防护',
-    type: '重装机甲',
+    name: { zh: 'CyberMetal 数码堡垒', en: 'CyberMetal Fortress' },
+    rarity: { zh: 'SSR 重装机甲 · #55', en: 'SSR Armoured Mech · #55' },
+    desc: { zh: '赛博棱角机械外甲 · 工业重金属防护', en: 'Angular cyberpunk exoskeleton · Heavy industrial metal armour' },
+    type: { zh: '重装机甲', en: 'Armoured Mech' },
     weight: '55'
   },
   {
     slug: 'retro',
-    name: 'Retro 复古',
-    rarity: 'SR 典雅复古 · #89',
-    desc: '复古弯把慢骑车身 · 经典街头情怀沉淀',
-    type: '典雅复古',
+    name: { zh: 'Retro 复古', en: 'Retro Roadster' },
+    rarity: { zh: 'SR 典雅复古 · #89', en: 'SR Vintage Roadster · #89' },
+    desc: { zh: '复古弯把慢骑车身 · 经典街头情怀沉淀', en: 'Swept-back handlebar roadster · Timeless vintage street soul' },
+    type: { zh: '典雅复古', en: 'Vintage Roadster' },
     weight: '89'
   },
   {
     slug: 'offroad',
-    name: 'OffRoad 越野',
-    rarity: 'SR 全地形探险 · #89',
-    desc: '高位避震硬核 Scrambler 车架 · 专为崎岖泥泞打造',
-    type: '全地形探险',
+    name: { zh: 'OffRoad 越野', en: 'OffRoad Explorer' },
+    rarity: { zh: 'SR 全地形探险 · #89', en: 'SR All-Terrain Explorer · #89' },
+    desc: { zh: '高位避震硬核 Scrambler 车架 · 专为崎岖泥泞打造', en: 'High-clearance scrambler chassis · Built for rugged mud and gravel' },
+    type: { zh: '全地形探险', en: 'All-Terrain' },
     weight: '89'
   }
 ];
 
 let currentPgBike = pgBikes[0];
 
+function getPgBikeField(bike, field) {
+  const lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+  if (bike[field] && typeof bike[field] === 'object') {
+    return bike[field][lang] || bike[field]['en'];
+  }
+  return bike[field];
+}
+
 function renderPgSelectors() {
   const container = document.getElementById('pgSelectorList');
   if (!container) return;
   container.innerHTML = pgBikes.map(b => `
     <div class="pg__card ${b.slug === currentPgBike.slug ? 'active' : ''}" onclick="selectPgBike('${b.slug}')" id="card-${b.slug}">
-      <img src="./images/playground/thumb_${b.slug}.png" alt="${b.name}" class="pg__card-img">
-      <div class="pg__card-name">${b.name}</div>
-      <div class="pg__card-badge">${b.type}</div>
+      <img src="./images/playground/thumb_${b.slug}.png" alt="${getPgBikeField(b, 'name')}" class="pg__card-img">
+      <div class="pg__card-name">${getPgBikeField(b, 'name')}</div>
+      <div class="pg__card-badge">${getPgBikeField(b, 'type')}</div>
     </div>
   `).join('');
 }
@@ -2414,9 +2157,9 @@ function selectPgBike(slug) {
   bikeImg.classList.add('switching');
   setTimeout(() => {
     bikeImg.src = './images/playground/' + target.slug + '.png';
-    document.getElementById('pgBikeName').textContent = target.name;
-    document.getElementById('pgBikeDesc').textContent = target.desc;
-    document.getElementById('pgBadgeRarity').textContent = target.rarity;
+    document.getElementById('pgBikeName').textContent = getPgBikeField(target, 'name');
+    document.getElementById('pgBikeDesc').textContent = getPgBikeField(target, 'desc');
+    document.getElementById('pgBadgeRarity').textContent = getPgBikeField(target, 'rarity');
     bikeImg.classList.remove('switching');
   }, 120);
 }
@@ -2448,15 +2191,15 @@ function exportBikePoster() {
         ctx.drawImage(bikeImg, 0, 0, 800, 800);
         
         ctx.fillStyle = 'rgba(17, 17, 17, 0.85)';
-        ctx.fillRect(24, 24, 240, 52);
+        ctx.fillRect(24, 24, 280, 56);
         ctx.strokeStyle = '#FFFFFF';
         ctx.lineWidth = 1.5;
-        ctx.strokeRect(24, 24, 240, 52);
+        ctx.strokeRect(24, 24, 280, 56);
         ctx.fillStyle = '#FFFFFF';
         ctx.font = 'bold 16px monospace';
         ctx.fillText('BCM Garage · ' + currentPgBike.slug.toUpperCase(), 36, 48);
         ctx.font = '12px sans-serif';
-        ctx.fillText('Prototype Wheel · DIY Demo', 36, 64);
+        ctx.fillText('Bespoke Frame · Prototype Wheel Spec', 36, 66);
 
         const link = document.createElement('a');
         link.download = 'BCM_Garage_' + currentPgBike.slug + '.png';
@@ -2484,14 +2227,6 @@ function openHeroModal(imgSrc, caption) {
   }
 }
 
-function switchCommunityTab(tabName, btn) {
-  document.querySelectorAll('.community__tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.community__tab-pane').forEach(p => p.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  const target = document.getElementById('community-tab-' + tabName);
-  if (target) target.classList.add('active');
-}
-
 function closeHeroModal() {
   const modal = document.getElementById('heroModal');
   if (modal) {
@@ -2503,16 +2238,424 @@ function closeHeroModal() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeHeroModal();
 });
+
 </script>
 
 <!-- Hero Lightbox Modal -->
 <div id="heroModal" class="hero-modal" onclick="closeHeroModal()">
   <div class="hero-modal__box" onclick="event.stopPropagation()">
-    <button type="button" class="hero-modal__close" onclick="closeHeroModal()" title="关闭 (Esc)">✕</button>
+    <button type="button" class="hero-modal__close" onclick="closeHeroModal()" title="Close (Esc)">✕</button>
     <img id="heroModalImg" src="" alt="Hero Image Preview">
     <div id="heroModalCaption"></div>
   </div>
 </div>
+<!-- BCM i18n Engine & British English Translation Dictionary -->
+<script>
+const BCM_I18N = {
+  en: {
+    doc_title: "BCM 🛵 — Bespoke Motorcycle Art & CC0 On-Chain Collectibles",
+    nav_concept: "Concept",
+    nav_nft: "NFTs",
+    nav_playground: "Workshop",
+    nav_daily: "Daily Mint",
+    nav_community: "Community",
+    nav_team: "D&D Team",
+    nav_faq: "FAQ",
+    nav_subscribe: "Subscribe →",
+    hero_title: "101 Bespoke Frames<br>Forming <em>7,700</em> Digital <span class=\"hl\">Motorbikes</span>",
+    hero_desc: "BCM (BottleCap Motorcycle) is a global Web3 initiative rooted in bespoke motorcycle craft and sustainable urban culture. Born from a collision of upcycled bottle caps and raw mechanical aesthetics: 101 fully original motorcycle chassis, each paired with diverse reclaimed bottle caps as custom wheels, yielding 7,700 distinct digital collectibles. Released on-chain at a rate of 1 motorcycle every 24 hours for the global community to mint.",
+    hero_stat1: "Bespoke Frames (Original BCM Designs)",
+    hero_stat2: "Digital Bike NFTs (CC0 Public Domain)",
+    hero_stat3: "1 Released Every 24 Hours",
+    hero_stat4: "CC0 Free for Commercial & Remix",
+    concept_num: "01 / CONCEPT",
+    concept_title: "Why BCM Exists: <span class=\"hl\">Concept & Purpose</span>",
+    concept_quote: "\"Every bottle cap deserves to be seen anew.<br>No preaching from above — <span class=\"hl\">just turning discarded daily rubbish into fierce, full-throttle works of art</span>.\"",
+    concept_p1_title: "Artistic Rebirth of Waste (BottleCap → Motorcycle)",
+    concept_p1_desc: "Sparked by a visceral shock at a waste recycling depot: towering mounds of discarded plastic bottle caps awaiting landfill or incineration. BCM (BottleCap Motorcycle) washes, sorts, and deconstructs everyday drink caps, reimagining them as 109 distinct mechanical wheels, giving the humblest waste a second life in hard-edged industrial art.",
+    concept_p2_title: "Two Generations, One Craft Obsession",
+    concept_p2_desc: "The street aesthetics of a twenty-something designer fused with the engineering rigour of a thirty-something tech builder. Pouring heart and soul into 101 bespoke chassis designs. \"Combining sustainability with original motorbike craft to create products of genuine substance\" remains our singular founding conviction.",
+    concept_p3_title: "No Rhetoric, Just Honest Handcraft",
+    concept_p3_desc: "Strictly honouring 5R zero-waste principles: 100% reclaimed materials, zero virgin plastics. Having hosted numerous hands-on workshops in Guangzhou, guiding over a hundred makers to handcraft tactile bike toys, making sustainable living an immediate, accessible reality.",
+    nft_num: "02 / NFT COLLECTION",
+    nft_title: "7,700 <span class=\"hl\">One-of-a-Kind</span> Digital Motorbike NFTs",
+    nft_lead: "Each machine pairs 1 bespoke chassis with 1 bottle cap element under the CC0 Public Domain dedication.",
+    nft_orig_title: "🎨 Original Design & CC0 Dedication Statement",
+    nft_orig_p1: "<strong>BCM = BottleCap Motorcycle</strong>: An artistic synergy of discarded bottle caps and mechanical motorbikes. Each complete BCM digital motorcycle = <strong>Bespoke Chassis & Mechanical Engineering (Original Motorcycle)</strong> + <em>Everyday Beverage Bottle Cap Elements (Discarded BottleCaps)</em>.",
+    nft_orig_p2: "<strong>Chassis and mechanical architecture are 100% our original design</strong>: Comprising 101 bespoke frames, skeletal structures, wheel hubs, engines, handlebars, and suspension systems, conceived and illustrated entirely in-house. These are <strong>our authentic artisan creations, over which we retain full intellectual provenance</strong>.",
+    nft_orig_p3: "<strong>All 7,700 Digital Motorbike NFTs are dedicated to CC0</strong>: Precisely because the vehicles are our original designs, we proactively dedicate all 7,700 digital motorbike NFTs to the global community under <strong>CC0 1.0 Universal (No Rights Reserved)</strong>. Anyone is free to remix, modify, commercialise, or produce derivative works without requiring permission.",
+    nft_orig_p4: "<strong>Bottle cap elements originate from existing beverage brands (Copyright not owned by BCM)</strong>: Cap textures incorporate logos of commercially available beverage brands (colas, mineral waters, teas, fruit juices). These logos and insignia remain the <em>registered trademarks and intellectual property of their respective owners and are not owned by BCM</em>.",
+    nft_orig_p5: "⚠️ <strong>Pop Art Fair-Dealing & Non-Endorsement Notice</strong>: BCM adopts a Pop Art collage approach as a homage to street custom culture and environmental contemplation. <strong>BCM maintains no commercial sponsorship, official partnership, or endorsement from any featured beverage brand</strong>.",
+    nft_c1_h: "Motorcycle Chassis & Mechanics",
+    nft_c1_p: "101 bespoke frames, bodywork, engines, handlebars, and mechanics",
+    nft_c1_tag: "BCM Original Design",
+    nft_c2_h: "7,700 Motorbike NFTs",
+    nft_c2_p: "No rights reserved; free for commercial builds, remixes, and adaptations",
+    nft_c2_tag: "CC0 (Public Domain)",
+    nft_c3_h: "Bottle Cap Brand Logos",
+    nft_c3_p: "Beverage brand trademarks, emblems, and commercial trade dress",
+    nft_c3_tag: "Property of Respective Owners",
+    nft_c4_h: "Commercial Status Notice",
+    nft_c4_p: "Pop Art collage homage to custom culture; strictly non-endorsed",
+    nft_c4_tag: "Non-Endorsement",
+    pg_num: "03 / WORKSHOP PLAYGROUND",
+    pg_title: "Playground · <span class=\"hl\">Bespoke Chassis Test Bench</span>",
+    pg_lead: "Zero-barrier trial · Explore 6 featured liveries from our 101 bespoke frames, equipped with neutral engineering prototype wheels (non-branded bottle caps). Anyone can build and experiment freely without owning an NFT or connecting a wallet!",
+    pg_btn_rand: "🎲 Randomise Livery",
+    pg_btn_poster: "📸 Export Poster",
+    pg_chooser_t: "Select Bespoke Livery (6 Featured Builds)",
+    pg_chooser_s: "Click to switch",
+    pg_wheel_q: "💡 Why are wheels fixed prototypes rather than branded bottle caps?",
+    pg_wheel_a: "BCM has not yet deployed its official on-chain NFT smart contracts. To safeguard the novelty, scarcity, and metadata integrity of the full 7,700 collection prior to official release, the Playground employs experimental <strong>engineering prototype wheels (unbranded)</strong> for demonstration.<br>Any creator can explore the mechanical contours and bespoke chassis designs without owning an NFT or connecting a wallet.",
+    daily_num: "04 / DAILY MINT",
+    daily_lead: "Smart contract generates and releases 1 unique motorbike on-chain every 24 hours for global community bidding and minting.",
+    daily_bid_status: "Current Highest Bid: <span style=\"color:#059669;font-size:22px;font-family:var(--ff-mono)\">0.05 ETH</span> · Time Remaining: <span style=\"font-family:var(--ff-mono)\">08h : 24m : 19s</span>",
+    daily_d1: "<b>24-Hour Mint Cadence</b>: Smart contract generates and lists 1 brand-new motorbike every 24 hours automatically",
+    daily_d2: "<b>Originality & Rights</b>: All 101 chassis are 100% team-designed originals; the entire NFT collection adopts CC0 1.0 Universal",
+    daily_d3: "<b>Open Participation</b>: Permissionless public auction; as each finishes, the next machine seamlessly begins",
+    daily_d4: "<b>Treasury Empowerment</b>: 100% of proceeds flow to the community treasury, continually funding physical zero-waste workshops and global riding culture",
+    comm_num: "05 / COMMUNITY CREATION · 🎮 BCM HERO PIXEL RUNNERS <span class=\"hero-tag-badge\">UPCOMING</span>",
+    comm_title: "The Bike is the Vessel, <span class=\"hl\">The HERO Belongs to the Community</span>",
+    comm_lead: "From tactile workshop clay to on-chain digital pixels. Every BCM Hero possesses a unique environmental superpower. A brand-new CC0 series launching on-chain soon.",
+    comm_badge1: "🧬 Tactile Clay to Digital Pixel",
+    comm_badge2: "⚡ CC0 Community Heroes",
+    comm_evo_t: "From Workshop Clay to Digital Heroes",
+    comm_evo_d: "Originating from children\'s clay sculpts and sketches in offline workshops, digitally distilled into dynamic running champions endowed with eco-superpowers.",
+    comm_zoom_chart: "🔍 Enlarge Chart",
+    comm_t1_b: "Running Stance",
+    comm_t1_s: "Relentless, rapid environmental action",
+    comm_t2_b: "Waste & Memes",
+    comm_t2_s: "Takeaway cartons, viral memes & pixel crossover",
+    comm_t3_b: "CC0 Freedom",
+    comm_t3_s: "Wholly owned by community; open for commercial remix",
+    comm_t4_b: "Bikes & Riders",
+    comm_t4_s: "Symbiotic frame pairing; empowering physical craft workshops",
+    comm_evo_hint: "💡 Click to view physical clay & pixel evolution diagram",
+    comm_sub_t: "Pioneer Runners · First 5 Eco Heroes",
+    comm_sub_s: "Click to view hi-res illustration & signature skills",
+    comm_zoom_art: "🔍 View Artwork",
+    hero1_name: "Golden Clown",
+    hero1_q: "A delivery carton reborn as crisp urban armour, turning disposable packaging into street art.",
+    hero1_sk: "🍔 Carton Upcycle · Waste to Treasure",
+    hero2_name: "Pepe Runner",
+    hero2_q: "The iconic green meme sprinting into reality, turning viral internet culture into genuine eco-action.",
+    hero2_sk: "🐸 Meme Resonance · High-Speed Patrol",
+    hero3_name: "The Survivor",
+    hero3_q: "Indomitable vitality in extreme conditions — a steadfast guardian across ruins and pollution.",
+    hero3_sk: "🪳 Extreme Adaptability · Tenacious Life",
+    hero4_name: "Polar Guardian",
+    hero4_q: "A polar envoy sprinting across melting glaciers, rallying for frozen ecosystems with every stride.",
+    hero4_sk: "🐧 Polar Sentinel · Glacial Warning",
+    hero5_name: "Pixel Chomp",
+    hero5_q: "Classic arcade pixel sprite, racing across terrain to devour microplastics in ocean and soil.",
+    hero5_sk: "🟡 Pixel Chomp · Microplastic Nemesis",
+    fp_badge: "📸 Field Footprints",
+    fp_sub: "Documenting offline field trips and hands-on workshops",
+    fp_hint: "← Swipe horizontally · Click photos to enlarge →",
+    fp1_tag: "📍 Scrap Yard",
+    fp1_title: "Scrap Metal Scavenge",
+    fp1_note: "Visiting waste depots to harvest low-carbon inspiration for chassis design.",
+    fp2_tag: "📍 Community Workshop",
+    fp2_title: "Kids Crafting Bikes",
+    fp2_note: "Guiding young creators to build their first bike using discarded caps and markers.",
+    fp3_tag: "📍 Waste into Art",
+    fp3_title: "Takeaway Box Reborn",
+    fp3_note: "Unfolding takeaway packaging and mounting two bottle caps to create an original bike.",
+    fp4_tag: "📍 Artisan Workbench",
+    fp4_title: "Bottle Cap Studio Desk",
+    fp4_note: "Cutting mats, craft knives, and sorted caps — the birthplace of every build.",
+    fp5_tag: "📍 Cap Scavenger Hunt",
+    fp5_title: "Aisle Treasures",
+    fp5_note: "Scouting supermarket aisles for vibrant caps to unlock upcycling potential.",
+    fp6_tag: "📍 Gallery Exhibition",
+    fp6_title: "#287 Creative Park Exhibit",
+    fp6_note: "Framing original artwork with authentic chrome motorcycle mirrors.",
+    fp7_tag: "📍 Wall Plaque Display",
+    fp7_title: "Vintage Soda Cap Plaque",
+    fp7_note: "Using vintage 1946 Asia Soda aluminium crown caps as retro wheels.",
+    fp8_tag: "📍 Workshop Journal",
+    fp8_title: "Tactile Scale Miniature",
+    fp8_note: "Grinding reclaimed caps and mechanical offcuts into tactile collectible figures.",
+    comm_footer_note: "⚡ <strong>BCM HERO Pixel Runners</strong>: CC0 Public Domain · Launching on-chain soon · Continually empowering physical craft workshops",
+    team_num: "06 / FOUNDING TEAM & CRAFT STORY",
+    team_title: "Resonance of Art & Engineering: <span class=\"hl\">D&D Studio</span>",
+    team_lead: "\"Every bottle cap deserves to be seen anew.\" From discarded colourful caps in waste yards to 101 bespoke handcrafted bikes and 7,700 digital collectibles.",
+    team_jay_role: "Co-Founder & Lead Designer",
+    team_jay_tag: "Industrial Designer · Creative Lead",
+    team_jay_bio: "Moved by towering mounds of plastic bottle caps during a visit to a waste depot, sparking his conviction to give discarded materials renewed purpose. <strong>He spearheaded the creation of 101 distinct bespoke motorcycle chassis</strong> and pioneered transforming 109 reclaimed caps into wheels, imbuing each machine with distinct vitality.",
+    team_ethan_role: "Co-Founder & Product Lead",
+    team_ethan_tag: "Tech Product Builder · Systems Architect",
+    team_ethan_bio: "With a decade in technology product leadership, steering systems from inception to scale. Possessing deep passion and exacting standards for industrial craft, he framed the vision: \"Merging zero-waste sustainability with bespoke motorcycle design — that is our purpose, that is a product of substance.\" He orchestrates BCM architecture, on-chain execution, and engineering scalability.",
+    team_vid_badge: "📹 Official Documentary · 01:59",
+    team_vid_title: "D&D Studio Story: From Physical Handcraft to Digital Genesis",
+    team_vid_desc: "A candid documentary following D&D Studio: from collecting and washing discarded caps in waste depots and drafting motorcycle mechanics, to hosting tactile zero-waste workshops in Guangzhou.",
+    team_vid_fallback: "Your browser does not support native video playback.",
+    team_5r_title: "D&D Studio\'s 5R Zero-Waste Practice & Founding Ethos",
+    team_5r_h1: "♻️ Strict 5R Zero-Waste Principles",
+    team_5r_p1: "Zero-waste is never a slogan. We purchase zero new plastics; 100% of creative materials derive from reclaimed bottle caps, and workshops strictly ban single-use plastics.",
+    team_5r_h2: "🛠️ Hands-on Zero-Waste Workshops",
+    team_5r_p2: "Having cleaned and classified thousands of discarded caps to host physical workshops, introducing hundreds of adults and children to the joy of turning waste into craft.",
+    team_5r_h3: "📜 Material Passports & Sustainable Living",
+    team_5r_p3: "Conceiving \"Material Passport\" records to quantify eco-contributions, championing green riding, low-carbon mobility, and healthy living in an engaging, participatory way.",
+    faq_num: "07 / FAQ",
+    faq_title: "Frequently Asked Questions <span class=\"hl\">About BCM</span>",
+    faq_q1: "What does the name BCM stand for?",
+    faq_a1: "<b>BCM stands for BottleCap Motorcycle</b>.<br>It springs from the clash and reconstruction of two worlds: on one hand, the humblest, everyday disposable item — <b>BottleCap (discarded plastic drink caps)</b>; on the other, the industrial aesthetics of freedom and raw horsepower — the <b>Motorcycle</b>.<br>Through 101 bespoke chassis designs, the team transforms discarded caps into mechanical wheels, ensuring overlooked waste is seen anew as striking contemporary art and digital collectibles.",
+    faq_q2: "What are BCM Heroes, and what is their relationship to BCM Motorbikes?",
+    faq_a2: "<b>BCM Heroes are pure community environmental champions, not riders for the bikes.</b><br>Our core aim in initiating BCM Hero co-creation is exploring <b>\"what Earth-defending eco-champions look like in the eyes of diverse creators — especially children and grassroots makers.\"</b><br><br>· <b>BCM Motorbikes</b>: Symbolising low-carbon mobility and green transit, embodied by 101 bespoke chassis and CC0 on-chain collectibles.<br>· <b>BCM Heroes</b>: An independent, community-driven <b>eco-character universe</b>. Anyone can define their own champion through \"Sketch ➔ Clay Moulding ➔ Assign Eco Superpower\" to receive an archival registry code. You <b>do not need to hold an NFT</b> — participation is 100% barrier-free!",
+    faq_q3: "How are the motorbikes released? (What is the Daily Mint?)",
+    faq_a3: "<b>One Machine. Every Day. Forever.</b><br>The smart contract automatically generates and releases 1 bespoke motorbike every 24 hours for public minting and auction. Upon auction conclusion, the next machine seamlessly generates and begins the subsequent 24-hour cycle.",
+    faq_q4: "How are copyright (CC0) and original provenance defined for BCM NFTs?",
+    faq_a4: "<b>All 101 chassis and mechanical frameworks are 100% original creations of our team</b>, crafted in-house by our industrial designers. The entire 7,700 digital motorbike collection adopts the <b>CC0 1.0 Universal (Public Domain)</b> dedication, freely open for commercial application and remixing. Beverage logos appearing on bottle cap wheels remain the registered trademarks of their respective owners, forming a Pop Art cultural homage without commercial endorsement.",
+    faq_q5: "What is a \"death spiral\", and could it happen to BCM?",
+    faq_a5: "<b>Death Spiral</b> = The classic collapse loop in speculative GameFi: new player growth plateaus → reward token drops → veteran players liquidate → price drops further → terminal loop.<br><br>Historical precedent: Axie Infinity\'s SLP plunged 99%+ from peaks. Industry reports show <b>90%+ of GameFi projects have collapsed</b>, with the bulk of $15B funding wiped out.<br><br><b>Why BCM is Different</b>:<br>· <b>BCM issues no speculative tokens</b>, carrying zero token volatility risk<br>· <b>BCM promises zero yield</b>, eschewing mercenary speculators<br>· <b>BCM value stems from design craftsmanship and tactile physical roots</b>, rather than secondary-market manipulation.",
+    faq_q6: "How are the 7,700 BCM motorbikes composed?",
+    faq_a6: "Combining <b>101 bespoke chassis designs</b> with <b>109 reclaimed bottle cap wheel elements</b>, along with engines, headlamps, and handlebars, procedurally composed on-chain into 7,700 unique, immutable digital motorcycle assets.",
+    faq_q7: "What are gas fees, and how much will I pay?",
+    faq_a7: "<b>Gas Fee</b> = The transaction processing fee paid directly to network validators/miners, <b>not collected by the BCM team</b>.<br><br><b>When participating on Layer 2 networks</b>: Gas costs are negligible (typically less than £0.20 / ~$0.25 per transaction).",
+    faq_q8: "I am a Web3 beginner, how do I participate?",
+    faq_a8: "<b>No complex blockchain knowledge is required</b>. When the daily mint goes live, simply:<br>1. Install a Web3 wallet (MetaMask / Rabby / Coinbase Wallet)<br>2. Fund with a modest amount of ETH<br>3. Visit bcm.motorcycle and connect your wallet to place a bid on today\'s release<br>4. Confirm the transaction, and the motorbike collectible will transfer directly into your wallet.",
+    cta_title: "Get Notified First<br><span class=\"hl\">for Every Daily Mint</span>",
+    cta_lead: "Subscribe to receive 24-hour mint reminders, auction dispatches, and workshop invitations.",
+    cta_btn: "Subscribe →",
+    footer_rights: "Chassis & Mechanics = BCM Original Design · 7,700 Motorbike NFTs = CC0 Public Domain · Bottle Cap Trademarks = Property of Respective Owners (Non-Endorsement)"
+  },
+  zh: {
+    doc_title: "BCM 🛵 — 原创机车艺术与 CC0 链上数字藏品",
+    nav_concept: "概念",
+    nav_nft: "NFT",
+    nav_playground: "车库工坊",
+    nav_daily: "每日一 mint",
+    nav_community: "社区创作",
+    nav_team: "D&D团队",
+    nav_faq: "问答",
+    nav_subscribe: "订阅 →",
+    hero_title: "101 个原创车架<br>组成 <em>7,700</em> 辆<span class=\"hl\">数字机车</span>",
+    hero_desc: "BCM（BottleCap Motorcycle · 瓶盖机车）是面向全球的 Web3 原创机车文化项目。名字源于“BottleCap（废弃瓶盖）+ Motorcycle（硬核机车）”的解构碰撞：由团队主创独立完成 101 个原创机车车架设计，再把每个车架配上不同瓶盖元素作为轮毂，组合出 7,700 个独特数字收藏品。每 24 小时链上释放 1 辆机车供全球社区铸造。",
+    hero_stat1: "原创车架（BCM 原创设计）",
+    hero_stat2: "数字机车 NFT (CC0 公共领域)",
+    hero_stat3: "每日释放 1 辆机车",
+    hero_stat4: "CC0 开放创作与商用",
+    concept_num: "01 / 概念",
+    concept_title: "为什么 BCM 存在？<span class=\"hl\">概念与初心</span>",
+    concept_quote: "\"每一个瓶盖，都值得被重新看见。<br>不做高高在上的说教，<span class=\"hl\">把被遗弃的日常废品，变成帅气热血的艺术品</span>。\"",
+    concept_p1_title: "废弃物的艺术重生 (BottleCap → Motorcycle)",
+    concept_p1_desc: "源于主创在垃圾处理场的震撼：堆积如山、等待填埋或焚烧的废塑料瓶盖，是日常随手丢弃的缩影。BCM（BottleCap Motorcycle）将日常饮品瓶盖（BottleCap）清洗分类并解构，重构为 109 种独特的电单车（Motorcycle）机械车轮，让最微小的日常废品在热血机械艺术中重获新生。",
+    concept_p2_title: "两个世代的原创执念",
+    concept_p2_desc: "20多岁青年设计师的街头美学，碰撞30多岁科技产品人的工程严谨。倾注心血打磨出 101 部原创车身骨架。“把环保与电单车原创设计结合，做真正有意义的产品”是团队唯一的初心。",
+    concept_p3_title: "拒绝空谈的真实手作",
+    concept_p3_desc: "严格恪守 5R 零废弃原则，所有原料 100% 取自回收废品，绝不采购新塑料。已在广州成功举办多期实体手作工坊，带领上百位参与者亲手把瓶盖变成机车潮玩，让环保成为触手可及的生活方式。",
+    nft_num: "02 / NFT",
+    nft_title: "7,700 个<span class=\"hl\">独一无二</span>的数字机车 NFT",
+    nft_lead: "每一辆由 1 个原创车架 + 1 个瓶盖元素组合而成，CC0 开放协议。",
+    nft_orig_title: "🎨 原创设计与 CC0 协议声明",
+    nft_orig_p1: "<strong>BCM = BottleCap Motorcycle（瓶盖机车）</strong>：名字直观体现了“废弃瓶盖 + 机械机车”的艺术结合。一辆完整的 BCM 数字机车 = <strong>原创车架与机械设计（自主原创 Motorcycle）</strong> + <em>日常饮品瓶盖元素（品牌废弃 BottleCap）</em>。",
+    nft_orig_p2: "<strong>车身与机械结构是我们团队的原创设计</strong>：包括 101 个独立车架、机械骨架、轮毂、引擎、把手、避震系统等。由主创团队完全原创设计与数字绘制。这是<strong>我们的原创工匠作品，拥有完整自主设计权</strong>。",
+    nft_orig_p3: "<strong>7,700 部数字机车 NFT 全面采用 CC0</strong>：正因为车辆机械结构是我们的原创设计，我们主动选择以 <strong>CC0 1.0 Universal（放弃版权，进入公共领域）</strong> 的方式将 7,700 部数字机车 NFT 奉献给全球社区。任何人都可以自由进行二创、改装、商业化使用或衍生品开发，无需经过团队许可。",
+    nft_orig_p4: "<strong>瓶盖元素来自其他饮品品牌（版权非 BCM 所有）</strong>：机车上的瓶盖图层取自市场上真实存在的饮料品牌 Logo（如可乐、纯水、矿泉水、茶饮、果汁等）。这些 Logo 和标识是<em>各大品牌厂商的注册商标与知识产权，版权不属于 BCM</em>。",
+    nft_orig_p5: "⚠️ <strong>艺术二创与非代言声明</strong>：BCM 采用波普艺术（Pop Art）拼贴手法向街头改装文化与环保反思致敬。<strong>BCM 与任何瓶盖饮料品牌均无商业代言、官方联名或背书合作关系</strong>。",
+    nft_c1_h: "机车与车架（机械结构）",
+    nft_c1_p: "101 个车架、车身轮廓、引擎把手、机械结构",
+    nft_c1_tag: "BCM 原创设计",
+    nft_c2_h: "7,700 部机车 NFT",
+    nft_c2_p: "放弃版权主张，公共领域自由商用、二创与改装",
+    nft_c2_tag: "CC0 (公共领域)",
+    nft_c3_h: "瓶盖品牌 Logo",
+    nft_c3_p: "各大饮料品牌 Logo、注册商标、商业装潢",
+    nft_c3_tag: "归原品牌方所有",
+    nft_c4_h: "商业关系声明",
+    nft_c4_p: "波普艺术拼贴与街头文化致敬，绝非商业代言",
+    nft_c4_tag: "非商业代言",
+    pg_num: "03 / 车库试玩工坊",
+    pg_title: "Playground · <span class=\"hl\">原创车架试配台</span>",
+    pg_lead: "零门槛体验 · 选用 101 款原创车架中的精选 6 款涂装，搭载中立工程原型轮组（非商业品牌瓶盖），任何玩家无需持有 NFT 均可随时试玩组装！",
+    pg_btn_rand: "🎲 随机换涂装",
+    pg_btn_poster: "📸 保存改装海报",
+    pg_chooser_t: "选择原创涂装（6 款精选试玩）",
+    pg_chooser_s: "点击切换",
+    pg_wheel_q: "💡 为什么轮子是单独固定的，而不是品牌瓶盖？",
+    pg_wheel_a: "BCM 尚未部署正式 NFT 智能合约。为保护官方 7,700 款完整作品在正式揭晓时的稀缺惊喜与防抓包枚举，Playground 采用实验性的<strong>工程中立原型轮组（非商业饮料瓶盖）</strong>进行组合演示。<br>任何玩家无需持有 NFT、无需连接钱包，都可以直接感受 101 款原创车架的设计轮廓与改装魅力。",
+    daily_num: "04 / 每日一 mint",
+    daily_lead: "智能合约每 24 小时链上生成并释放 1 辆机车供全球社区竞拍与铸造。",
+    daily_bid_status: "当前最高出价：<span style=\"color:#059669;font-size:22px;font-family:var(--ff-mono)\">0.05 ETH</span> · 剩余时间：<span style=\"font-family:var(--ff-mono)\">08h : 24m : 19s</span>",
+    daily_d1: "<b>每日一 mint 机制</b>：智能合约每 24 小时自动生成并上架 1 辆全新机车",
+    daily_d2: "<b>原创与版权</b>：101 款车架均为团队原创设计，NFT 整体全面遵循 CC0 协议",
+    daily_d3: "<b>人人可参与</b>：无门槛公开竞拍，结标后下一辆机车自动接力开启",
+    daily_d4: "<b>金库赋能</b>：100% 收益汇入社区金库，持续资助实体零废弃工坊与全球骑行生态",
+    comm_num: "05 / 社区创作 · 🎮 BCM HERO 像素先锋 <span class=\"hero-tag-badge\">UPCOMING</span>",
+    comm_title: "机车是载具，<span class=\"hl\">HERO 属于社区</span>",
+    comm_lead: "从实体手作黏土，到链上数字像素。每一个 BCM 英雄都拥有独特的环保超能力，全新 CC0 系列即将在链上启动。",
+    comm_badge1: "🧬 实体手作到数字像素",
+    comm_badge2: "⚡ CC0 社区英雄",
+    comm_evo_t: "从工坊黏土，到数字英雄",
+    comm_evo_d: "起源于线下工坊的孩子黏土与草图，经数字化提炼为拥有环保超能力的奔跑姿态英雄。",
+    comm_zoom_chart: "🔍 放大图谱",
+    comm_t1_b: "奔跑姿态",
+    comm_t1_s: "永不停歇的极速环保行动",
+    comm_t2_b: "废品与迷因",
+    comm_t2_s: "快餐盒、Meme 与像素跨界",
+    comm_t3_b: "CC0 开放",
+    comm_t3_s: "完全归属社区，自由商用二创",
+    comm_t4_b: "机车与骑手",
+    comm_t4_s: "角色与车架联动，赋能实体工坊",
+    comm_evo_hint: "💡 点击查看实体黏土与像素进化图",
+    comm_sub_t: "先锋跑者 · 首批 5 位环保英雄",
+    comm_sub_s: "点击查看高清立绘与专属技能",
+    comm_zoom_art: "🔍 查看立绘",
+    hero1_name: "黄金小丑",
+    hero1_q: "麦乐送纸盒化身帅气战甲，把一次性包装变成街头艺术。",
+    hero1_sk: "🍔 纸盒重构 · 变废为宝",
+    hero2_name: "佩佩跑者",
+    hero2_q: "经典绿色 Meme 跑进现实，把网络热梗变成真实的环保行动。",
+    hero2_sk: "🐸 迷因共振 · 极速巡礼",
+    hero3_name: "顽强小强",
+    hero3_q: "最顽强的极境生命力，废墟与极端污染里的坚韧守望者。",
+    hero3_sk: "🪳 极境适应 · 顽强生命",
+    hero4_name: "极地企鹅",
+    hero4_q: "穿越融化冰川而来的两极使者，每一步奔跑都在呼吁保护冰川。",
+    hero4_sk: "🐧 极地守护 · 冰川预警",
+    hero5_name: "吃豆先锋",
+    hero5_q: "经典街机像素形象，一路狂奔吞噬海洋与土壤里的微塑料。",
+    hero5_sk: "🟡 像素吞噬 · 微塑料克星",
+    fp_badge: "📸 真实足迹",
+    fp_sub: "线下走访与工坊手作纪实",
+    fp_hint: "← 左右滑动浏览 · 点击照片查看大图 →",
+    fp1_tag: "📍 废品回收站",
+    fp1_title: "废金属堆寻宝",
+    fp1_note: "走访废品回收站，为机车车架寻找低碳灵感。",
+    fp2_tag: "📍 社区工坊",
+    fp2_title: "小朋友动手做机车",
+    fp2_note: "用废弃瓶盖和画笔，带孩子们亲手做出第一台机车。",
+    fp3_tag: "📍 变废为宝",
+    fp3_title: "麦当劳纸盒再造",
+    fp3_note: "展开外卖纸盒，嵌上两颗瓶盖就是原创机车。",
+    fp4_tag: "📍 手作工作台",
+    fp4_title: "瓶盖工作台",
+    fp4_note: "切割垫、刻刀和洗净的瓶盖，每件作品的起点。",
+    fp5_tag: "📍 寻盖之旅",
+    fp5_title: "货架寻宝",
+    fp5_note: "在商超寻找独特色彩的瓶盖，发掘身边的再造可能。",
+    fp6_tag: "📍 空间展陈",
+    fp6_title: "#287 创意园空间展",
+    fp6_note: "画框装上真实机车后视镜，展出原创画作。",
+    fp7_tag: "📍 空间挂板",
+    fp7_title: "经典汽水铝盖挂板",
+    fp7_note: "用 1946 年亚洲汽水老铝盖，做成复古机车车轮。",
+    fp8_tag: "📍 团队日记",
+    fp8_title: "实体微缩模型",
+    fp8_note: "用电磨打磨废弃瓶盖与零件，拼出机车潮玩手办。",
+    comm_footer_note: "⚡ <strong>BCM HERO 像素先锋</strong>：CC0 开放版权 · 链上即将发布 · 角色持续赋能实体工坊",
+    team_num: "06 / 创始团队与手作故事",
+    team_title: "艺术与工程的灵感共鸣：<span class=\"hl\">D&D 团队</span>",
+    team_lead: "“每一个瓶盖，都值得被重新看见。” 从垃圾场被遗弃的彩色瓶盖，到 101 部原创手作机车与 7,700 辆数字藏品。",
+    team_jay_role: "Co-Founder & 主创设计师",
+    team_jay_tag: "工业设计师 · 艺术主创",
+    team_jay_bio: "在参观垃圾处理场时，目睹堆积如山被随意丢弃的塑胶瓶盖，深受触动并萌生“让废弃物重获意义”的初心。<strong>主导创作了 101 部风格迥异的原创电单车车身</strong>，并首创将 109 款瓶盖化为机车的轮子，赋予每一部车独一无二的生命。",
+    team_ethan_role: "Co-Founder & 产品统筹",
+    team_ethan_tag: "科技产品人 · 架构统筹",
+    team_ethan_bio: "探索科技产品领域多年，协同多个产品从概念走向落地。对艺术设计有着极度热爱与严谨偏执，提出“把环保和电单车原创设计结合在一起，这才是我们想做的事情，这才是有意义的产品”。全面统筹 BCM 商业架构、Web3 落地与产品工程化落地。",
+    team_vid_badge: "📹 官方团队实录纪录片 · 01:59",
+    team_vid_title: "D&D 团队故事：从实体手作到数字原点",
+    team_vid_desc: "真实记录 D&D 团队从垃圾堆中收集清洗废弃瓶盖、探讨电单车机械构造，到广州线下实体手作工坊的真实历程。",
+    team_vid_fallback: "您的浏览器暂不支持原生视频播放。",
+    team_5r_title: "D&D 团队的 5R 零废弃实践与初心",
+    team_5r_h1: "♻️ 严格 5R 零废弃原则",
+    team_5r_p1: "零废弃不是口号。绝不采购新材料，所有创作原料 100% 均来自被遗弃瓶盖回收，手作活动全程禁止一次性塑料制品。",
+    team_5r_h2: "🛠️ 实体零废弃手作工坊",
+    team_5r_p2: "已收集整理数千个废弃瓶盖，清洗消毒后举办多期实体手作活动，让上百名大人和孩子亲身体验废弃物化为艺术品的乐趣。",
+    team_5r_h3: "📜 材料护照与健康生活",
+    team_5r_p3: "设计“材料护照”系统量化环保成就感，提倡“健康骑车、低碳出行、天然饮食”，用好玩的方式让每个人为地球尽一份力。",
+    faq_num: "07 / 常见问题",
+    faq_title: "关于 BCM，<span class=\"hl\">新用户常问的</span>问题",
+    faq_q1: "BCM 这个名字代表什么含义？",
+    faq_a1: "<b>BCM 全称为 BottleCap Motorcycle（瓶盖机车 / 樽盖车）</b>。<br>它源于两个维度的强烈碰撞与重构：一边是日常生活中最微小、随手即弃的 <b>BottleCap（废弃塑料瓶盖）</b>；另一边则是代表硬核机械工业美学、自由与热血的 <b>Motorcycle（机车）</b>。<br>主创团队通过 101 款独立原创车架设计，把日常废弃瓶盖重组为电单车机械车轮，让被忽视的日常废品在当代艺术与数字藏品中重新被看见。",
+    faq_q2: "什么是 BCM 英雄？它和 BCM 机车是什么关系？",
+    faq_a2: "<b>BCM 英雄的初衷是纯粹的“社区环保英雄”，绝非用来骑车。</b><br>我们发起 BCM 英雄共创的核心目标，是探索与展现<b>“在不同人（尤其是孩子与社区创作者）心目中，守护地球的环保角色究竟是什么模样”</b>。<br><br>· <b>BCM 机车</b>：代表低碳骑行与绿色出行，是团队倾力打磨的 101 款原创车架与 CC0 链上数字机车资产；<br>· <b>BCM 英雄</b>：是一个完全开放给社区共创的<b>独立环保角色宇宙</b>。每个人都可以通过“画草图 ➔ 捏黏土 ➔ 赋予独特环保超能力”来定义自己心中的环保英雄，获得专属编号与官方数字化档案。你<b>无需预先持有任何 NFT</b>，零门槛即可参与共创！",
+    faq_q3: "机车是如何发行的？（什么是每日一 mint？）",
+    faq_a3: "<b>One Machine. Every Day. Forever.</b><br>智能合约每 24 小时自动生成并释放 1 辆机车进行公开铸造（每日一 mint）与竞拍。当天竞拍结束后，下一辆机车自动生成并开启新一轮 24 小时释放。",
+    faq_q4: "BCM 机车 NFT 的版权 (CC0) 与原创权是如何界定的？",
+    faq_a4: "<b>101 款车身与机械结构 100% 属于团队原创设计</b>：由团队工业设计师原创设计 101 款车身与机械结构。整体 7,700 辆数字机车 NFT 采用 <b>CC0（公共领域）协议</b>，向所有人开放商用与二次创作；轮毂瓶盖上的饮品品牌 Logo 属于对应商标持有人，属于非商业代言性质的当代波普环保致敬。",
+    faq_q5: "什么是\"死亡螺旋\"？BCM 会发生吗？",
+    faq_a5: "<b>死亡螺旋（Death Spiral）</b> = GameFi 项目最常见的崩盘模式：新玩家增长停滞 → 奖励代币价格下跌 → 老玩家撤离 → 价格继续跌 → 死亡循环。<br><br>经典案例：Axie Infinity 的 SLP 代币从高点跌 99%+。2026 年报告显示 <b>90%+ GameFi 项目已死</b>，$15B 融资中大部分归零。<br><br><b>BCM 为什么不同</b>：<br>· <b>BCM 暂不发币</b>，没有 Token 价格风险<br>· <b>BCM 不承诺收益</b>，不靠\"投机型玩家\"驱动需求<br>· <b>BCM 作品价值来自设计本身与实体手作积淀</b>，不靠二级市场炒作",
+    faq_q6: "BCM 的 7,700 辆机车是如何组成的？",
+    faq_a6: "由团队倾力设计的 <b>101 款原创车架</b>，搭配 <b>109 种真实废弃瓶盖转换而来的轮毂元素</b>，加上引擎、车灯、把手等多种可组合配件，在区块链上形成 7,700 辆独一无二、数据不可篡改的链上机车资产。",
+    faq_q7: "Gas 费是什么？我要付多少？",
+    faq_a7: "<b>Gas 费</b> = 区块链交易的\"手续费\"，付给网络矿工/验证者，<b>不是项目方收的</b>。<br><br><b>在 Layer 2 网络上参与时你要付的</b>：仅需极低 Gas 费（~¥1-5）。",
+    faq_q8: "我是 Web3 新手，怎么参与？",
+    faq_a8: "<b>不需要懂复杂的区块链技术</b>。每日一 mint 释放时，你只需要：<br>1. 下载一个 Web3 钱包 App（MetaMask / OKX Wallet / Rabby）<br>2. 准备少量 ETH（几百元即可参与出价或体验）<br>3. 访问 bcm.motorcycle，连接钱包参与今日机车出价<br>4. 确认交易后，机车资产直接进入你的个人钱包",
+    cta_title: "每日一 mint<br><span class=\"hl\">第一时间</span>通知你",
+    cta_lead: "订阅邮件，获取每日一 mint 释放提醒、拍卖动态与手作工坊现场资讯。",
+    cta_btn: "订阅 →",
+    footer_rights: "车架与机械 = BCM 原创设计 · 7,700 机车 NFT = CC0 公共领域 · 瓶盖商标 = 归各品牌方所有（非商业代言）"
+  }
+};
+
+// Default language is British English ('en')
+let currentLang = localStorage.getItem('bcm_lang') || 'en';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = (lang === 'en') ? 'en-GB' : 'zh-CN';
+  localStorage.setItem('bcm_lang', lang);
+
+  const enOpt = document.querySelector('.lang-opt--en');
+  const zhOpt = document.querySelector('.lang-opt--zh');
+  if (enOpt && zhOpt) {
+    if (lang === 'en') {
+      enOpt.classList.add('active');
+      zhOpt.classList.remove('active');
+    } else {
+      zhOpt.classList.add('active');
+      enOpt.classList.remove('active');
+    }
+  }
+
+  const dict = BCM_I18N[lang];
+  if (!dict) return;
+
+  // Title
+  if (dict.doc_title) {
+    document.title = dict.doc_title;
+  }
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.textContent = dict[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key]) el.innerHTML = dict[key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key]) el.setAttribute('placeholder', dict[key]);
+  });
+
+  // Re-render playground bikes with active language
+  if (typeof renderPgSelectors === 'function') {
+    renderPgSelectors();
+  }
+  if (typeof currentPgBike !== 'undefined') {
+    const nameEl = document.getElementById('pgBikeName');
+    const descEl = document.getElementById('pgBikeDesc');
+    const rarityEl = document.getElementById('pgBadgeRarity');
+    if (nameEl) nameEl.textContent = getPgBikeField(currentPgBike, 'name');
+    if (descEl) descEl.textContent = getPgBikeField(currentPgBike, 'desc');
+    if (rarityEl) rarityEl.textContent = getPgBikeField(currentPgBike, 'rarity');
+  }
+}
+
+function toggleLanguage() {
+  const next = currentLang === 'en' ? 'zh' : 'en';
+  applyLanguage(next);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLanguage(currentLang);
+});
+</script>
 
 </body>
 </html>
