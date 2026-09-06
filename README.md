@@ -3,11 +3,11 @@
 > **D&D Studio (广州 D&D 团队) 独立出品 · 准商业级数字艺术与文化 IP 项目**  
 > **© 2023–2026 D&D Team. All Rights Reserved. 版权所有·侵权必究**
 
-[![License: Proprietary](https://img.shields.io/badge/License-Proprietary%20%2F%20All%20Rights%20Reserved-red.svg)](https://github.com/EthanLau1/d-d-BCM)
-[![Status: Pre-Commercial Preview](https://img.shields.io/badge/Status-Pre--Commercial%20Preview-blue.svg)](https://github.com/EthanLau1/d-d-BCM)
-[![Art Assets: 101 Original Frames](https://img.shields.io/badge/Art-101%20Original%20Frames-brightgreen.svg)](https://github.com/EthanLau1/d-d-BCM)
-[![Digital Collection: 7,700 Pieces](https://img.shields.io/badge/Supply-7%2C700%20Unique%20Pieces-orange.svg)](https://github.com/EthanLau1/d-d-BCM)
-[![Release Model: 24h Continuous](https://img.shields.io/badge/Mechanism-24h%20Continuous%20Release-purple.svg)](https://github.com/EthanLau1/d-d-BCM)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary%20%2F%20All%20Rights%20Reserved-red.svg)](https://github.com/EthanLau1/d8d-BCM-AlxOriginSummi)
+[![Status: Pre-Commercial Preview](https://img.shields.io/badge/Status-Pre--Commercial%20Preview-blue.svg)](https://github.com/EthanLau1/d8d-BCM-AlxOriginSummi)
+[![Art Assets: 101 Original Frames](https://img.shields.io/badge/Art-101%20Original%20Frames-brightgreen.svg)](https://github.com/EthanLau1/d8d-BCM-AlxOriginSummi)
+[![Digital Collection: 7,700 Pieces](https://img.shields.io/badge/Supply-7%2C700%20Unique%20Pieces-orange.svg)](https://github.com/EthanLau1/d8d-BCM-AlxOriginSummi)
+[![Release Model: 24h Continuous](https://img.shields.io/badge/Mechanism-24h%20Continuous%20Release-purple.svg)](https://github.com/EthanLau1/d8d-BCM-AlxOriginSummi)
 
 ---
 
@@ -37,9 +37,12 @@
 ### 2. 数字升华：101 原创车架 × 回收瓶盖 = 7,700 独特藏品
 团队将 101 个原创车架进行高精度数字图层解构，配以现实回收饮料罐/瓶盖元素，通过美学矩阵与平衡算法，组合出 **7,700 辆独一无二的数字机车**。
 
+### 3. 载具与英雄：从实体手作黏土到链上数字像素
+机车是载具，HERO 属于社区。在实体工坊中，孩子们围坐桌前用彩色黏土捏出的各种生动机车骑手与环保英雄雏形，被团队进一步数字化提炼为拥有独特环保超能力的奔跑姿态先锋，形成即将启动的全新 CC0 链上先锋英雄系列。
+
 ---
 
-## 💻 网页展示 Demo 与车库试玩 (Interactive Web Demo)
+## 💻 网页展示 Demo 与核心功能 (Interactive Web Demo)
 
 本项目在根目录下内置了一套**纯静态、免外部依赖、开箱即用**的交互式网页展示系统，可供合作方、评审专家及投资人直接体验。
 
@@ -55,28 +58,44 @@
   ```bash
   cd BCM-Web-Demo
   python3 -m http.server 8888
-  # 打开浏览器访问: http://localhost:8888/#original
+  # 打开浏览器访问: http://localhost:8888
   ```
 
 ---
 
-### ⭐️ 核心功能模块全览
+### ⭐️ 核心功能模块全览 (Demo Flow)
 
 ```text
 网页展示架构 (Demo Flow)
-├── 0. 首屏 (Hero)         : 24h 每日持续释出机制 / 101车架 / 7700数字机车
-├── 1. 原创声明 (Original)  : 团队自研车架版权与 CC0 瓶盖边界拆解
-├── 2. 精选画廊 (Collection): 1 行 4 款克制抽样（严格保密全库资产，防爬虫枚举）
-├── 3. 车库工坊 (Playground): 核心互动台（中立工程轮组 + 6款精选车架实时换装与海报导出）
-├── 4. 核心理念 (Philosophy): 废弃物艺术重生与两代人的工匠执念
-└── 5. 常见问答 (FAQ)       : 商业逻辑、参与方式与版权答疑
+├── 0. 首屏 (Hero)            : 24h 持续释出机制 / 101 车架 / 7,700 数字机车
+├── 1. 概念与初心 (Concept)    : 废品艺术重生 / 严格恪守 5R 零废弃 / 两代人原创执念
+├── 2. 数字藏品 (NFT Collection): 101 原创车架 (团队版权) + 瓶盖元素 (CC0) 双轨拆解
+│                               展示经典标杆车款：绝版酷儿 #0001、可口可乐 #1161、百事 #5227、七喜 #5765
+├── 3. 车库工坊 (Playground)   : 核心交互台（中立工程原型轮组 + 6 款精选车架实时换装与 HTML5 海报导出）
+├── 4. 每日一 mint (Daily Mint): 24h 智能合约上架机制 / 无门槛公开竞拍 / 金库资助实体工坊
+├── 5. 社区创作 (Community)    : 
+│   ├── 🎮 BCM HERO 像素先锋 (即将登场 CC0 系列):
+│   │   ├── 📍 线下工坊实录：孩子们在工坊捏黏土、草图构思到数字跑者的真实共创原点
+│   │   ├── 🧬 实体手作到数字像素：从实体黏土形态提炼到奔跑动作规范的进化图谱
+│   │   └── 🏃 先锋 5 位环保英雄矩阵：黄金小丑(包装再造)、佩佩(Meme)、顽强小强、极地企鹅、吃豆先锋
+│   └── 📸 线下工坊与真实足迹 (Field Notes):
+│       └── 商超寻盖、#287 创意园真后视镜展陈、亚洲汽水老铝盖挂板、实体微缩模型打磨
+└── 6. 常见问答 (FAQ) & 邮件订阅: Web3 极简科普、Gas 费透明说明与商务联络
 ```
 
-#### 车库试玩工坊 (Playground) 亮点：
-1. **中立原型工程轮组（`sample.png`）**：采用黑胶轮胎与机械银灰辐条，**不包含任何商业品牌 Logo**，在保障工程美感的同时，避免在正式发售前泄露官方稀有瓶盖；
-2. **精选 6 款代表车架**：默认首发搭载经典巡航（`Classic 经典 #55`），涵盖野马（Mustang）、小黄蜂（Hornet）、数码机甲（CyberMetal）、复古（Retro）、越野（OffRoad）；
-3. **资产保护机制**：**严格雪藏 UR #8 单车旗舰资产**，杜绝核心稀缺设计被公开试玩过度消费；
-4. **纯前端海报合成引擎**：利用 HTML5 离屏 Canvas，毫秒级将背景、中立轮组、车身涂装与专属水印合成为高清 `.png` 下载。
+---
+
+### 🎨 设计与工程亮点 (Design & Engineering Highlights)
+
+1. **Neo-Brutalism Zine 装帧美学**：
+   - 采用 2px 墨黑实线边框（`var(--ink)`）、4px/6px 纯黑实体投影、白纸衬底与明黄主强调色，营造硬核工业手作质感。
+2. **沉浸式全屏 Lightbox 模态灯箱**：
+   - 工坊实录大图、进化图谱及 5 位英雄立绘均支持点击弹窗全屏预览，支持按 `Esc` 退出与背景点击收起。
+3. **原生纯前端双语引擎 (i18n)**：
+   - 无任何前端框架依赖，内置中英双语（British English / 简体中文）轻量化字典，支持一键切换并自动持久化存储。
+4. **车库试玩工坊 (Playground)**：
+   - **中立原型工程轮组（`sample.png`）**：采用黑胶轮胎与机械银灰辐条，不泄露正式品牌瓶盖，保障藏品神秘度；
+   - **纯前端海报合成引擎**：基于 HTML5 离屏 Canvas，毫秒级合成背景、轮组、车身涂装与专属水印，一键导出高清 PNG。
 
 ---
 
@@ -94,15 +113,17 @@
 ## 📁 仓库代码与文件清单 (Repository Manifest)
 
 ```text
-EthanLau1/d-d-BCM/
-├── README.md             # 本主文档（版权声明、商业路线图与 Demo 完整说明）
-├── index.html            # 独立网页主文件（手绘工业风排版、动效与试玩逻辑）
-├── start_demo.command    # macOS 1-点击即启动脚本
-├── start_demo.bat        # Windows 1-点击即启动脚本
-├── .gitignore            # 忽略本地运行缓存与临时文件
-└── images/               # 静态展示资产目录
-    ├── 1.png ~ 429.png   # 画廊展示精选切片
-    └── playground/       # 车库试玩素材（中立轮组 sample、背景及 6 款车架切片）
+EthanLau1/d8d-BCM-AlxOriginSummi/
+├── README.md               # 本主文档（版权声明、功能全览与商业路线图）
+├── index.html              # 纯静态独立主页面（中英双语、车库试玩、Hero 社区矩阵与灯箱）
+├── start_demo.command      # macOS 1-点击即启动轻量服务脚本 (端口 8888)
+├── start_demo.bat          # Windows 1-点击即启动轻量服务脚本
+├── .gitignore              # 运行缓存与忽略配置
+└── images/                 # 静态展示与高保真资产目录
+    ├── 1.png ~ 5765.png    # NFT 展厅精选机车切片（酷儿、可口可乐、百事、七喜等）
+    ├── playground/         # 车库试玩素材（中立轮组 sample、背景及 6 款精选车架）
+    ├── heroes/             # 社区 HERO 资产（工坊实录、进化图谱、5位英雄立绘）
+    └── footprints/         # 真实足迹与线下展陈实拍相片
 ```
 
 ---
