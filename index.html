@@ -700,100 +700,131 @@ section{padding:72px 0;position:relative;z-index:2}
 .community__step-arrow{font-family:var(--ff-mono);font-size:14px;color:var(--ink-dim);flex-shrink:0}
 .community__grid{
   display:grid;
-  grid-template-columns:repeat(5, 1fr);
-  gap:14px;
-  margin-top:24px;
+  grid-template-columns:repeat(5, minmax(0, 1fr));
+  gap:12px;
+  margin-top:18px;
 }
 .comm-card{
   background:#FFFFFF;
   border:2px solid var(--ink);
-  border-radius:12px;
-  padding:10px;
-  box-shadow:4px 4px 0 var(--ink);
+  border-radius:10px;
+  padding:8px 8px 10px;
+  box-shadow:3px 3px 0 var(--ink);
   transition:all .2s ease;
   display:flex;
   flex-direction:column;
   cursor:pointer;
+  min-width:0;
 }
-.comm-card:hover{transform:translate(-2px, -2px);box-shadow:6px 6px 0 var(--ink)}
+.comm-card:hover{transform:translate(-2px, -2px);box-shadow:5px 5px 0 var(--ink)}
 .comm-card__img-wrap{
   position:relative;
   width:100%;
-  aspect-ratio:3/4;
+  height:124px;
   border-radius:8px;
   border:1.5px solid var(--ink);
   overflow:hidden;
-  background:#111111;
+  background:radial-gradient(circle at 50% 50%, #FFFFFF 25%, #F6F4ED 75%, #ECE7DA 100%);
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:6px;
 }
 .comm-card__img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
+  max-width:110px;
+  max-height:110px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  object-position:center center;
   display:block;
-  transition:transform .25s ease;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+  transition:transform .2s ease;
 }
-.comm-card:hover .comm-card__img{transform:scale(1.04)}
+.comm-card:hover .comm-card__img{transform:scale(1.06)}
 .comm-card__tag{
   position:absolute;
-  top:5px;
-  left:5px;
+  top:4px;
+  left:4px;
   background:rgba(17,17,17,0.88);
   color:#FFF;
   font-family:var(--ff-mono);
-  font-size:9.5px;
-  padding:1px 5px;
+  font-size:9px;
+  padding:1px 4px;
   border-radius:3px;
   font-weight:700;
+  line-height:1.2;
 }
 .comm-card__zoom{
   position:absolute;
-  bottom:5px;
-  right:5px;
-  background:rgba(17,17,17,0.8);
+  bottom:4px;
+  right:4px;
+  background:rgba(17,17,17,0.75);
   color:#FFF;
   font-family:var(--ff-mono);
-  font-size:9px;
-  padding:1px 5px;
+  font-size:8.5px;
+  padding:1.5px 5px;
   border-radius:3px;
   pointer-events:none;
+  line-height:1.2;
 }
 .comm-card__title{
   font-family:var(--ff-title);
-  font-size:15px;
+  font-size:13.5px;
   color:var(--ink);
-  margin:8px 0 4px;
+  margin:7px 0 4px;
   display:flex;
-  align-items:baseline;
+  align-items:center;
   justify-content:space-between;
+  gap:4px;
+  min-width:0;
 }
-.comm-card__en{font-family:var(--ff-mono);font-size:10.5px;color:var(--ink-dim);font-weight:700}
+.comm-card__title > span:first-child{
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.comm-card__en{
+  font-family:var(--ff-mono);
+  font-size:9.5px;
+  color:var(--ink-dim);
+  font-weight:700;
+  background:rgba(0,0,0,0.05);
+  padding:1px 5px;
+  border-radius:3px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
 .comm-card__quote{
   font-family:var(--ff-body);
-  font-size:11.5px;
-  line-height:1.45;
+  font-size:11px;
+  line-height:1.35;
   color:var(--ink);
   margin:0 0 6px;
   background:#FFFDF2;
   border:1px solid var(--line);
   border-radius:6px;
-  padding:6px 8px;
-  flex-grow:1;
+  padding:5px 6px;
+  height:44px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
 }
 .comm-card__skill{
   font-family:var(--ff-mono);
-  font-size:10.5px;
-  color:var(--ink-dim);
-  background:var(--soft);
-  padding:4px 6px;
-  border-radius:5px;
-  border:1px solid var(--line);
+  font-size:10px;
+  color:var(--ink);
+  background:#FFFDE8;
+  padding:3px 5px;
+  border-radius:4px;
+  border:1px solid #DFD8B4;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  text-align:center;
+  font-weight:700;
 }
 .community__footer-note{
   margin-top:16px;
@@ -1091,17 +1122,19 @@ section{padding:72px 0;position:relative;z-index:2}
   color:var(--ink-dim);
 }
 .comm-card--nft .comm-card__img-wrap{
-  aspect-ratio:1/1;
+  height:124px;
   background:radial-gradient(circle at 50% 50%, #FFFFFF 30%, #F5F4EC 75%, #EBE8DC 100%);
-  padding:10px;
+  padding:6px;
 }
 .comm-card--nft .comm-card__img{
+  max-width:110px;
+  max-height:110px;
   object-fit:contain;
   object-position:center center;
-  filter:drop-shadow(0 6px 12px rgba(0,0,0,0.16));
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.12));
 }
 .comm-card--nft:hover .comm-card__img{
-  transform:scale(1.08) translateY(-2px);
+  transform:scale(1.06);
 }
 .comm-card--nft .comm-card__skill{
   font-weight:700;
@@ -1259,10 +1292,16 @@ section{padding:72px 0;position:relative;z-index:2}
   overflow:hidden;
 }
 
-@media(max-width:1120px){
-  .community__grid{grid-template-columns:repeat(3, 1fr)}
+@media(max-width:980px){
+  .community__grid{grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px}
   .community__flow{flex-wrap:wrap;gap:12px}
   .community__step-arrow{display:none}
+}
+@media(max-width:620px){
+  .community__grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+}
+@media(max-width:400px){
+  .community__grid{grid-template-columns:1fr}
 }
 @media(max-width:920px){
   .comm-workshop{padding:14px}
@@ -2100,7 +2139,7 @@ footer{
         </div>
         <div class="comm-card__title">
           <span data-i18n="hero1_name">Golden Clown</span>
-          <span class="comm-card__en">Golden Clown</span>
+          <span class="comm-card__en" data-i18n="hero1_sub">#H01 · Pop</span>
         </div>
         <p class="comm-card__quote" data-i18n="hero1_q">A delivery carton reborn as crisp urban armour, turning disposable packaging into street art.</p>
         <div class="comm-card__skill" data-i18n="hero1_sk">🍔 Carton Upcycle · Waste to Treasure</div>
@@ -2115,7 +2154,7 @@ footer{
         </div>
         <div class="comm-card__title">
           <span data-i18n="hero2_name">Pepe Runner</span>
-          <span class="comm-card__en">Pepe Runner</span>
+          <span class="comm-card__en" data-i18n="hero2_sub">#H02 · Meme</span>
         </div>
         <p class="comm-card__quote" data-i18n="hero2_q">The iconic green meme sprinting into reality, turning viral internet culture into genuine eco-action.</p>
         <div class="comm-card__skill" data-i18n="hero2_sk">🐸 Meme Resonance · High-Speed Patrol</div>
@@ -2130,7 +2169,7 @@ footer{
         </div>
         <div class="comm-card__title">
           <span data-i18n="hero3_name">The Survivor</span>
-          <span class="comm-card__en">The Survivor</span>
+          <span class="comm-card__en" data-i18n="hero3_sub">#H03 · Vital</span>
         </div>
         <p class="comm-card__quote" data-i18n="hero3_q">Indomitable vitality in extreme conditions — a steadfast guardian across ruins and pollution.</p>
         <div class="comm-card__skill" data-i18n="hero3_sk">🪳 Extreme Adaptability · Tenacious Life</div>
@@ -2145,7 +2184,7 @@ footer{
         </div>
         <div class="comm-card__title">
           <span data-i18n="hero4_name">Polar Guardian</span>
-          <span class="comm-card__en">Pingu</span>
+          <span class="comm-card__en" data-i18n="hero4_sub">#H04 · Polar</span>
         </div>
         <p class="comm-card__quote" data-i18n="hero4_q">A polar envoy sprinting across melting glaciers, rallying for frozen ecosystems with every stride.</p>
         <div class="comm-card__skill" data-i18n="hero4_sk">🐧 Polar Sentinel · Glacial Warning</div>
@@ -2160,7 +2199,7 @@ footer{
         </div>
         <div class="comm-card__title">
           <span data-i18n="hero5_name">Pixel Chomp</span>
-          <span class="comm-card__en">Pac-Chomp</span>
+          <span class="comm-card__en" data-i18n="hero5_sub">#H05 · Arcade</span>
         </div>
         <p class="comm-card__quote" data-i18n="hero5_q">Classic arcade pixel sprite, racing across terrain to devour microplastics in ocean and soil.</p>
         <div class="comm-card__skill" data-i18n="hero5_sk">🟡 Pixel Chomp · Microplastic Nemesis</div>
@@ -2286,6 +2325,23 @@ footer{
       <input type="email" placeholder="your@email.com" required>
       <button type="submit" data-i18n="cta_btn">Subscribe →</button>
     </form>
+
+    <!-- 08.1 Master Visual Spread (101 Bikes × 120 Heroes 左右合并全景总谱) -->
+    <div class="cta__spread-wrap">
+      <div class="cta__spread-card" onclick="openHeroModal('images/spread/bcm_master_spread.jpg', currentLang === 'zh' ? 'BCM 全景总谱 · 101 部原创机车车架（左）× 120 位像素跑者环保英雄（右）' : 'BCM Master Visual Spread · 101 Bespoke Motorcycle Frames (Left) × 120 Pixel Runner Eco Heroes (Right)')">
+        <picture>
+          <source srcset="images/spread/bcm_master_spread.webp" type="image/webp">
+          <img src="images/spread/bcm_master_spread.jpg" alt="BCM Master Spread 101 Bikes x 120 Heroes" class="cta__spread-img" loading="lazy">
+        </picture>
+        <div class="cta__spread-overlay">
+          <span class="cta__spread-zoom" data-i18n="spread_zoom">🔍 点击查看高清全景大图</span>
+        </div>
+      </div>
+      <div class="cta__spread-meta">
+        <span class="cta__spread-badge" data-i18n="spread_badge">🎨 BCM 全景总谱</span>
+        <span class="cta__spread-desc" data-i18n="spread_desc">101 部原创机车车架（左）× 120 位像素跑者环保英雄（右）</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2570,6 +2626,11 @@ const BCM_I18N = {
     comm_sub_t: "Pioneer Runners · First 5 Eco Heroes",
     comm_sub_s: "Click to view hi-res illustration & signature skills",
     comm_zoom_art: "🔍 View Artwork",
+    hero1_sub: "#H01 · Pop",
+    hero2_sub: "#H02 · Meme",
+    hero3_sub: "#H03 · Vital",
+    hero4_sub: "#H04 · Polar",
+    hero5_sub: "#H05 · Arcade",
     hero1_name: "Golden Clown",
     hero1_q: "A delivery carton reborn as crisp urban armour, turning disposable packaging into street art.",
     hero1_sk: "🍔 Carton Upcycle · Waste to Treasure",
@@ -2745,6 +2806,11 @@ const BCM_I18N = {
     comm_sub_t: "先锋跑者 · 首批 5 位环保英雄",
     comm_sub_s: "点击查看高清立绘与专属技能",
     comm_zoom_art: "🔍 查看立绘",
+    hero1_sub: "Golden Clown",
+    hero2_sub: "Pepe Runner",
+    hero3_sub: "The Survivor",
+    hero4_sub: "Polar Guardian",
+    hero5_sub: "Pixel Chomp",
     hero1_name: "黄金小丑",
     hero1_q: "麦乐送纸盒化身帅气战甲，把一次性包装变成街头艺术。",
     hero1_sk: "🍔 纸盒重构 · 变废为宝",
