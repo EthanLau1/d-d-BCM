@@ -819,6 +819,124 @@ section{padding:72px 0;position:relative;z-index:2}
   margin-left:6px;
 }
 
+/* Live Workshop Co-Creation Banner Card */
+.comm-workshop{
+  background:#FFFFFF;
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:18px 20px;
+  box-shadow:4px 4px 0 var(--ink);
+  margin-bottom:24px;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.comm-workshop:hover{
+  transform:translate(-2px, -2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+.comm-workshop__header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.comm-workshop__tag{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-family:var(--ff-mono);
+  font-size:12px;
+  font-weight:700;
+  color:#1F7A3E;
+  background:#EBF7EE;
+  border:1px solid #1F7A3E;
+  padding:4px 10px;
+  border-radius:6px;
+}
+.comm-workshop__pulse{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#10B981;
+  display:inline-block;
+  box-shadow:0 0 0 rgba(16,185,129,0.4);
+  animation:comm-pulse-dot 2s infinite;
+}
+@keyframes comm-pulse-dot{
+  0%{box-shadow:0 0 0 0 rgba(16,185,129,0.7);}
+  70%{box-shadow:0 0 0 6px rgba(16,185,129,0);}
+  100%{box-shadow:0 0 0 0 rgba(16,185,129,0);}
+}
+.comm-workshop__zoom{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  color:var(--ink-dim);
+  background:var(--soft);
+  border:1px solid var(--line);
+  padding:3px 8px;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.comm-workshop__visual{
+  position:relative;
+  border:1.5px solid var(--ink);
+  border-radius:10px;
+  overflow:hidden;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:14px;
+}
+.comm-workshop__img{
+  width:100%;
+  height:auto;
+  max-height:460px;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease;
+}
+.comm-workshop:hover .comm-workshop__img{
+  transform:scale(1.015);
+}
+.comm-workshop__footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  background:#FFFDF2;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:10px 14px;
+}
+.comm-workshop__desc{
+  font-family:var(--ff-body);
+  font-size:13px;
+  color:var(--ink);
+  line-height:1.6;
+  flex:1;
+  min-width:260px;
+}
+.comm-workshop__step{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  font-weight:700;
+  background:#FFFFFF;
+  border:1px solid var(--ink);
+  border-radius:6px;
+  padding:5px 12px;
+  color:var(--ink);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+}
+
 /* NFT Hero Evolution Concept Card */
 .comm-evolution{
   display:grid;
@@ -1147,6 +1265,9 @@ section{padding:72px 0;position:relative;z-index:2}
   .community__step-arrow{display:none}
 }
 @media(max-width:920px){
+  .comm-workshop{padding:14px}
+  .comm-workshop__img{max-height:280px}
+  .comm-workshop__footer{flex-direction:column;align-items:flex-start}
   .comm-evolution{grid-template-columns:1fr;gap:16px}
   .comm-evolution__visual{max-height:280px}
   .comm-evolution__img{max-height:260px}
@@ -1803,6 +1924,31 @@ footer{
     <h2 class="sec__title" data-i18n-html="comm_title">The Bike is the Vessel, <span class="hl">The HERO Belongs to the Community</span></h2>
     <p class="sec__lead" data-i18n="comm_lead">From tactile workshop clay to on-chain digital pixels. Every BCM Hero possesses a unique environmental superpower. A brand-new CC0 series launching on-chain soon.</p>
 
+    <!-- 线下工坊实录：与玩家共创现场纪实卡 -->
+    <div class="comm-workshop" onclick="openHeroModal('images/heroes/bcm_community_workshop.jpg', currentLang === 'zh' ? '线下工坊实录 · 孩子们在工坊桌前捏制彩色黏土与草图，与设计团队共同构想环保英雄' : 'Offline Workshop Live · Children sculpting clay & sketches with designers, creating eco heroes together')">
+      <div class="comm-workshop__header">
+        <div class="comm-workshop__tag">
+          <span class="comm-workshop__pulse"></span>
+          <span data-i18n="comm_ws_tag">📍 线下工坊实录 · 与玩家共创现场</span>
+        </div>
+        <span class="comm-workshop__zoom" data-i18n="comm_ws_zoom">🔍 点击放大现场全景</span>
+      </div>
+      <div class="comm-workshop__visual">
+        <picture>
+          <source srcset="images/heroes/bcm_community_workshop.webp" type="image/webp">
+          <img src="images/heroes/bcm_community_workshop.jpg" alt="BCM 线下工坊与玩家共创现场实录" class="comm-workshop__img" loading="lazy">
+        </picture>
+      </div>
+      <div class="comm-workshop__footer">
+        <div class="comm-workshop__desc" data-i18n="comm_ws_desc">
+          真实共创，从一张草图开始：孩子们在工坊桌前用彩色黏土捏出英雄雏形，再由设计团队提炼为狂奔的数字像素英雄。
+        </div>
+        <div class="comm-workshop__step" data-i18n="comm_ws_step">
+          🎨 玩家手捏雏形 ➔ ⚡ Let's move. 像素跑者
+        </div>
+      </div>
+    </div>
+
     <!-- Concept Origin Poster & Evolution Chart -->
     <div class="comm-evolution" onclick="openHeroModal('images/heroes/hero_evolution.png', currentLang === 'zh' ? 'BCM HERO 概念原点进化图谱 · 从实体手捏黏土到链上像素跑者 · CC0 开放版权' : 'BCM HERO Concept Origin & Evolution Chart · Workshop Clay to Pixel Runners · CC0 Public Domain')">
       <div class="comm-evolution__visual">
@@ -2317,6 +2463,10 @@ const BCM_I18N = {
     comm_num: "05 / COMMUNITY CREATION · 🎮 BCM HERO PIXEL RUNNERS <span class=\"hero-tag-badge\">UPCOMING</span>",
     comm_title: "The Bike is the Vessel, <span class=\"hl\">The HERO Belongs to the Community</span>",
     comm_lead: "From tactile workshop clay to on-chain digital pixels. Every BCM Hero possesses a unique environmental superpower. A brand-new CC0 series launching on-chain soon.",
+    comm_ws_tag: "📍 Offline Workshop Live · Co-Creation Session",
+    comm_ws_zoom: "🔍 Click to Enlarge Panorama",
+    comm_ws_desc: "Authentic co-creation starts from a sketch: children mould clay heroes at workshop tables, and our design team refines them into sprinting digital pixel champions.",
+    comm_ws_step: "🎨 Hand-Crafted Clay ➔ ⚡ Let's move. Pixel Runners",
     comm_badge1: "🧬 Tactile Clay to Digital Pixel",
     comm_badge2: "⚡ CC0 Community Heroes",
     comm_evo_t: "From Workshop Clay to Digital Heroes",
@@ -2485,6 +2635,10 @@ const BCM_I18N = {
     comm_num: "05 / 社区创作 · 🎮 BCM HERO 像素先锋 <span class=\"hero-tag-badge\">UPCOMING</span>",
     comm_title: "机车是载具，<span class=\"hl\">HERO 属于社区</span>",
     comm_lead: "从实体手作黏土，到链上数字像素。每一个 BCM 英雄都拥有独特的环保超能力，全新 CC0 系列即将在链上启动。",
+    comm_ws_tag: "📍 线下工坊实录 · 与玩家共创现场",
+    comm_ws_zoom: "🔍 点击放大现场全景",
+    comm_ws_desc: "真实共创，从一张草图开始：孩子们在工坊桌前用彩色黏土捏出英雄雏形，再由设计团队提炼为狂奔的数字像素英雄。",
+    comm_ws_step: "🎨 玩家手捏雏形 ➔ ⚡ Let's move. 像素跑者",
     comm_badge1: "🧬 实体手作到数字像素",
     comm_badge2: "⚡ CC0 社区英雄",
     comm_evo_t: "从工坊黏土，到数字英雄",
