@@ -1444,6 +1444,92 @@ section{padding:72px 0;position:relative;z-index:2}
 }
 .cta__form button:hover{background:#333333}
 
+/* --- 08.1 CTA MASTER VISUAL SPREAD --- */
+.cta__spread-wrap{
+  margin-top:52px;
+  text-align:center;
+}
+.cta__spread-card{
+  position:relative;
+  border:2.5px solid var(--ink);
+  border-radius:14px;
+  overflow:hidden;
+  background:#F3F3F3;
+  box-shadow:6px 6px 0 var(--ink);
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+  display:block;
+}
+.cta__spread-card:hover{
+  transform:translateY(-2px);
+  box-shadow:8px 8px 0 var(--ink);
+}
+.cta__spread-card:active{
+  transform:translateY(1px);
+  box-shadow:4px 4px 0 var(--ink);
+}
+.cta__spread-img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  transition:transform .25s ease;
+}
+.cta__spread-card:hover .cta__spread-img{
+  transform:scale(1.008);
+}
+.cta__spread-overlay{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:3;
+}
+.cta__spread-zoom{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(17, 17, 17, 0.88);
+  color:#FFFFFF;
+  padding:6px 14px;
+  border-radius:999px;
+  font-family:var(--ff-title);
+  font-size:12px;
+  font-weight:700;
+  border:1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow:0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter:blur(4px);
+  transition:all .15s ease;
+}
+.cta__spread-card:hover .cta__spread-zoom{
+  background:var(--ink);
+  color:var(--yellow, #FEE000);
+  border-color:var(--yellow, #FEE000);
+}
+.cta__spread-meta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top:16px;
+  flex-wrap:wrap;
+}
+.cta__spread-badge{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  background:var(--ink);
+  color:#FFFFFF;
+  padding:4px 10px;
+  border-radius:6px;
+}
+.cta__spread-desc{
+  font-family:var(--ff-title);
+  font-size:13px;
+  color:var(--ink-dim);
+  font-weight:600;
+}
+
 footer{
   padding:32px 0;
   border-top:2px solid var(--ink);
@@ -2565,6 +2651,9 @@ const BCM_I18N = {
     faq_a7: "<b>Gas Fee</b> = The transaction processing fee paid directly to network validators/miners, <b>not collected by the BCM team</b>.<br><br><b>When participating on Layer 2 networks</b>: Gas costs are negligible (typically less than £0.20 / ~$0.25 per transaction).",
     faq_q8: "I am a Web3 beginner, how do I participate?",
     faq_a8: "<b>No complex blockchain knowledge is required</b>. When the daily mint goes live, simply:<br>1. Install a Web3 wallet (MetaMask / Rabby / Coinbase Wallet)<br>2. Fund with a modest amount of ETH<br>3. Visit bcm.motorcycle and connect your wallet to place a bid on today\'s release<br>4. Confirm the transaction, and the motorbike collectible will transfer directly into your wallet.",
+    spread_zoom: "Click to expand HD visual spread",
+    spread_badge: "🎨 BCM MASTER SPREAD",
+    spread_desc: "101 Bespoke Motorcycle Frames (Left) × 120 Pixel Runner Eco Heroes (Right)",
     cta_title: "Get Notified First<br><span class=\"hl\">for Every Daily Mint</span>",
     cta_lead: "Subscribe to receive 24-hour mint reminders, auction dispatches, and workshop invitations.",
     cta_btn: "Subscribe →",
@@ -2737,6 +2826,9 @@ const BCM_I18N = {
     faq_a7: "<b>Gas 费</b> = 区块链交易的\"手续费\"，付给网络矿工/验证者，<b>不是项目方收的</b>。<br><br><b>在 Layer 2 网络上参与时你要付的</b>：仅需极低 Gas 费（~¥1-5）。",
     faq_q8: "我是 Web3 新手，怎么参与？",
     faq_a8: "<b>不需要懂复杂的区块链技术</b>。每日一 mint 释放时，你只需要：<br>1. 下载一个 Web3 钱包 App（MetaMask / OKX Wallet / Rabby）<br>2. 准备少量 ETH（几百元即可参与出价或体验）<br>3. 访问 bcm.motorcycle，连接钱包参与今日机车出价<br>4. 确认交易后，机车资产直接进入你的个人钱包",
+    spread_zoom: "点击查看高清全景大图",
+    spread_badge: "🎨 BCM 全景总谱",
+    spread_desc: "101 部原创机车车架（左）× 120 位像素跑者环保英雄（右）",
     cta_title: "每日一 mint<br><span class=\"hl\">第一时间</span>通知你",
     cta_lead: "订阅邮件，获取每日一 mint 释放提醒、拍卖动态与手作工坊现场资讯。",
     cta_btn: "订阅 →",
